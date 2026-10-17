@@ -2,7 +2,7 @@
 
 可在 Linux 安装的 Python 3.10+ 命令行项目，运行时不需要第三方 Python 库。
 
-**当前功能范围：输入记录核查与人工合成 ERCC 内标的统计校准。此项目不是 FASTQ 到病原绝对定量的流程，不包含病原数据库、病原比对、病原定量或 EsViritu 的自动调用。**
+**当前功能：输入记录核查、ERCC内标统计校准、官方ERCC参考整理，以及附加ERCC96的EsViritu数据库v3.3构建与发布。数据库和索引已完成记录一致性及ERCC比对验证；实样FASTQ到绝对定量的全流程尚未验证。**
 
 版本：0.1.1。此代码位于独立仓库 Lt1020/HybCapSeq-Quant。非 EsViritu 官方组件，尚未发布到 PyPI 或 Bioconda。
 
@@ -50,6 +50,23 @@ ercc-audit audit-reference --standards inputs/standards.tsv --fasta /path/to/erc
 该命令校验ERCC标识、完整性、重复记录、IUPAC字符和逐条长度，并输出GC比例、模糊位点数及序列SHA256。FASTA标识必须与标准表匹配；不同产品批号使用相同ERCC标识时，参考长度须一致。参考原样保留，不改写序列或分类，不执行比对，也不修改EsViritu数据库。
 
 输出为 `ercc_reference_audit.tsv` 和包含输入文件SHA256的 `run_manifest.json`。本仓库另附按官方NIST SRM2374资料整理的96条ERCC参考数据，见下节；产品原液浓度仍需使用者按实际产品资料提供。
+
+
+## EsViritu自定义数据库v3.3
+
+[数据库说明与来源](databases/v3.3/README_v3.3.md) · [构建清单](databases/v3.3/esviritu_db_v3.3_manifest.json) · [Release下载](https://github.com/Lt1020/HybCapSeq-Quant/releases/tag/db-v3.3)
+
+该库基于官方v3.2.4的30,907条参考，追加NIST认证v1的96条ERCC，共31,003条。ERCC的Assembly=Name、Asm_length=Length；缺少来源支持的字段保持NA。原库FASTA和metadata原样保留，合并后重新建立minimap2短读长索引。解压目录为v3.3，三个数据库文件名与原库一致。
+
+```bash
+wget https://github.com/Lt1020/HybCapSeq-Quant/releases/download/db-v3.3/esviritu_db_v3.3.tar.gz
+wget https://github.com/Lt1020/HybCapSeq-Quant/releases/download/db-v3.3/esviritu_db_v3.3.sha256
+sha256sum -c esviritu_db_v3.3.sha256
+tar -xzf esviritu_db_v3.3.tar.gz
+```
+
+将EsViritu的--db指向解压后的v3.3目录。原始交付压缩包与Release资产以SHA256严格匹配：86e3f472b5376bb75c0baac29f460f3e13f4766f091659107c17e04451198e2c。构建脚本位于scripts/database/，发布流程位于.github/workflows/publish-database-v3.3.yml。
+
 
 ## 官方NIST ERCC96参考数据
 
@@ -138,7 +155,7 @@ python3 references/ercc96/build_ercc96.py --out ercc96-rebuilt
 
 官方自定义库由FASTA、索引和元数据组成，参考标识需一致。ERCC在解释上仍是人工合成对照，不能因参与比对就认定为病毒。RPKMF不等于本程序接收的比对碱基数。
 
-本软件不追加ERCC到病原库、不伪造NCBI TaxID、不调用EsViritu、不从其汇总丰度反推比对碱基数，也未验证EsViritu各阶段对合成标准的保留行为。需要的是已有ERCC统计表，而不是直接传入EsViritu病毒汇总表。没有上游真实统计时，只有软件演示，不是实样定量。
+现有ercc-audit校准命令接收已完成上游筛选的ERCC统计表，不自动调用EsViritu，也不从其RPKMF反推比对碱基数。scripts/database/提供独立的数据库合并、索引构建及发布工具；合成标准在完整EsViritu流程各阶段的保留行为和实样绝对定量仍待验证。
 
 ## 版本与发布状态
 

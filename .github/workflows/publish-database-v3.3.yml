@@ -1,0 +1,88 @@
+name: Publish EsViritu database v3.3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-database-v3.3.yml'
+      - 'scripts/database/**'
+      - 'databases/v3.3/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: database-v3.3-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12.14'
+      - name: Download and verify pinned public sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          runtime="$RUNNER_TEMP/esviritu-v3.3"
+          mkdir -p "$runtime/sources"
+          curl --fail --location --retry 3 --output "$runtime/sources/esviritu_db_v3.2.4.tar.gz" https://zenodo.org/records/17716199/files/esviritu_db_v3.2.4.tar.gz?download=1
+          printf '24d85c1ec3cbffff12e921d2f39c91b2  %s\n' "$runtime/sources/esviritu_db_v3.2.4.tar.gz" | md5sum -c -
+          curl --fail --location --retry 3 --output "$runtime/sources/minimap2.tar.bz2" https://github.com/lh3/minimap2/releases/download/v2.31/minimap2-2.31_x64-linux.tar.bz2
+          printf '300bc287f05eb890c6211fa7db043ce98320a401621fadd1cfdbeabd1a6e4ab5  %s\n' "$runtime/sources/minimap2.tar.bz2" | sha256sum -c -
+          curl --fail --location --retry 3 --output "$runtime/sources/zlib.tar.gz" https://github.com/madler/zlib/releases/download/v1.3.2/zlib-1.3.2.tar.gz
+          printf 'bb329a0a2cd0274d05519d61c667c062e06990d72e125ee2dfa8de64f0119d16  %s\n' "$runtime/sources/zlib.tar.gz" | sha256sum -c -
+      - name: Prepare verified software and identical gzip runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          runtime="$RUNNER_TEMP/esviritu-v3.3"
+          python - <<'PY'
+          import os, pathlib, tarfile
+          root = pathlib.Path(os.environ['RUNNER_TEMP']) / 'esviritu-v3.3'
+          for name in ['esviritu_db_v3.2.4.tar.gz', 'minimap2.tar.bz2', 'zlib.tar.gz']:
+              with tarfile.open(root / 'sources' / name) as archive:
+                  archive.extractall(root, filter='data')
+          PY
+          cd "$runtime/zlib-1.3.2"
+          ./configure --prefix="$runtime/zlib" --shared
+          make -j2
+          make install
+          printf 'LD_LIBRARY_PATH=%s:%s\n' "$runtime/zlib/lib" "${LD_LIBRARY_PATH:-}" >> "$GITHUB_ENV"
+      - name: Build and verify all 31,003 reference records
+        shell: bash
+        run: |
+          set -euo pipefail
+          runtime="$RUNNER_TEMP/esviritu-v3.3"
+          python scripts/database/build_v3_3.py \
+            --base-dir "$runtime/v3.2.4" \
+            --ercc-dir references/ercc96/data/certified_v1 \
+            --output-dir "$runtime/v3.3" \
+            --work-dir "$runtime/build" \
+            --minimap2 "$runtime/minimap2-2.31_x64-linux/minimap2" \
+            --report "$runtime/build_manifest.json" --threads 4
+      - name: Reproduce original archive and verify exact SHA256
+        shell: bash
+        run: |
+          set -euo pipefail
+          runtime="$RUNNER_TEMP/esviritu-v3.3"
+          python scripts/database/package_v3_3.py \
+            --database-dir "$runtime/v3.3" \
+            --manifest databases/v3.3/esviritu_db_v3.3_manifest.json \
+            --recipe databases/v3.3/archive_recipe.json \
+            --output "$runtime/release/esviritu_db_v3.3.tar.gz"
+          cp databases/v3.3/esviritu_db_v3.3_manifest.json databases/v3.3/README_v3.3.md databases/v3.3/esviritu_db_v3.3.sha256 "$runtime/release/"
+      - name: Publish and verify Release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/database/publish_release.py \
+            --assets "$RUNNER_TEMP/esviritu-v3.3/release" \
+            --notes databases/v3.3/release_notes.md

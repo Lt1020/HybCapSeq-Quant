@@ -1,0 +1,79 @@
+{
+  "database_version": "v3.3",
+  "release_kind": "custom ERCC extension; not an upstream EsViritu release",
+  "created_utc": "2026-10-17T12:02:57.953110+00:00",
+  "upstream": {
+    "version": "v3.2.4",
+    "author": "Michael Tisza",
+    "doi": "10.5281/zenodo.17716199",
+    "license": "CC-BY-4.0",
+    "url": "https://zenodo.org/records/17716199/files/esviritu_db_v3.2.4.tar.gz",
+    "archive_md5": "24d85c1ec3cbffff12e921d2f39c91b2"
+  },
+  "ercc": {
+    "variant": "NIST SRM2374 certified v1",
+    "records": 96,
+    "fasta_sha256": "337e7121586349129ff9a0004f34d7d3d003c0bd28598e70d76ed48d5ad3778f",
+    "metadata_sha256": "dce0d6cc49ed355afbfb4538a460874c3743d11be106724ec16e8cec6096573e",
+    "Assembly_rule": "Assembly = Name",
+    "Asm_length_rule": "Asm_length = Length",
+    "missing_annotation_value": "NA",
+    "reference_bases_added": 86319
+  },
+  "counts": {
+    "upstream_records": 30907,
+    "added_ERCC_records": 96,
+    "combined_records": 31003,
+    "combined_reference_bases": 235370650,
+    "metadata_rows": 31003,
+    "index_reference_records": 31003
+  },
+  "minimap2": {
+    "version": "2.31-r1302",
+    "preset": "sr",
+    "threads": 4,
+    "rebuild_command_template": "minimap2 -x sr -d virus_pathogen_database.mmi virus_pathogen_database.fna"
+  },
+  "validation": {
+    "FASTA_metadata_ID_length_match": true,
+    "original_FASTA_bytes_preserved": true,
+    "original_metadata_bytes_preserved": true,
+    "ERCC_metadata_preserved": true,
+    "FASTA_index_ID_length_match": true,
+    "ERCC_150nt_checks_expected_reference_hits": 96,
+    "EsViritu_end_to_end_test_performed": false,
+    "final_FASTA_expected_byte_count": 239687229,
+    "archive_internal_records_revalidated": true
+  },
+  "files": [
+    {
+      "name": "virus_pathogen_database.fna",
+      "bytes": 239687229,
+      "sha256": "16a4a1b616d3cc9c45bd43f446aa561a4e6868b8f0b9861819b99cf402a2c8ed"
+    },
+    {
+      "name": "virus_pathogen_database.all_metadata.tsv",
+      "bytes": 8735734,
+      "sha256": "bb406d8b177deede56ba3642fa2c5e7abfda56911f3fb3a91893a52da0a39ea3"
+    },
+    {
+      "name": "virus_pathogen_database.mmi",
+      "bytes": 646584646,
+      "sha256": "502735adc35c383f862292316341d3d4c86093c673f16d6521e0f48ee1f7f325"
+    }
+  ],
+  "archive": {
+    "filename": "esviritu_db_v3.3.tar.gz",
+    "bytes": 447693545,
+    "sha256": "86e3f472b5376bb75c0baac29f460f3e13f4766f091659107c17e04451198e2c",
+    "contents_roundtrip_sha256_verified": true,
+    "roundtrip_FASTA_metadata_ID_length_match": true,
+    "roundtrip_reference_records": 31003,
+    "directory": "v3.3",
+    "database_files": [
+      "virus_pathogen_database.fna",
+      "virus_pathogen_database.all_metadata.tsv",
+      "virus_pathogen_database.mmi"
+    ]
+  }
+}
