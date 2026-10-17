@@ -2,7 +2,9 @@
 
 `hybcapseq_quant` 读取 EsViritu 的 `<sample>.detected_virus.info.tsv`，分别按实验方案的 **Y(seq) 比对碱基数法**和**平均深度标准曲线法**计算建库起始体系浓度，再以体积关系和 PMMoV 回收率换算污水浓度。原有 `ercc-audit` 命令继续保留。
 
-本次输入以实际记录为准：商业 ERCC Mix 1 的 **92 条转录本，原液稀释 1000 倍、加入 2 µL，建库起始总体积 14 µL**；按 RNA 100 ng 取样，同时计入共同进入文库的 DNA 质量。92 条转录本的配方值来自 Thermo Fisher 官方表，未按论文中的四舍五入梯度重新赋值。
+工作目录、EsViritu 结果目录、样本输入文件和输出目录均由运行参数指定，程序不依赖固定磁盘、用户名、日期或样本编号。92 条转录本的配方值来自 Thermo Fisher 官方表，实际稀释倍数、加样量、反应体积和样本投入从各样本输入行读取。
+
+附带的 20261017 历史示例为：商业 ERCC Mix 1 的 92 条转录本，原液稀释 1000 倍、加入 2 µL，建库起始总体积 14 µL；按 RNA 100 ng 取样，同时计入共同进入文库的 DNA 质量。该示例可显式选择，不会默认套用于新批次。
 
 数据库 v3.3 含 96 条 NIST 参考，但商业 Mix 1 不含 ERCC-00007、ERCC-00018、ERCC-00023、ERCC-00128，曲线只使用商业 92 条。
 
@@ -21,40 +23,53 @@ hybcapseq_quant --version
 
 Python 最低版本 3.10，绘图依赖 Matplotlib。若之前已克隆，先 `git pull --ff-only` 再重新安装。
 
-## 准备本次实验输入
+## 准备任意批次输入
 
 ```bash
-PROCESSED_DIR="/mnt/sda/lxk/database/WWS/Probe_panel_test_Proj/Processed_fastq/Processed_fastq_HybCapSeq_Quant_test_20261017"
-hybcapseq_quant init --outdir "$PROCESSED_DIR/HybCapSeq_Quant_inputs"
+PROCESSED_DIR="/path/to/current_batch"
+ESVIRITU_DIR="/path/to/current_esviritu_results"
+INPUT_DIR="$PROCESSED_DIR/HybCapSeq_Quant_inputs"
+
+hybcapseq_quant init \
+  --esviritu-dir "$ESVIRITU_DIR" \
+  --outdir "$INPUT_DIR"
 ```
 
-生成 `samples_20261017.tsv`、`ercc92_mix1.tsv`、`input_fields.tsv` 和可选的 `ercc_qc.tsv`。样本表已填入实际 12 个污水流程单元及 1 个 NC 的建库投入。
+上述路径均为占位示例，替换为本批实际位置。EsViritu 目录可以在工作目录内，也可以在另一块磁盘，子目录名称不限。
+
+生成通用 `samples.tsv`、`ercc92_mix1.tsv`、`input_fields.tsv` 和可选的 `ercc_qc.tsv`。程序从当前结果目录递归提取样本编号，为每个实际样本生成一行；实验投入参数留为 `NA`，需按本批记录填写。没有结果文件时可用 `init --sample SAMPLE_A SAMPLE_B --outdir "$INPUT_DIR"` 指定新编号，或仅用 `init --outdir "$INPUT_DIR"` 生成仅含表头的模板。
+
+初次准备新批次时，需要填写样本类型、核酸浓度/质量、建库提取液体积、ERCC 稀释/加入量和反应总体积。NC 应标记为 `negative_control` 并按实际填写 ERCC 投入，不能根据编号自动假定实验操作。
 
 **需补齐**实际 `extract_elution_ul`、`extract_input_concentrate_ul`、`wastewater_volume_ml`，以及 `pmmov_recovery_fraction` 或完整 PMMoV dPCR 参数。缺失时仍输出可计算的建库体系浓度，污水浓度保留为 `NA`，不会默认回收率为 1。
 
-已将浓缩液总体积 460 µL 填为 0.460 mL。记录中的破壁后加样 370 µL 和理论洗脱 80 µL 只作审计记录，不直接代替实际提取投入和实际洗脱体积。原水体积在旧方案和记录中存在 44/40 mL 表述差异，须填本次实际值。
+若确实处理之前的 20261017 数据，可显式使用 `hybcapseq_quant init --preset 20261017 --outdir /path/to/inputs_for_20261017`。该模式才生成已填实际 13 行的 `samples_20261017.tsv`。其中浓缩液 460 µL 换算为 0.460 mL，破壁后 370 µL 与理论洗脱 80 µL 仅保留作记录；不替代实际提取/洗脱体积，原水体积也须确认。
 
 ## 批量运行
 
 ```bash
 hybcapseq_quant \
-  --samples "$PROCESSED_DIR/HybCapSeq_Quant_inputs/samples_20261017.tsv" \
-  --ercc-standards "$PROCESSED_DIR/HybCapSeq_Quant_inputs/ercc92_mix1.tsv" \
-  --esviritu-dir "$PROCESSED_DIR/EsViritu_analysis_HybCapSeq_Quant_test_20261017" \
-  --outdir "$PROCESSED_DIR/HybCapSeq_Quant_results" \
+  --samples "$INPUT_DIR/samples.tsv" \
+  --ercc-standards "$INPUT_DIR/ercc92_mix1.tsv" \
+  --esviritu-dir "$ESVIRITU_DIR" \
+  --processed-dir "$PROCESSED_DIR" \
   --method both \
   --wastewater-unit copies/mL
 ```
 
-程序递归查找各样本的原始检测 TSV，支持共用输出目录或样本子目录。也可运行 [`scripts/run_quant_20261017.sh`](scripts/run_quant_20261017.sh)。
+结果自动保存在 `$PROCESSED_DIR/HybCapSeq_Quant_results`。`--outdir` 可指定任何其他位置，并优先于此默认位置；未提供这两个参数时才使用当前运行目录下的 `HybCapSeq_Quant_results`。
+
+程序递归查找各样本的原始检测 TSV，支持共用目录或样本子目录。输入位置优先级为：`--input-tsv` > 本次显式传入的 `--esviritu-dir` > 样本表中的 `info_tsv`。这样切换到新结果目录时，旧表内路径不会覆盖本次命令的选择。同一样本发现多个同名结果时会报错，避免混用批次。
+
+样本表内相对文件路径均相对于该样本表所在目录解析，与执行命令时的当前目录无关。初始化自动填写相对 `info_tsv`，因此整批数据按原相对结构搬迁后仍可使用。脚本入口 [`scripts/run_quant.sh`](scripts/run_quant.sh) 只转发命令参数；旧的带日期脚本名也保留兼容入口，两者都不含固定实验路径。
 
 ## 单样本运行
 
 ```bash
 hybcapseq_quant \
-  --samples "$PROCESSED_DIR/HybCapSeq_Quant_inputs/samples_20261017.tsv" \
-  --sample 261008-HN-02-ZKP-a \
-  --esviritu-dir "$PROCESSED_DIR/EsViritu_analysis_HybCapSeq_Quant_test_20261017" \
+  --samples "$INPUT_DIR/samples.tsv" \
+  --sample SAMPLE_A \
+  --esviritu-dir "$ESVIRITU_DIR" \
   --outdir "$PROCESSED_DIR/HybCapSeq_Quant_results_single" \
   --method both \
   --wastewater-unit copies/L

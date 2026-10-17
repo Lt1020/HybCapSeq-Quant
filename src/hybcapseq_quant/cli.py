@@ -5,6 +5,7 @@ import argparse
 import gzip
 import json
 import math
+import os
 import platform
 import shutil
 import statistics
@@ -21,18 +22,33 @@ DATA = Path(__file__).parent / "data"
 
 
 def choose_table(sample, directory, explicit, base):
-    path = explicit or resolve_path(sample.get("info_tsv"), base)
-    if path:
-        if not Path(path).is_file():
-            raise ValueError(f"Detection table not found: {path}")
-        return Path(path)
-    if directory is None:
-        raise ValueError("Supply --esviritu-dir, --input-tsv or manifest info_tsv")
-    name = sample["sample_ID"] + ".detected_virus.info.tsv"
-    matches = list(Path(directory).rglob(name))
-    if len(matches) != 1:
-        raise ValueError(f"Expected one {name}, found {len(matches)} under {directory}")
-    return matches[0]
+    # Explicit current-run locations take priority over a saved manifest path.
+    if explicit:
+        path = Path(explicit)
+    elif directory is not None:
+        directory = Path(directory)
+        if not directory.is_dir():
+            raise ValueError(f"EsViritu results directory not found: {directory}")
+        name = sample["sample_ID"] + ".detected_virus.info.tsv"
+        matches = list(directory.rglob(name))
+        if len(matches) != 1:
+            raise ValueError(f"Expected one {name}, found {len(matches)} under {directory}")
+        return matches[0]
+    else:
+        path = resolve_path(sample.get("info_tsv"), base)
+        if path is None:
+            raise ValueError("Supply --esviritu-dir, --input-tsv or manifest info_tsv")
+    if not path.is_file():
+        raise ValueError(f"Detection table not found: {path}")
+    return path
+
+
+def output_directory(args):
+    if args.outdir is not None:
+        return args.outdir
+    if args.processed_dir is not None:
+        return args.processed_dir / "HybCapSeq_Quant_results"
+    return Path("HybCapSeq_Quant_results")
 
 
 def load_targets(path, datasets):
@@ -104,7 +120,7 @@ def run(args):
                            standards, base, settings, overrides) for s in samples]
     repeat_audit = replicate_qc(datasets)
     targets = load_targets(args.targets, datasets)
-    root = args.outdir
+    root = output_directory(args)
     root.mkdir(parents=True, exist_ok=True)
     write_tsv(root / "inputs" / "samples_used.tsv", samples)
     write_tsv(root / "inputs" / "targets_resolved.tsv", list(targets.values()))
@@ -149,7 +165,7 @@ def run(args):
                 "fit_ERCC_IDs": ",".join(calibration["fit_ERCC_IDs"])}])
             plot_curve(directory / f"{sid}.ERCC_standard_curve", x, y, calibration["fit"],
                        calibration["x_label"], calibration["y_label"], sid + " | " + method)
-            # Display the same model on the requested 14-uL reaction scale.
+            # Display the same model on this sample's starting-reaction scale.
             rx = [math.log10(p["mean_depth"]) for p in eligible]
             ry = [math.log10(p["reaction_copies_ul"]) for p in eligible]
             display_fit = None
@@ -211,14 +227,53 @@ def run(args):
 
 
 def initialize(args):
+    if args.preset == "20261017" and (args.esviritu_dir is not None or args.sample):
+        raise ValueError("Historical preset cannot be combined with new-sample discovery")
+    sample_name = "samples_20261017.tsv" if args.preset == "20261017" else "samples.tsv"
+    names = ["ercc92_mix1.tsv", sample_name, "input_fields.tsv", "ercc_qc.tsv"]
+    # Check all destinations before writing, including an existing exclusions file.
+    for name in names:
+        if (args.outdir / name).exists():
+            raise ValueError(f"Refusing to overwrite input file: {args.outdir / name}")
+    fields, _ = read_tsv(DATA / "samples_template.tsv")
+    samples = []
+    discovered = {}
+    if args.esviritu_dir is not None:
+        if not args.esviritu_dir.is_dir():
+            raise ValueError(f"EsViritu results directory not found: {args.esviritu_dir}")
+        for path in sorted(args.esviritu_dir.rglob("*.detected_virus.info.tsv")):
+            sid = path.name.removesuffix(".detected_virus.info.tsv")
+            if sid in discovered:
+                raise ValueError(f"Multiple result files for sample {sid}; choose a single batch directory")
+            header, rows = read_tsv(path)
+            if "sample_ID" not in header or any(r["sample_ID"] != sid for r in rows):
+                raise ValueError(f"Filename/sample_ID mismatch: {path}")
+            discovered[sid] = path
+        if not discovered:
+            raise ValueError("No original EsViritu detection tables found")
+    ids = args.sample if args.sample else list(discovered)
+    if len(ids) != len(set(ids)):
+        raise ValueError("Duplicate sample IDs requested")
+    for sid in ids:
+        if Path(sid).name != sid or sid in {".", ".."} or "\\" in sid:
+            raise ValueError("sample_ID cannot contain path separators")
+        if args.esviritu_dir is not None and sid not in discovered:
+            raise ValueError(f"Requested sample not found in results directory: {sid}")
+        row = {key: "NA" for key in fields}
+        row.update({"sample_ID": sid, "ercc_mix": "Mix1", "fastp_section": "before_filtering",
+                    "alignment_qc_verified": "0", "detection_qc_verified": "0", "pmmov_above_loq": "0",
+                    "notes": "New-batch template; fill actual sample type, inputs, ERCC addition and recovery parameters"})
+        if sid in discovered:
+            row["info_tsv"] = os.path.relpath(discovered[sid].resolve(), args.outdir.resolve())
+        samples.append(row)
     args.outdir.mkdir(parents=True, exist_ok=True)
-    for source, name in [(STANDARD_PATH, "ercc92_mix1.tsv"), (DATA / "samples_20261017.tsv", "samples_20261017.tsv"),
-                         (DATA / "input_fields.tsv", "input_fields.tsv")]:
-        dest = args.outdir / name
-        if dest.exists():
-            raise ValueError(f"Refusing to overwrite input file: {dest}")
-        shutil.copyfile(source, dest)
-    (args.outdir / "ercc_qc.tsv").write_text("sample_ID\tERCC_ID\tuse_for_fit\treason\n")
+    shutil.copyfile(STANDARD_PATH, args.outdir / "ercc92_mix1.tsv")
+    shutil.copyfile(DATA / "input_fields.tsv", args.outdir / "input_fields.tsv")
+    if args.preset == "20261017":
+        shutil.copyfile(DATA / "samples_20261017.tsv", args.outdir / sample_name)
+    else:
+        write_tsv(args.outdir / sample_name, samples, fields)
+    write_tsv(args.outdir / "ercc_qc.tsv", [], ["sample_ID", "ERCC_ID", "use_for_fit", "reason"])
     print(args.outdir)
     return 0
 
@@ -306,7 +361,8 @@ def parser():
     r.add_argument("--sample", nargs="+", help="exact sample IDs; omit for batch mode")
     r.add_argument("--esviritu-dir", type=Path)
     r.add_argument("--input-tsv", type=Path)
-    r.add_argument("--outdir", type=Path, default=Path("HybCapSeq_Quant_results"))
+    r.add_argument("--processed-dir", type=Path, help="current batch working directory; default output is its HybCapSeq_Quant_results subdirectory")
+    r.add_argument("--outdir", type=Path, help="explicit output directory; overrides --processed-dir output default")
     r.add_argument("--ercc-standards", type=Path, default=STANDARD_PATH)
     r.add_argument("--targets", type=Path)
     r.add_argument("--ercc-qc", type=Path)
@@ -322,8 +378,12 @@ def parser():
     r.add_argument("--strict-qc", action="store_true", help="suppress target values unless supplied alignment/detection QC and LoQ are verified")
     r.add_argument("--ascii-columns", action="store_true")
     r.set_defaults(func=run)
-    i = sub.add_parser("init", help="copy ERCC92 standards and the actual 13-row sample manifest")
+    i = sub.add_parser("init", help="create a generic new-batch template, or explicitly select historical records")
     i.add_argument("--outdir", type=Path, required=True)
+    i.add_argument("--esviritu-dir", type=Path, help="discover sample IDs from this actual results directory")
+    i.add_argument("--sample", nargs="+", help="sample IDs to initialize; may filter discovered results")
+    i.add_argument("--preset", choices=["generic", "20261017"], default="generic",
+                   help="generic by default; 20261017 explicitly copies the actual 13 historical records")
     i.set_defaults(func=initialize)
     t = sub.add_parser("prepare-targets", help="generate reviewable genome-length/molecular-mass input")
     t.add_argument("--esviritu-dir", type=Path, required=True)

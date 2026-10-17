@@ -1,6 +1,16 @@
 # 捕获测序定量计算说明
 
-对应 `hybcapseq_quant` 0.2.0。两套模型分别拟合，输出起始建库体系浓度、提取液中间浓度与污水浓度，不能把这三个层级混用。
+对应 `hybcapseq_quant` 0.2.1。两套模型分别拟合，输出起始建库体系浓度、提取液中间浓度与污水浓度，不能把这三个层级混用。
+
+## 工作目录和新批次
+
+`PROCESSED_DIR` 是用户每次运行时选择的工作目录，不是代码中的固定常量。使用 `--processed-dir /本批工作目录`，结果默认写入该目录的 `HybCapSeq_Quant_results`；也可用 `--outdir /任意输出目录` 显式覆盖。输入目录单独用 `--esviritu-dir` 指定，不要求固定名称或位于工作目录内。
+
+`init --esviritu-dir /当前比对结果目录 --outdir /当前输入目录` 默认生成通用 `samples.tsv`，只根据本批结果填写样本编号及相对输入路径，不继承历史样本或投入量。按本批记录补填实验参数后即可运行。没有比对文件时可用 `init --sample SAMPLE_A SAMPLE_B --outdir /当前输入目录`，或仅生成空表头。
+
+已有 20261017 的 13 行实测建库记录仅在 `init --preset 20261017` 时复制。以下 1000 倍、2 µL、14 µL 数值为该历史实验示例；实际计算始终读取样本表中 `ercc_dilution`、`ercc_spike_ul`、`reaction_volume_ul` 的值。
+
+输入文件优先级为 `--input-tsv`、本次 `--esviritu-dir`、样本表 `info_tsv`，依次选择。样本表内相对路径以表所在目录为基准，不以 shell 当前目录为基准；搬迁完整批次时保留相对目录结构即可。
 
 ## ERCC 投入换算
 
@@ -152,9 +162,9 @@ Vc 已按记录填为 0.460 mL；破壁后加样 370 µL 仅作记录；80 µL �
 
 ```bash
 hybcapseq_quant prepare-targets \
-  --esviritu-dir "$PROCESSED_DIR/EsViritu_analysis_HybCapSeq_Quant_test_20261017" \
-  --db-metadata /mnt/sda/lxk/esviritu_DB/v3.3/virus_pathogen_database.all_metadata.tsv \
-  --output "$PROCESSED_DIR/HybCapSeq_Quant_inputs/targets.tsv"
+  --esviritu-dir "$ESVIRITU_DIR" \
+  --db-metadata /path/to/esviritu_DB/v3.3/virus_pathogen_database.all_metadata.tsv \
+  --output "$INPUT_DIR/targets.tsv"
 ```
 
 核对 quant_group、quant_reference_length、molecule_type 和 mass_per_nt_g_mol。RNA 可填 340，dsDNA 可填 660。没有明确分类和质量系数时，方式一目标浓度为 NA，深度法仍可计算。部分已附官方来源的 dsDNA 病毒科以及明确属于 Orthornavirae 的 RNA 参考可自动识别，其余不猜测。使用自定义表时增加 `--targets /path/to/targets.tsv`。
