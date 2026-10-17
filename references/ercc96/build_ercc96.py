@@ -129,7 +129,9 @@ def build(out: Path) -> dict:
         meta, provenance = [], []
         for i, sequence in records.items():
             row = dict.fromkeys(COLS, "NA")
-            row.update(Accession=i, description=i, Name=i, Length=len(sequence))
+            # One ERCC transcript per computational assembly; user-defined grouping.
+            row.update(Accession=i, description=i, Name=i, Length=len(sequence),
+                       Assembly=i, Asm_length=len(sequence))
             meta.append(row)
             provenance.append({
                 "Accession": i, "official_fasta_header": i,
@@ -145,6 +147,8 @@ def build(out: Path) -> dict:
         check = table(target / "virus_pathogen_database.all_metadata.tsv")
         require(list(check[0]) == COLS, "Metadata schema/order differs")
         require([r["Accession"] for r in check] == list(fasta(fna)), "FASTA/metadata order differs")
+        require(all(r["Assembly"] == r["Name"] for r in check), "Assembly/Name differs")
+        require(all(r["Asm_length"] == r["Length"] for r in check), "Asm_length/Length differs")
         variants.append({"name": label, "records": len(records),
                          "total_reference_nt": sum(map(len, records.values())),
                          "length_min_nt": min(map(len, records.values())),
@@ -181,14 +185,18 @@ def build(out: Path) -> dict:
                         "role": "NIST certificate, issued 2017-12-06; Table 2 on pages 7-10"})
     manifest = {
         "dataset": "NIST SRM2374 ERCC96, EsViritu-style truthful annotations",
-        "dataset_version": "1.0.0", "retrieved_date_utc": "2026-10-17",
+        "dataset_version": "1.0.1", "retrieved_date_utc": "2026-10-17",
         "sources": source_info, "variants": variants,
         "metadata_columns": COLS, "missing_value": "NA",
         "populated_columns": {"Accession": "Official ERCC identifier (not an NCBI accession)",
                               "description": "Exact official FASTA header without >",
-                              "Name": "Official ERCC identifier", "Length": "Counted from the delivered reference"},
+                              "Name": "Official ERCC identifier", "Length": "Counted from the delivered reference",
+                              "Assembly": "Copied from Name; user-defined per-transcript computational grouping, not an NCBI assembly accession",
+                              "Asm_length": "Copied from Length; one reference per computational assembly"},
         "metadata_schema_source": "https://github.com/cmmr/EsViritu/blob/42aad529d9112451531c81633171bc9a7e1f630b/docs/custom-database.md",
         "validation": {"unique_certified_ids": 96, "metadata_fasta_id_length_match": True,
+                       "Assembly_equals_Name_for_all_records": True,
+                       "Asm_length_equals_Length_for_all_records": True,
                        "table2_gtf_accession_length_matches": 96,
                        "certified_output_byte_identical_to_source": True,
                        "resolved_ERCC_sequences_identical_to_official_source": True,
@@ -198,7 +206,7 @@ def build(out: Path) -> dict:
                        "IUPAC_incompatible_official_resolutions": len(incompatibilities),
                        "esviritu_end_to_end_run_performed": False, "mmi_built": False},
         "warnings": warnings,
-        "runtime_note": "Faithful NA annotation tables: Assembly and Asm_length are NA. They are not a verified drop-in EsViritu runtime database; upstream uses assembly grouping and numeric Asm_length. No taxonomy or technical assembly identifiers have been invented.",
+        "runtime_note": "Each ERCC record has Assembly=Name and numeric Asm_length=Length, as requested. Assembly is a per-transcript computational grouping label derived from the official ERCC name, not an NCBI assembly accession. The remaining 10 unsupported metadata fields are NA. An EsViritu end-to-end run has not been performed.",
     }
     (out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     paths = sorted(p for p in out.rglob("*") if p.is_file() and p.name != "SHA256SUMS")

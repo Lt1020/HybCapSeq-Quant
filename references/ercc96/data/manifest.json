@@ -1,6 +1,6 @@
 {
   "dataset": "NIST SRM2374 ERCC96, EsViritu-style truthful annotations",
-  "dataset_version": "1.0.0",
+  "dataset_version": "1.0.1",
   "retrieved_date_utc": "2026-10-17",
   "sources": [
     {
@@ -69,12 +69,16 @@
     "Accession": "Official ERCC identifier (not an NCBI accession)",
     "description": "Exact official FASTA header without >",
     "Name": "Official ERCC identifier",
-    "Length": "Counted from the delivered reference"
+    "Length": "Counted from the delivered reference",
+    "Assembly": "Copied from Name; user-defined per-transcript computational grouping, not an NCBI assembly accession",
+    "Asm_length": "Copied from Length; one reference per computational assembly"
   },
   "metadata_schema_source": "https://github.com/cmmr/EsViritu/blob/42aad529d9112451531c81633171bc9a7e1f630b/docs/custom-database.md",
   "validation": {
     "unique_certified_ids": 96,
     "metadata_fasta_id_length_match": true,
+    "Assembly_equals_Name_for_all_records": true,
+    "Asm_length_equals_Length_for_all_records": true,
     "table2_gtf_accession_length_matches": 96,
     "certified_output_byte_identical_to_source": true,
     "resolved_ERCC_sequences_identical_to_official_source": true,
@@ -98,5 +102,5 @@
       "detail": "Certified FASTA has its sole R at position 540; certificate Table 2 footnote (e) says 599. No sequence or position was corrected."
     }
   ],
-  "runtime_note": "Faithful NA annotation tables: Assembly and Asm_length are NA. They are not a verified drop-in EsViritu runtime database; upstream uses assembly grouping and numeric Asm_length. No taxonomy or technical assembly identifiers have been invented."
+  "runtime_note": "Each ERCC record has Assembly=Name and numeric Asm_length=Length, as requested. Assembly is a per-transcript computational grouping label derived from the official ERCC name, not an NCBI assembly accession. The remaining 10 unsupported metadata fields are NA. An EsViritu end-to-end run has not been performed."
 }

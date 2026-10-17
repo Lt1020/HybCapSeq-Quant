@@ -55,7 +55,7 @@ ercc-audit audit-reference --standards inputs/standards.tsv --fasta /path/to/erc
 
 [references/ercc96/README_zh.md](references/ercc96/README_zh.md)提供两套有明确来源的96条参考：认证v1与官方消歧义v2。FASTA、EsViritu的16列metadata、GenBank对应、逐条序列SHA256、原始来源、两处官方资料差异及重建脚本均已附上。
 
-metadata中有来源依据的四列为Accession、description、Name和Length；其余12列按缺失值NA保留。Accession使用官方ERCC编号，与FASTA对应，NCBI GenBank对应编号在独立溯源表中记录。它们是忠实参考注释；Assembly与Asm_length为NA，未完成EsViritu直接运行兼容性验证，也不代表已发布整合数据库v3.3。
+metadata中的Accession、description、Name和Length依据官方ERCC记录与实际参考序列填写；按指定规则设置Assembly=Name、Asm_length=Length，使每条ERCC对应独立的计算分组，其余10个缺失字段为NA。Assembly是按ERCC名称生成的计算分组标签，不是NCBI assembly编号。Accession与FASTA对应，GenBank编号另记于独立溯源表。参考数据包版本为1.0.1，未执行EsViritu全流程验证。
 
 ```bash
 python3 references/ercc96/build_ercc96.py --out ercc96-rebuilt

@@ -1,8 +1,8 @@
 # NIST ERCC96参考序列与EsViritu格式metadata
 
-整理日期：2026-10-17（UTC）。数据包版本：1.0.0。
+整理日期：2026-10-17（UTC）。数据包版本：1.0.1。
 
-本包以NIST SRM 2374认证文件中的96个ERCC编号为记录集合，提供真实序列、EsViritu所需16列格式的忠实注释表、官方GenBank编号对应表、逐条序列SHA256、版本差异表及可重建的Python脚本。缺少所选官方来源支持的metadata字段，统一写为字面值`NA`。
+本包以NIST SRM 2374认证文件中的96个ERCC编号为记录集合，提供真实序列、EsViritu所需16列格式的忠实注释表、官方GenBank编号对应表、逐条序列SHA256、版本差异表及可重建的Python脚本。按指定规则设置`Assembly=Name`、`Asm_length=Length`；其余缺少所选官方来源支持的10个metadata字段，统一写为字面值`NA`。
 
 本包是依据官方资料整理的衍生文件，不是NIST或EsViritu官方发布物，也不是已合并的EsViritu v3.3数据库。
 
@@ -50,8 +50,8 @@ NIST的消歧义v2原始FASTA以及GTF各有97条记录；额外的一条是2732
 | `subspecies` | `NA`。 |
 | `Length` | 按当前FASTA计数的实际长度；96条均与NIST Table 2及GTF一致。 |
 | `TaxID` | `NA`；所用NIST FASTA、GTF与证书Table 2没有提供该字段，不根据序列来源物种推断。 |
-| `Assembly` | `NA`；不虚构NCBI assembly或把所有ERCC设为同一装配。 |
-| `Asm_length` | `NA`；没有可据以填入的官方assembly定义。 |
+| `Assembly` | 与同一行的`Name`完全一致，如`ERCC-00002`；每条ERCC单独作为一个计算分组，属于指定的数据库组织规则，不是NCBI assembly编号。 |
+| `Asm_length` | 与同一行的`Length`完全一致，为参考序列实际长度的整数；一个计算分组仅包含一条ERCC参考。 |
 
 列顺序严格为：
 
@@ -61,7 +61,7 @@ Accession description Name Segment kingdom phylum tclass order family genus spec
 
 实际文件使用制表符，不是上面展示用的空格。`NA`不是0，也不是空字符串。GenBank编号按NIST GTF与证书Table 2原样记录在`sequence_provenance.tsv`及`data/NIST_Table2_records.tsv`，不自行补`.1`等版本后缀。后者另含官方箱位、insert长度、polyA长度及证书报告的GC fraction；GC值按原文保留，不替换为另一种分母计算的值。
 
-这些表满足所列16列的字段结构与ID对应要求。严格缺失注释与直接运行EsViritu需要区分：上游代码按`Assembly`分组，并用数值`Asm_length`计算汇总RPKMF。本包将这两个字段按要求保留为`NA`，因此不能据此承诺原版EsViritu可直接完整运行。没有伪造TaxID、分类或技术装配ID来掩盖这一限制。本次未构建`.mmi`，未执行EsViritu全流程验证。
+这些表保持所列16列的字段结构与ID对应关系。`Assembly`采用逐条ERCC的名称，`Asm_length`采用对应参考的数值长度，使每条ERCC形成独立的计算分组。上述两个字段由已有名称和长度按指定规则生成；官方序列与来源注释继续原样保留。分类字段及`TaxID`等其余10个缺失字段仍为`NA`。本次验证覆盖记录、分组对应及长度一致性，未构建`.mmi`或执行EsViritu全流程。
 
 ## 官方来源间的差异
 
