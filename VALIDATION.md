@@ -4,9 +4,9 @@
 
 `examples/quant/generate_demo.py` generates explicitly simulated reference observations under a continuous, noiseless response model:
 
-\[
+$$
 n_j=10^9m_j,
-\]
+$$
 
 where mass is expressed in ng. The fixture includes the 92 commercial Mix 1 standards, a single RNA reference with 10,000 input molecules, and a two-segment RNA reference with the same molecule count. Segment lengths sum to the locked complete reference length. Read-count and breadth columns support input-contract tests; the continuous signal is an analytical fixture, not simulated raw sequencing reads or experimental data.
 
