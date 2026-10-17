@@ -1,0 +1,12 @@
+Accession	position_1based	certified_v1_symbol	official_resolved_v2_base	base_allowed_by_certified_IUPAC
+ERCC-00004	153	Y	C	true
+ERCC-00018	540	R	A	true
+ERCC-00043	584	Y	C	true
+ERCC-00131	150	Y	C	true
+ERCC-00131	674	R	G	true
+ERCC-00134	29	M	A	true
+ERCC-00138	403	Y	C	true
+ERCC-00138	994	K	G	true
+ERCC-00138	995	K	G	true
+ERCC-00138	997	R	T	false
+ERCC-00145	749	Y	T	true

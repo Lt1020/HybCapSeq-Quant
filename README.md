@@ -49,7 +49,19 @@ ercc-audit audit-reference --standards inputs/standards.tsv --fasta /path/to/erc
 
 该命令校验ERCC标识、完整性、重复记录、IUPAC字符和逐条长度，并输出GC比例、模糊位点数及序列SHA256。FASTA标识必须与标准表匹配；不同产品批号使用相同ERCC标识时，参考长度须一致。参考原样保留，不改写序列或分类，不执行比对，也不修改EsViritu数据库。
 
-输出为 `ercc_reference_audit.tsv` 和包含输入文件SHA256的 `run_manifest.json`。程序不自带ERCC产品原液浓度或真实参考序列，需要使用者提供与实际产品相符的资料。
+输出为 `ercc_reference_audit.tsv` 和包含输入文件SHA256的 `run_manifest.json`。本仓库另附按官方NIST SRM2374资料整理的96条ERCC参考数据，见下节；产品原液浓度仍需使用者按实际产品资料提供。
+
+## 官方NIST ERCC96参考数据
+
+[references/ercc96/README_zh.md](references/ercc96/README_zh.md)提供两套有明确来源的96条参考：认证v1与官方消歧义v2。FASTA、EsViritu的16列metadata、GenBank对应、逐条序列SHA256、原始来源、两处官方资料差异及重建脚本均已附上。
+
+metadata中有来源依据的四列为Accession、description、Name和Length；其余12列按缺失值NA保留。Accession使用官方ERCC编号，与FASTA对应，NCBI GenBank对应编号在独立溯源表中记录。它们是忠实参考注释；Assembly与Asm_length为NA，未完成EsViritu直接运行兼容性验证，也不代表已发布整合数据库v3.3。
+
+```bash
+python3 references/ercc96/build_ercc96.py --out ercc96-rebuilt
+```
+
+该参考模块的数据整理与现有CLI校准模块分开，CLI的产品浓度、投入量及观测值仍需按实际记录提供。
 
 ## 三种输入表
 

@@ -1,0 +1,28 @@
+{
+  "certified_v1": {
+    "96_sequences_and_metadata_rows": true,
+    "same_96_official_ERCC_IDs": true,
+    "source_sequences_exact": true,
+    "lengths_match": true,
+    "all_12_unsupported_metadata_fields_are_literal_NA": true,
+    "official_ID_labels_and_headers_preserved": true,
+    "vector_absent": true,
+    "non_contiguous_ERCC_ids_not_renumbered": true,
+    "16_columns": true
+  },
+  "ambiguities_resolved_v2": {
+    "96_sequences_and_metadata_rows": true,
+    "same_96_official_ERCC_IDs": true,
+    "source_sequences_exact": true,
+    "lengths_match": true,
+    "all_12_unsupported_metadata_fields_are_literal_NA": true,
+    "official_ID_labels_and_headers_preserved": true,
+    "vector_absent": true,
+    "non_contiguous_ERCC_ids_not_renumbered": true,
+    "16_columns": true
+  },
+  "rebuild_is_byte_reproducible": true,
+  "certified_fna_byte_identical_to_official_source": true,
+  "source_discrepancies_retained_and_documented": true,
+  "scope": "Reference records, schema and reproducibility validation; EsViritu runtime not tested"
+}

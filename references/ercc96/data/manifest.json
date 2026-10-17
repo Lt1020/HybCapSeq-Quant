@@ -1,0 +1,102 @@
+{
+  "dataset": "NIST SRM2374 ERCC96, EsViritu-style truthful annotations",
+  "dataset_version": "1.0.0",
+  "retrieved_date_utc": "2026-10-17",
+  "sources": [
+    {
+      "filename": "SRM2374_Sequence_v1.FASTA",
+      "url": "https://tsapps.nist.gov/srmext/certificates/documents/SRM2374_Sequence_v1.FASTA",
+      "sha256": "337e7121586349129ff9a0004f34d7d3d003c0bd28598e70d76ed48d5ad3778f",
+      "size_bytes": 90535
+    },
+    {
+      "filename": "SRM2374_ambiguities_resolved_v2.FASTA",
+      "url": "https://tsapps.nist.gov/srmext/certificates/documents/SRM2374_ambiguities_resolved_v2.FASTA",
+      "sha256": "be3b785bf72b5b2b0cb3bcb1e022223cc76fb00ac0d32212a945719799222f8a",
+      "size_bytes": 91808
+    },
+    {
+      "filename": "SRM2374_ambiguities_resolved_v1.GTF",
+      "url": "https://tsapps.nist.gov/srmext/certificates/documents/SRM2374_ambiguities_resolved_v1.GTF",
+      "sha256": "4f0e4278811d9dcf5a0ce42bdb8a126816a2546bf16d385f3d541ede1e6b493a",
+      "size_bytes": 7975
+    },
+    {
+      "filename": "2374.pdf",
+      "url": "https://tsapps.nist.gov/srmext/certificates/2374.pdf",
+      "sha256": "9add6fbc3eb1c801595ce829021f9982d17c762fc64505af1e937172332c9a21",
+      "role": "NIST certificate, issued 2017-12-06; Table 2 on pages 7-10"
+    }
+  ],
+  "variants": [
+    {
+      "name": "certified_v1",
+      "records": 96,
+      "total_reference_nt": 86319,
+      "length_min_nt": 273,
+      "length_max_nt": 2022,
+      "ambiguous_bases": 11
+    },
+    {
+      "name": "ambiguities_resolved_v2",
+      "records": 96,
+      "total_reference_nt": 86319,
+      "length_min_nt": 273,
+      "length_max_nt": 2022,
+      "ambiguous_bases": 0
+    }
+  ],
+  "metadata_columns": [
+    "Accession",
+    "description",
+    "Name",
+    "Segment",
+    "kingdom",
+    "phylum",
+    "tclass",
+    "order",
+    "family",
+    "genus",
+    "species",
+    "subspecies",
+    "Length",
+    "TaxID",
+    "Assembly",
+    "Asm_length"
+  ],
+  "missing_value": "NA",
+  "populated_columns": {
+    "Accession": "Official ERCC identifier (not an NCBI accession)",
+    "description": "Exact official FASTA header without >",
+    "Name": "Official ERCC identifier",
+    "Length": "Counted from the delivered reference"
+  },
+  "metadata_schema_source": "https://github.com/cmmr/EsViritu/blob/42aad529d9112451531c81633171bc9a7e1f630b/docs/custom-database.md",
+  "validation": {
+    "unique_certified_ids": 96,
+    "metadata_fasta_id_length_match": true,
+    "table2_gtf_accession_length_matches": 96,
+    "certified_output_byte_identical_to_source": true,
+    "resolved_ERCC_sequences_identical_to_official_source": true,
+    "extra_vector_records_excluded_from_resolved_reference": 1,
+    "extra_vector_records_excluded_from_ERCC_annotation": 1,
+    "base_differences_between_official_versions": 11,
+    "IUPAC_incompatible_official_resolutions": 1,
+    "esviritu_end_to_end_run_performed": false,
+    "mmi_built": false
+  },
+  "warnings": [
+    {
+      "code": "OFFICIAL_IUPAC_RESOLUTION_DISAGREEMENT",
+      "accession": "ERCC-00138",
+      "position_1based": 997,
+      "detail": "Certified FASTA has R (A/G); official resolved v2 FASTA has T. Both sources retained unchanged."
+    },
+    {
+      "code": "OFFICIAL_CERTIFICATE_POSITION_DISAGREEMENT",
+      "accession": "ERCC-00018",
+      "detail": "Certified FASTA has its sole R at position 540; certificate Table 2 footnote (e) says 599. No sequence or position was corrected."
+    }
+  ],
+  "runtime_note": "Faithful NA annotation tables: Assembly and Asm_length are NA. They are not a verified drop-in EsViritu runtime database; upstream uses assembly grouping and numeric Asm_length. No taxonomy or technical assembly identifiers have been invented."
+}

@@ -1,0 +1,3 @@
+source_filename	record_id	length_nt	reason
+SRM2374_ambiguities_resolved_v2.FASTA	080418_Consensus_Vector_Sequence_NIST_SEQUENCING_ASSEMBLY_noRestrict_rev	2732	Not an identifier in the 96-record certified ERCC source; vector reference
+SRM2374_ambiguities_resolved_v1.GTF	080418_Consensus_Vector_Sequence_NIST_SEQUENCING_ASSEMBLY_noRestrict_rev	2732	Not an identifier in the 96-record certified ERCC source; vector reference
