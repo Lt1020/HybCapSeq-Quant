@@ -3,17 +3,24 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ercc-record-audit"
-version = "0.1.1"
-description = "ERCC-only calibration and laboratory record validation"
+name = "hybcapseq-quant"
+version = "0.2.0"
+description = "Two-method ERCC calibration of EsViritu results and wastewater concentration conversion"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 readme = "README.md"
-dependencies = []
+dependencies = ["matplotlib>=3.7,<4"]
 
 [project.scripts]
 ercc-audit = "ercc_audit.cli:main"
+hybcapseq_quant = "hybcapseq_quant.cli:main"
+
+[project.optional-dependencies]
+bam = ["pysam>=0.22,<0.24"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+hybcapseq_quant = ["data/*.tsv", "data/*.txt", "data/*.json"]
 

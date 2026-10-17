@@ -1,0 +1,40 @@
+field	description
+sample_ID	Must exactly match the sample_ID column and original output filename
+sample_type	wastewater or negative_control; controls have no wastewater back-conversion
+batch_ID	Record annotation; retained in audit output
+replicate_group	Original wastewater sample ID shared by a,b,c; batch subsets affect CV assessment
+replicate	Record annotation; retained in audit output
+ZKP_spiked	Record annotation; retained in audit output
+RNA_conc_ng_ul	Record annotation; retained in audit output
+DNA_conc_ng_ul	Record annotation; retained in audit output
+nucleic_acid_conc_ng_ul	DNA + RNA concentration of the input extract, ng/uL
+library_extract_ul	Actual extract volume entering library; not 14uL reaction volume
+sample_input_mass_ng	Actual RNA + DNA input mass = mixed concentration * extract volume
+ercc_mix	Record annotation; retained in audit output
+ercc_dilution	Total fold dilution relative to original commercial Mix1; 1000 here
+ercc_spike_ul	Diluted working solution added; 2uL here, 0 for NC actual record
+reaction_volume_ul	Starting total volume including extract, water and ERCC; 14uL here
+info_tsv	Optional explicit original detection TSV; relative to manifest directory
+fastp_json	Optional explicit EsViritu fastp statistics JSON; auto sibling file if NA
+fastp_section	before_filtering for uploaded externally-cleaned script without -q True
+total_effective_bases	Optional actual analysis-input bases; auto fastp JSON otherwise; never read_count*150
+alignment_metrics_tsv	Optional collect-bam output; if NA, depth*Length from EsViritu v1.1.2 is used
+concentrate_volume_ml	Total concentrate volume, 460uL=0.460mL in merged E2:E13
+post_lysis_load_ul	370uL recorded after lysis; audit only; not automatically treated as concentrate input Vx1
+recorded_theoretical_elution_ul	80uL theoretical elution from record; audit only
+extract_elution_ul	Actual concentrate-extract elution Ve1; fill actual value
+extract_input_concentrate_ul	Actual concentrate volume entering extraction Vx1, excluding lysis reagents
+wastewater_volume_ml	Actual original wastewater volume V0; source plan/record has 44/40mL inconsistency, fill actual
+pmmov_recovery_fraction	0-1 scale recovery; e.g. 25% = 0.25, not 25; may be >1 with review up to 1.50
+pmmov_raw_extract_copies_ul	Instrument result q0 before total dilution correction, in extract copies/uL
+pmmov_post_extract_copies_ul	Instrument result q1 before total dilution correction, in extract copies/uL
+pmmov_raw_dilution	Total dilution multiplier D0
+pmmov_post_dilution	Total dilution multiplier D1
+raw_extract_elution_ul	Actual Ve0 for original-water extract
+raw_extract_input_ul	Actual original-water volume Vx0 entering extraction
+pmmov_above_loq	1 only after both PMMoV measurements pass quantification and inhibition review
+alignment_qc_verified	1 only when the supplied unique/high-quality/deduplicated alignment evidence is verified
+detection_qc_verified	1 only after target detection, distribution and negative-background criteria are verified
+loq_reaction_copies_ul	Externally validated concentration LoQ for this run, reaction copies/uL; NA is never inferred from minimum detected ERCC
+input_record	Record annotation; retained in audit output
+notes	Record annotation; retained in audit output

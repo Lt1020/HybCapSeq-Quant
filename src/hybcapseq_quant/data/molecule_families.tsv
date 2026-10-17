@@ -1,0 +1,8 @@
+family	molecule_type	mass_per_nt_g_mol	source
+Poxviridae	dsDNA	660	https://ictv.global/report/chapter/poxviridae/poxviridae ; protocol equation 14
+Adenoviridae	dsDNA	660	https://ictv.global/report/chapter/adenoviridae/adenoviridae ; protocol equation 14
+Polyomaviridae	dsDNA	660	https://ictv.global/report/chapter/polyomaviridae/polyomaviridae ; protocol equation 14
+Papillomaviridae	dsDNA	660	https://ictv.global/report/chapter/papillomaviridae/papillomaviridae ; protocol equation 14
+Orthoherpesviridae	dsDNA	660	https://ictv.global/report/chapter/orthoherpesviridae/orthoherpesviridae ; protocol equation 14
+Herpesviridae	dsDNA	660	Legacy family label for Orthoherpesviridae; https://ictv.global/report/chapter/orthoherpesviridae/orthoherpesviridae ; protocol equation 14
+Alloherpesviridae	dsDNA	660	https://ictv.global/report/chapter/alloherpesviridae/alloherpesviridae ; protocol equation 14

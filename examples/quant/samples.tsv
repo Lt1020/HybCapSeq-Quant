@@ -1,0 +1,2 @@
+sample_ID	sample_type	batch_ID	replicate_group	library_extract_ul	sample_input_mass_ng	nucleic_acid_conc_ng_ul	ercc_dilution	ercc_spike_ul	reaction_volume_ul	total_effective_bases	extract_elution_ul	extract_input_concentrate_ul	concentrate_volume_ml	wastewater_volume_ml	pmmov_recovery_fraction	alignment_qc_verified	detection_qc_verified	loq_reaction_copies_ul
+SIMULATED_01	wastewater	SIMULATED	NA	2	120	60	1000	2	14	1000000000000	80	300	0.46	40	0.25	0	0	NA
