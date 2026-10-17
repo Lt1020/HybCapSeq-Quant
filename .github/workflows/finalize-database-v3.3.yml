@@ -1,0 +1,95 @@
+name: Verify and finalize database v3.3 release
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/finalize-database-v3.3.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: database-v3.3-release
+  cancel-in-progress: false
+
+jobs:
+  finalize:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Verify existing assets and normalize the permanent release tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import importlib.util
+          import json
+          import os
+          from pathlib import Path
+
+          repo = os.environ['GITHUB_REPOSITORY']
+          if repo != 'Lt1020/HybCapSeq-Quant':
+              raise ValueError('Unexpected repository')
+          spec = importlib.util.spec_from_file_location('publisher', 'scripts/database/publish_release.py')
+          module = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+          api = module.api
+          tag = 'db-v3.3'
+          release_id = 415798737
+          base = f'/repos/{repo}'
+          detail = f'{base}/releases/{release_id}'
+          current = api('GET', detail)
+          if current['name'] != 'EsViritu DB v3.3 + ERCC96':
+              raise ValueError('Unexpected release title')
+          if current['tag_name'] not in {tag, 'untagged-7d24947a4c6e2ddc70c1'}:
+              raise ValueError('Unexpected existing release tag')
+          commit = 'f201db6b90385acf73f27363bc2e52ba5d159fd0'
+          if current['target_commitish'] != commit:
+              raise ValueError('Unexpected release commit')
+          root = Path('databases/v3.3')
+          manifest = json.loads((root / 'esviritu_db_v3.3_manifest.json').read_text())
+          archive = manifest['archive']
+          expected = {archive['filename']: {
+              'size': archive['bytes'], 'digest': 'sha256:' + archive['sha256']}}
+          for name in ['esviritu_db_v3.3_manifest.json', 'README_v3.3.md', 'esviritu_db_v3.3.sha256']:
+              data = (root / name).read_bytes()
+              expected[name] = {'size': len(data), 'digest': 'sha256:' + hashlib.sha256(data).hexdigest()}
+          def verify_assets(release):
+              items = {asset['name']: asset for asset in release['assets']}
+              if set(items) != set(expected):
+                  raise ValueError('Unexpected release assets')
+              for name, fields in expected.items():
+                  if items[name]['state'] != 'uploaded' or any(items[name].get(k) != v for k, v in fields.items()):
+                      raise ValueError(f'Asset verification failed: {name}')
+          verify_assets(current)
+          refs = api('GET', base + '/git/matching-refs/tags/' + tag)
+          refs = [ref for ref in refs if ref['ref'] == 'refs/tags/' + tag]
+          if refs:
+              if len(refs) != 1 or refs[0]['object']['sha'] != commit:
+                  raise ValueError('Refusing to replace an existing tag')
+          else:
+              api('POST', base + '/git/refs', {'ref': 'refs/tags/' + tag, 'sha': commit})
+          if current['tag_name'] != tag or current['draft']:
+              current = api('PATCH', detail, {
+                  'tag_name': tag, 'target_commitish': commit,
+                  'name': current['name'], 'draft': False})
+          current = api('GET', base + '/releases/tags/' + tag)
+          if current['id'] != release_id or current['draft'] or current['tag_name'] != tag:
+              raise ValueError('Canonical release verification failed')
+          if current['html_url'] != f'https://github.com/{repo}/releases/tag/{tag}':
+              raise ValueError('Unexpected permanent release URL')
+          verify_assets(current)
+          for asset in current['assets']:
+              expected_url = f'https://github.com/{repo}/releases/download/{tag}/{asset["name"]}'
+              if asset['browser_download_url'] != expected_url:
+                  raise ValueError('Unexpected asset download URL')
+          print(json.dumps({'release_url': current['html_url'], 'assets': [
+              {k: item[k] for k in ['name', 'size', 'digest', 'browser_download_url']}
+              for item in current['assets']]}, indent=2))
+          PY
