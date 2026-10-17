@@ -1,2 +1,3 @@
-"""ERCC-calibrated analysis of EsViritu detection tables."""
-__version__ = "0.2.1"
+"""ERCC-calibrated quantification of hybrid-capture sequencing results."""
+
+__version__ = "1.0.0"

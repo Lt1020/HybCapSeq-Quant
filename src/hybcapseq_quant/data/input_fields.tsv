@@ -1,40 +1,34 @@
-field	description
-sample_ID	Must exactly match the sample_ID column and original output filename
-sample_type	wastewater or negative_control; controls have no wastewater back-conversion
-batch_ID	Record annotation; retained in audit output
-replicate_group	Original wastewater sample ID shared by a,b,c; batch subsets affect CV assessment
-replicate	Record annotation; retained in audit output
-ZKP_spiked	Record annotation; retained in audit output
-RNA_conc_ng_ul	Record annotation; retained in audit output
-DNA_conc_ng_ul	Record annotation; retained in audit output
-nucleic_acid_conc_ng_ul	DNA + RNA concentration of the input extract, ng/uL
-library_extract_ul	Actual extract volume entering library; not 14uL reaction volume
-sample_input_mass_ng	Actual RNA + DNA input mass = mixed concentration * extract volume
-ercc_mix	Record annotation; retained in audit output
-ercc_dilution	Total fold dilution relative to original commercial Mix1; 1000 here
-ercc_spike_ul	Diluted working solution added; 2uL here, 0 for NC actual record
-reaction_volume_ul	Starting total volume including extract, water and ERCC; 14uL here
-info_tsv	Optional explicit original detection TSV; relative to manifest directory
-fastp_json	Optional explicit EsViritu fastp statistics JSON; auto sibling file if NA
-fastp_section	before_filtering for uploaded externally-cleaned script without -q True
-total_effective_bases	Optional actual analysis-input bases; auto fastp JSON otherwise; never read_count*150
-alignment_metrics_tsv	Optional collect-bam output; if NA, depth*Length from EsViritu v1.1.2 is used
-concentrate_volume_ml	Total concentrate volume, 460uL=0.460mL in merged E2:E13
-post_lysis_load_ul	370uL recorded after lysis; audit only; not automatically treated as concentrate input Vx1
-recorded_theoretical_elution_ul	80uL theoretical elution from record; audit only
-extract_elution_ul	Actual concentrate-extract elution Ve1; fill actual value
-extract_input_concentrate_ul	Actual concentrate volume entering extraction Vx1, excluding lysis reagents
-wastewater_volume_ml	Actual original wastewater volume V0; source plan/record has 44/40mL inconsistency, fill actual
-pmmov_recovery_fraction	0-1 scale recovery; e.g. 25% = 0.25, not 25; may be >1 with review up to 1.50
-pmmov_raw_extract_copies_ul	Instrument result q0 before total dilution correction, in extract copies/uL
-pmmov_post_extract_copies_ul	Instrument result q1 before total dilution correction, in extract copies/uL
-pmmov_raw_dilution	Total dilution multiplier D0
-pmmov_post_dilution	Total dilution multiplier D1
-raw_extract_elution_ul	Actual Ve0 for original-water extract
-raw_extract_input_ul	Actual original-water volume Vx0 entering extraction
-pmmov_above_loq	1 only after both PMMoV measurements pass quantification and inhibition review
-alignment_qc_verified	1 only when the supplied unique/high-quality/deduplicated alignment evidence is verified
-detection_qc_verified	1 only after target detection, distribution and negative-background criteria are verified
-loq_reaction_copies_ul	Externally validated concentration LoQ for this run, reaction copies/uL; NA is never inferred from minimum detected ERCC
-input_record	Record annotation; retained in audit output
-notes	Record annotation; retained in audit output
+field	type	requirement	unit	description
+sample_id	string	required	1	Sample identifier matching the EsViritu sample_ID and filename prefix.
+sample_type	enum	required	1	wastewater, negative_control or reference_material.
+batch_id	string	optional	1	Batch identifier used with replicate_group for replicate diagnostics.
+replicate_group	string	optional	1	Identifier shared only by comparable technical replicates.
+library_input_volume_ul	float	required	uL	Extract volume entering the starting library reaction; excludes ERCC and water.
+library_input_mass_ng	float	required	ng	Total DNA plus RNA mass in the extract aliquot before ERCC addition.
+extract_nucleic_acid_concentration_ng_ul	float	required	ng/uL	Combined DNA plus RNA concentration; mass must equal concentration times input volume.
+ercc_mix	enum	required	1	Mix1; concentration assignments describe commercial ERCC RNA Spike-In Mix 1.
+ercc_dilution_factor	float	required	1	Total dilution factor relative to the manufacturer stock; not a dilution percentage.
+ercc_spike_volume_ul	float	required	uL	Actual diluted ERCC volume added; zero for an unspiked control.
+reaction_volume_ul	float	required	uL	Total starting reaction volume including extract, ERCC and water.
+info_tsv	path	conditional	1	Original detection table; relative paths resolve against the sample manifest directory.
+total_effective_bases	float	conditional	bases	Measured total analysis-input bases; takes priority over fastp_json.
+fastp_json	path	conditional	1	Matching fastp report, used when total_effective_bases is missing; sibling sample.fastp.json is searched if absent.
+fastp_section	enum	conditional	1	before_filtering or after_filtering, selected explicitly to match the actual analysis-input read set.
+alignment_metrics_tsv	path	optional	1	collect-bam alignment metrics; otherwise full-reference EsViritu mean_coverage times Length is used.
+extract_elution_volume_ul	float	conditional	uL	Actual elution volume of the concentrate extraction.
+extraction_input_volume_ul	float	conditional	uL	Actual concentrate aliquot extracted, excluding lysis reagents.
+concentrate_volume_ml	float	conditional	mL	Total recovered concentrate volume before the extraction aliquot was taken.
+wastewater_volume_ml	float	conditional	mL	Original wastewater volume represented by the concentrate.
+pmmov_recovery_fraction	float	conditional	1	PMMoV mass recovery fraction; 0.25 represents 25 percent. Alternatively provide complete paired dPCR inputs.
+pmmov_raw_extract_copies_ul	float	conditional	copies/uL	Original-water extract dPCR result before dilution correction.
+pmmov_post_extract_copies_ul	float	conditional	copies/uL	Concentrate extract dPCR result before dilution correction.
+pmmov_raw_dilution	float	conditional	1	Total dilution correction multiplier for the original-water dPCR result.
+pmmov_post_dilution	float	conditional	1	Total dilution correction multiplier for the concentrate dPCR result.
+raw_extract_elution_volume_ul	float	conditional	uL	Actual original-water extraction elution volume.
+raw_extraction_input_volume_ul	float	conditional	uL	Actual original-water aliquot entering the separate extraction.
+pmmov_above_loq	boolean	conditional	1	1 only when both PMMoV assays satisfy the independently established quantification and inhibition criteria.
+alignment_qc_verified	boolean	conditional	1	External verification of mapping quality, duplicate handling and reference-specific alignment evidence.
+detection_qc_verified	boolean	conditional	1	External verification of target detection, coverage distribution and negative-control background.
+calibration_transfer_verified	boolean	conditional	1	External evidence supporting transfer of ERCC response to the target chemistry, capture panel and matrix.
+loq_reaction_copies_ul	float	conditional	copies/uL	Independently validated target LoQ on the starting reaction scale; target-specific overrides are supported.
+notes	string	optional	1	Free-text sample annotation; no default experimental values are supplied.

@@ -1,46 +1,20 @@
 {
-  "protocol_file": "20261014-基于捕获测序的污水多病原定量实验方案-实施版(1).docx",
-  "protocol_sha256": "77f3353cef701712d13b127a10d5984e9c0477844231989a3fa4007c13376855",
-  "method1_equations": "9-17",
-  "method2_equations": "18-22 then 16-17",
-  "actual_record_override": {
-    "commercial_transcripts": 92,
-    "dilution": 1000,
-    "working_spike_ul": 2,
-    "starting_volume_ul": 14,
-    "input_mass": "100ng RNA plus actual DNA co-input, not 100ng total"
-  },
-  "ERCC_analysis_url": "https://assets.thermofisher.com/TFS-Assets/LSG/manuals/cms_095046.txt",
-  "ERCC_analysis_sha256": "5151b394332477301851404d37b907cb6f27c9aaa2569e288531a839d6ca2b3b",
-  "ERCC_reference_metadata_sha256": "dce0d6cc49ed355afbfb4538a460874c3743d11be106724ec16e8cec6096573e",
-  "exclusions": [
+  "schema_version": "1.0",
+  "ercc_mix": "Mix1",
+  "commercial_transcript_count": 92,
+  "concentration_source_url": "https://assets.thermofisher.com/TFS-Assets/LSG/manuals/cms_095046.txt",
+  "concentration_source_sha256": "5151b394332477301851404d37b907cb6f27c9aaa2569e288531a839d6ca2b3b",
+  "reference_metadata_sha256": "dce0d6cc49ed355afbfb4538a460874c3743d11be106724ec16e8cec6096573e",
+  "excluded_nist_transcripts": [
     "ERCC-00007",
     "ERCC-00018",
     "ERCC-00023",
     "ERCC-00128"
   ],
-  "Avogadro_constant": 6.02214076e+23,
-  "RNA_mass_g_mol_nt": 340,
-  "dsDNA_mass_g_mol_bp": 660,
-  "sources": [
-    {
-      "filename": "20261014-第一次捕获定量实验-提取建库记录(1).xlsx",
-      "sha256": "d2e8155eb236727d2614d00dd1e2db186beb1d014ec800f97a1bbbf0e711716e"
-    },
-    {
-      "filename": "20261013-第一次捕获定量实验-提取实验数据信息(1).xlsx",
-      "sha256": "4b93f1a0db8d4ce9242c2314cabb8267951a1a9849aa423536978ee4f88ea949"
-    }
-  ],
-  "unresolved_experimental_fields": [
-    "actual extraction input concentrate volume",
-    "actual elution volume",
-    "actual original wastewater volume",
-    "PMMoV recovery/dPCR"
-  ],
-  "not_assumed": [
-    "post-lysis 370uL is not Vx1",
-    "minimum detected ERCC is not a validated LoQ",
-    "ERCC RNA calibration does not establish equal RNA/DNA response"
-  ]
+  "avogadro_constant_mol_inverse": 6.02214076e+23,
+  "rna_molecular_mass_per_nt_g_mol": 340,
+  "double_stranded_dna_molecular_mass_per_bp_g_mol": 660,
+  "alignment_statistics_source": "https://github.com/cmmr/EsViritu/blob/v1.1.2/src/EsViritu/esv_funcs.py",
+  "model_definitions": "docs/METHODS.md",
+  "concentration_assignment": "Nominal manufacturer Mix 1 values; dilution and pipetting uncertainty are not supplied."
 }

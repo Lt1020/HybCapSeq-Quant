@@ -1,6 +1,9 @@
+"""Command-line contracts, provenance, and relocation checks."""
+
 import contextlib
 import importlib.util
 import io
+import json
 import os
 from pathlib import Path
 import shutil
@@ -8,9 +11,11 @@ import tempfile
 import unittest
 
 from hybcapseq_quant.cli import choose_table, main
-from hybcapseq_quant.core import read_tsv, write_tsv
+from hybcapseq_quant.core import CONC, WWCONC, METHODS, read_tsv, write_tsv
 
-SPEC = importlib.util.spec_from_file_location("portable_demo", Path(__file__).parents[1] / "examples/quant/generate_demo.py")
+SPEC = importlib.util.spec_from_file_location(
+    "portable_fixture", Path(__file__).parents[1] / "examples/quant/generate_demo.py"
+)
 DEMO = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(DEMO)
 
@@ -24,107 +29,307 @@ class PortableDirectoriesTests(unittest.TestCase):
         self.temp.cleanup()
 
     def command(self, args):
-        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+        with (
+            contextlib.redirect_stdout(io.StringIO()),
+            contextlib.redirect_stderr(io.StringIO()),
+        ):
             return main([str(v) for v in args])
 
-    def test_default_init_is_generic_not_historical_records(self):
+    def test_empty_template_has_no_experimental_defaults(self):
         out = self.root / "inputs"
         self.assertEqual(self.command(["init", "--outdir", out]), 0)
         fields, rows = read_tsv(out / "samples.tsv")
-        self.assertIn("reaction_volume_ul", fields)
+        self.assertIn("library_input_volume_ul", fields)
         self.assertEqual(rows, [])
-        self.assertFalse((out / "samples_20261017.tsv").exists())
 
-    def test_init_discovers_current_sample_names_and_leaves_inputs_unknown(self):
-        results = self.root / "results for another cohort"
-        DEMO.create(results / "nested folder", sid="NEW_SITE_X")
-        DEMO.create(results / "another folder", sid="NEW_SITE_Y")
+    def test_discovery_leaves_experimental_fields_unknown(self):
+        results = self.root / "results with spaces"
+        DEMO.create(results / "first", sid="SAMPLE_A")
+        DEMO.create(results / "second", sid="SAMPLE_B")
         out = self.root / "inputs"
-        self.assertEqual(self.command(["init", "--esviritu-dir", results, "--outdir", out]), 0)
+        self.assertEqual(
+            self.command(["init", "--esviritu-dir", results, "--outdir", out]), 0
+        )
         _, rows = read_tsv(out / "samples.tsv")
-        self.assertEqual({r["sample_ID"] for r in rows}, {"NEW_SITE_X", "NEW_SITE_Y"})
+        self.assertEqual({r["sample_id"] for r in rows}, {"SAMPLE_A", "SAMPLE_B"})
         for row in rows:
-            self.assertEqual(row["sample_input_mass_ng"], "NA")
-            self.assertEqual(row["ercc_dilution"], "NA")
+            for name in [
+                "library_input_mass_ng",
+                "ercc_dilution_factor",
+                "reaction_volume_ul",
+                "fastp_section",
+            ]:
+                self.assertEqual(row[name], "NA")
             self.assertFalse(Path(row["info_tsv"]).is_absolute())
             self.assertTrue((out / row["info_tsv"]).is_file())
 
-    def test_historical_13_samples_require_explicit_preset(self):
-        out = self.root / "historical inputs"
-        self.assertEqual(self.command(["init", "--preset", "20261017", "--outdir", out]), 0)
-        _, rows = read_tsv(out / "samples_20261017.tsv")
-        self.assertEqual(len(rows), 13)
-        self.assertFalse((out / "samples.tsv").exists())
-
-    def test_init_can_accept_entirely_new_manual_sample_ids(self):
-        out = self.root / "new inputs"
-        self.assertEqual(self.command(["init", "--sample", "FUTURE_01", "FUTURE_02", "--outdir", out]), 0)
+    def test_manual_identifiers(self):
+        out = self.root / "inputs"
+        self.assertEqual(
+            self.command(["init", "--sample", "SAMPLE_A", "SAMPLE_B", "--outdir", out]),
+            0,
+        )
         _, rows = read_tsv(out / "samples.tsv")
-        self.assertEqual([r["sample_ID"] for r in rows], ["FUTURE_01", "FUTURE_02"])
+        self.assertEqual([r["sample_id"] for r in rows], ["SAMPLE_A", "SAMPLE_B"])
 
-    def test_moving_batch_and_changing_CWD_preserves_relative_inputs(self):
-        original = self.root / "original batch with spaces"
-        results = original / "any output name" / "per sample"
-        sample, _ = DEMO.create(results, sid="FUTURE_SITE")
-        inputs = original / "input files"
-        self.assertEqual(self.command(["init", "--esviritu-dir", original / "any output name", "--outdir", inputs]), 0)
+    def test_relocation_and_cwd_independence(self):
+        original = self.root / "project with spaces"
+        results = original / "mapping results" / "sample"
+        sample, _ = DEMO.create(results, sid="SAMPLE_A")
+        inputs = original / "input tables"
+        self.assertEqual(
+            self.command(
+                [
+                    "init",
+                    "--esviritu-dir",
+                    original / "mapping results",
+                    "--outdir",
+                    inputs,
+                ]
+            ),
+            0,
+        )
         fields, rows = read_tsv(inputs / "samples.tsv")
         rows[0].update(sample)
         write_tsv(inputs / "samples.tsv", rows, fields)
-        relocated = self.root / "renamed batch on another path"
+        relocated = self.root / "relocated project"
         shutil.move(str(original), relocated)
-        other_cwd = self.root / "unrelated working directory"
-        other_cwd.mkdir()
+        unrelated = self.root / "different working directory"
+        unrelated.mkdir()
         previous = Path.cwd()
         try:
-            os.chdir(other_cwd)
-            code = self.command(["--samples", relocated / "input files/samples.tsv",
-                                 "--processed-dir", relocated])
+            os.chdir(unrelated)
+            code = self.command(
+                [
+                    "run",
+                    "--samples",
+                    relocated / "input tables/samples.tsv",
+                    "--processed-dir",
+                    relocated,
+                ]
+            )
         finally:
             os.chdir(previous)
         self.assertEqual(code, 0)
-        root = relocated / "HybCapSeq_Quant_results"
-        self.assertFalse((other_cwd / "HybCapSeq_Quant_results").exists())
-        for method in ("method1_yield", "method2_depth"):
-            _, values = read_tsv(next((root / method / "FUTURE_SITE").glob("*.info.quantified.*.tsv")))
+        root = relocated / "hybcapseq_quant_results"
+        self.assertFalse((unrelated / "hybcapseq_quant_results").exists())
+        for method in METHODS:
+            _, values = read_tsv(
+                root / method / "SAMPLE_A/SAMPLE_A.reference_quantification.tsv"
+            )
             target = next(v for v in values if v["Accession"] == "SIM_RNA")
-            self.assertAlmostEqual(float(target["浓度concentration_ERCC"]), 10000 / 14, places=7)
+            self.assertAlmostEqual(float(target[CONC]), 10000 / 14, places=7)
 
-    def test_current_explicit_result_directory_overrides_saved_old_path(self):
-        old = self.root / "previous data"
-        new = self.root / "current data"
-        DEMO.create(old, sid="SAME_ID")
-        DEMO.create(new, sid="SAME_ID")
-        old_path = old / "SAME_ID.detected_virus.info.tsv"
-        new_path = new / old_path.name
-        sample = {"sample_ID": "SAME_ID", "info_tsv": str(old_path)}
-        self.assertEqual(choose_table(sample, new, None, self.root), new_path)
-        self.assertEqual(choose_table(sample, new, old_path, self.root), old_path)
+    def test_explicit_location_priority(self):
+        left, right = self.root / "left", self.root / "right"
+        DEMO.create(left, sid="SAMPLE_A")
+        DEMO.create(right, sid="SAMPLE_A")
+        source = left / "SAMPLE_A.detected_virus.info.tsv"
+        sample = {"sample_id": "SAMPLE_A", "info_tsv": str(source)}
+        self.assertEqual(
+            choose_table(sample, right, None, self.root), right / source.name
+        )
+        self.assertEqual(choose_table(sample, right, source, self.root), source)
 
-    def test_explicit_outdir_can_be_outside_processed_directory(self):
-        results = self.root / "input data"
-        DEMO.create(results)
-        processed = self.root / "working location"
-        separate = self.root / "independent output disk"
-        self.assertEqual(self.command(["--samples", results / "samples.tsv", "--esviritu-dir", results,
-                                      "--processed-dir", processed, "--outdir", separate,
-                                      "--method", "method2_depth"]), 0)
+    def test_explicit_outdir_takes_priority(self):
+        source = self.root / "mapping"
+        DEMO.create(source)
+        processed, separate = self.root / "project", self.root / "outputs"
+        self.assertEqual(
+            self.command(
+                [
+                    "run",
+                    "--samples",
+                    source / "samples.tsv",
+                    "--esviritu-dir",
+                    source,
+                    "--processed-dir",
+                    processed,
+                    "--outdir",
+                    separate,
+                    "--method",
+                    METHODS[1],
+                ]
+            ),
+            0,
+        )
         self.assertTrue((separate / "run_summary.tsv").is_file())
-        self.assertFalse((processed / "HybCapSeq_Quant_results").exists())
+        self.assertFalse((processed / "hybcapseq_quant_results").exists())
 
-    def test_existing_exclusion_file_is_not_overwritten_on_init(self):
+    def test_existing_inputs_are_not_overwritten(self):
         out = self.root / "inputs"
         out.mkdir()
-        (out / "ercc_qc.tsv").write_text("important existing exclusions\n")
+        (out / "ercc_qc.tsv").write_text("Existing records\n")
         self.assertEqual(self.command(["init", "--outdir", out]), 2)
-        self.assertEqual((out / "ercc_qc.tsv").read_text(), "important existing exclusions\n")
+        self.assertEqual((out / "ercc_qc.tsv").read_text(), "Existing records\n")
         self.assertFalse((out / "samples.tsv").exists())
 
-    def test_ambiguous_same_sample_across_batches_is_rejected(self):
-        results = self.root / "many batches"
-        DEMO.create(results / "batch A", sid="SAME_ID")
-        DEMO.create(results / "batch B", sid="SAME_ID")
-        self.assertEqual(self.command(["init", "--esviritu-dir", results, "--outdir", self.root / "inputs"]), 2)
+    def test_ambiguous_same_sample_is_rejected(self):
+        mapping = self.root / "mapping"
+        DEMO.create(mapping / "batch_a", sid="SAMPLE_A")
+        DEMO.create(mapping / "batch_b", sid="SAMPLE_A")
+        self.assertEqual(
+            self.command(
+                ["init", "--esviritu-dir", mapping, "--outdir", self.root / "inputs"]
+            ),
+            2,
+        )
+
+    def test_source_columns_preserved_and_new_fields_follow_rpkmf(self):
+        source, out = self.root / "mapping", self.root / "quantification"
+        _, original = DEMO.create(source)
+        self.assertEqual(
+            self.command(
+                [
+                    "run",
+                    "--samples",
+                    source / "samples.tsv",
+                    "--outdir",
+                    out,
+                    "--esviritu-dir",
+                    source,
+                ]
+            ),
+            0,
+        )
+        for method in METHODS:
+            folder = out / method / "SIMULATED_01"
+            fields, values = read_tsv(
+                folder / "SIMULATED_01.reference_quantification.tsv"
+            )
+            index = fields.index("RPKMF")
+            self.assertEqual(fields[index + 1 : index + 3], [CONC, WWCONC])
+            self.assertTrue(all(c.isascii() for c in fields))
+            for row, annotated in zip(original, values):
+                for key, value in row.items():
+                    self.assertEqual(annotated[key], str(value))
+            for figure in ["calibration_curve", "reaction_concentration_curve"]:
+                for suffix in ["png", "pdf"]:
+                    self.assertGreater(
+                        (folder / f"SIMULATED_01.{figure}.{suffix}").stat().st_size,
+                        1000,
+                    )
+            _, points = read_tsv(folder / "SIMULATED_01.calibration_points.tsv")
+            self.assertEqual(len(points), 92)
+            self.assertTrue(all(p["included_in_model"] == "true" for p in points))
+            self.assertLess(max(abs(float(p["residual_log10"])) for p in points), 1e-8)
+        manifest = json.loads((out / "run_manifest.json").read_text())
+        self.assertEqual(len(manifest["input_files"]["samples"]["sha256"]), 64)
+        self.assertIn("settings", manifest)
+
+    def test_batch_mode_and_single_sample_selection(self):
+        source = self.root / "mapping"
+        a, _ = DEMO.create(source / "first", sid="SAMPLE_A")
+        b, _ = DEMO.create(source / "second", sid="SAMPLE_B")
+        write_tsv(self.root / "samples.tsv", [a, b])
+        common = [
+            "run",
+            "--samples",
+            self.root / "samples.tsv",
+            "--esviritu-dir",
+            source,
+        ]
+        self.assertEqual(self.command(common + ["--outdir", self.root / "all"]), 0)
+        _, rows = read_tsv(self.root / "all/run_summary.tsv")
+        self.assertEqual(len(rows), 4)
+        self.assertEqual(
+            self.command(
+                common + ["--sample", "SAMPLE_B", "--outdir", self.root / "one"]
+            ),
+            0,
+        )
+        _, rows = read_tsv(self.root / "one/run_summary.tsv")
+        self.assertEqual(len(rows), 2)
+        self.assertEqual({r["sample_id"] for r in rows}, {"SAMPLE_B"})
+
+    def test_existing_results_are_not_mixed(self):
+        source = self.root / "mapping"
+        DEMO.create(source)
+        out = self.root / "output"
+        out.mkdir()
+        (out / "existing.txt").write_text("Existing analysis\n")
+        self.assertEqual(
+            self.command(
+                [
+                    "run",
+                    "--samples",
+                    source / "samples.tsv",
+                    "--esviritu-dir",
+                    source,
+                    "--outdir",
+                    out,
+                ]
+            ),
+            2,
+        )
+        self.assertEqual(list(out.iterdir()), [out / "existing.txt"])
+
+    def test_fastq_uses_actual_base_lengths(self):
+        fastq = self.root / "reads.fastq"
+        fastq.write_text("@r1\nACGT\n+\nIIII\n@r2\nACGTAC\n+\nIIIIII\n")
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            self.assertEqual(
+                main(
+                    ["measure-input-bases", "--sample", "SAMPLE_A", "--r1", str(fastq)]
+                ),
+                0,
+            )
+        self.assertEqual(json.loads(out.getvalue())["total_effective_bases"], 10)
+
+    def test_unknown_fields_and_invalid_identifiers_are_rejected(self):
+        source = self.root / "mapping"
+        sample, _ = DEMO.create(source)
+        sample["unexpected_field"] = 1
+        write_tsv(source / "samples.tsv", [sample])
+        self.assertEqual(
+            self.command(
+                ["run", "--samples", source / "samples.tsv", "--esviritu-dir", source]
+            ),
+            2,
+        )
+        self.assertEqual(
+            self.command(
+                ["init", "--sample", "../SAMPLE", "--outdir", self.root / "inputs"]
+            ),
+            2,
+        )
+
+    def test_invalid_settings_are_rejected(self):
+        source = self.root / "mapping"
+        DEMO.create(source)
+        for args in [
+            ["--min-r2", "1.1"],
+            ["--min-levels", "3"],
+            ["--slope-min", "2", "--slope-max", "1"],
+        ]:
+            self.assertEqual(
+                self.command(
+                    [
+                        "run",
+                        "--samples",
+                        source / "samples.tsv",
+                        "--esviritu-dir",
+                        source,
+                    ]
+                    + args
+                ),
+                2,
+            )
+
+    def test_target_template_contains_only_virus_references(self):
+        source = self.root / "mapping"
+        DEMO.create(source)
+        out = self.root / "targets.tsv"
+        self.assertEqual(
+            self.command(
+                ["prepare-targets", "--esviritu-dir", source, "--output", out]
+            ),
+            0,
+        )
+        _, rows = read_tsv(out)
+        self.assertEqual(len(rows), 3)
+        self.assertFalse(any(r["accession"].startswith("ERCC-") for r in rows))
 
 
 if __name__ == "__main__":

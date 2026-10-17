@@ -4,19 +4,24 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hybcapseq-quant"
-version = "0.2.1"
+version = "1.0.0"
 description = "Two-method ERCC calibration of EsViritu results and wastewater concentration conversion"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 readme = "README.md"
 dependencies = ["matplotlib>=3.7,<4"]
 
+[project.urls]
+Repository = "https://github.com/Lt1020/HybCapSeq-Quant"
+Documentation = "https://github.com/Lt1020/HybCapSeq-Quant/blob/main/README.md"
+Issues = "https://github.com/Lt1020/HybCapSeq-Quant/issues"
+
 [project.scripts]
-ercc-audit = "ercc_audit.cli:main"
 hybcapseq_quant = "hybcapseq_quant.cli:main"
 
 [project.optional-dependencies]
 bam = ["pysam>=0.22,<0.24"]
+dev = ["black==25.1.0"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -24,3 +29,6 @@ where = ["src"]
 [tool.setuptools.package-data]
 hybcapseq_quant = ["data/*.tsv", "data/*.txt", "data/*.json"]
 
+[tool.black]
+line-length = 88
+target-version = ["py310"]

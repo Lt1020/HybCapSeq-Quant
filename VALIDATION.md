@@ -1,9 +1,47 @@
-# 验证范围
+# Software verification
 
-版本0.2.1在上述定量计算基础上新增9项目录与新批次测试，本地合计54项全部通过。覆盖更换批次路径、目录名含空格、整体搬迁后从其他当前目录运行、任意独立输出目录、显式结果目录覆盖旧保存路径、通用样本初始化、历史记录显式选择和防止覆盖已有排除表。两套定量公式未改变。该版本的GitHub多版本安装与测试状态以对应提交的Actions为准。
+## Analytical fixture
 
-2026-10-17，版本0.2.0本地通过45项单元和集成测试，包括原有21项校准/参考测试，以及24项EsViritu结果定量测试。验证了官方92条/22梯度、实际RNA＋DNA投入、双方法回算、分节段合并、单样本与批量运行、PMMoV回收公式、mL/L单位换算、范围外目标、曲线质量判定、原表列保留、图件输出和可选BAM计数。BAM测试使用pysam 0.23.3，排除重复标记、secondary/supplementary及低MAPQ比对，并核对已知累计碱基数与覆盖广度。
+`examples/quant/generate_demo.py` generates explicitly simulated reference observations under a continuous, noiseless response model:
 
-新演示使用已知信号模型“累计比对碱基数＝输入RNA质量(ng)×10^10”。模拟RNA与分节段RNA各投入10,000 copies；两套方法均恢复为714.285714 copies/µL起始体系、5000 copies/µL提取液及61333.333333 copies/mL污水。两条曲线的斜率与R²均为1，符合预先构造关系；这不是实际实验性能。回归图已检查坐标和标注。
+\[
+n_j=10^9m_j,
+\]
 
-13行样本输入来自真实实验记录；公开测序演示全部为模拟数据。尚无用户本次真实测序TSV、完整PMMoV定量和实际体积记录，因此未生成或声称验证本次真实病毒浓度、真实LoD/LoQ或dPCR一致性。GitHub Python 3.10/3.11/3.12的安装与测试结果以该提交Actions状态为准。
+where mass is expressed in ng. The fixture includes the 92 commercial Mix 1 standards, a single RNA reference with 10,000 input molecules, and a two-segment RNA reference with the same molecule count. Segment lengths sum to the locked complete reference length. Read-count and breadth columns support input-contract tests; the continuous signal is an analytical fixture, not simulated raw sequencing reads or experimental data.
+
+With a 14 µL reaction, a 2 µL extract aliquot and the supplied synthetic conversion parameters, the expected target concentrations are:
+
+| Quantity | Analytical value |
+|---|---:|
+| Reaction concentration | 10,000 / 14 copies/µL |
+| Extract concentration | 5,000 copies/µL |
+| Wastewater concentration | 61,333.3333333 copies/mL |
+
+These values are recovered independently by both estimators. Validation flags and LoQ in the fixture are synthetic assertions used to exercise reporting; they do not represent laboratory validation.
+
+## Verification domains
+
+The automated suite checks official stock assignments and original-source checksums, reference lengths, dilution and Avogadro conversion, inclusion of all spiked standard mass, arithmetic-mean yield estimation, normalized-depth calibration, target molecular mass, segment aggregation, mass-balance recovery and unit conversion. It also checks failed slope criteria despite perfect R², adjacent-level requirements, non-extrapolation, missing inputs, reporting policy, target-specific LoQ, unspiked controls and optional replicate filtering.
+
+Command-line checks cover single-sample and batch execution, source-column preservation, English output fields, input/output conflict detection, relative paths, relocation, directory names with spaces, independent working directories, installed schemas, provenance and figure generation. Optional BAM checks use a constructed alignment file containing known duplicate, secondary, supplementary and multi-mapping records.
+
+GitHub Actions runs the suite and analytical example under Python 3.10, 3.11 and 3.12. Each job retains its generated result files and plots as an artifact. The status for a particular analysis must be taken from its exact commit, not inferred from the project badge alone.
+
+## Reproduction
+
+```bash
+python -m pip install '.[bam]'
+python -m unittest discover -s tests -v
+python examples/quant/generate_demo.py
+hybcapseq_quant run \
+  --samples examples/quant/samples.tsv \
+  --esviritu-dir examples/quant \
+  --outdir analytical_example_results
+```
+
+The output directory must not already contain another analysis. Tests operate in temporary directories.
+
+## Interpretation
+
+These checks establish mathematical and software behavior for the tested inputs. They do not establish target-specific trueness, precision, LoD, LoQ, unbiased RNA-to-DNA calibration transfer, or representativeness of PMMoV recovery. No experimental performance metric is inferred from the fixture.

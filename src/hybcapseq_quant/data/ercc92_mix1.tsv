@@ -1,4 +1,4 @@
-ERCC_ID	subgroup	mix1_attomol_ul	stock_copies_ul	Length	level	fit_include	concentration_source	length_source
+ercc_id	subgroup	stock_attomol_ul	stock_copies_ul	length_nt	level	fit_include	concentration_source	length_source
 ERCC-00002	D	15000	9033211140	1061	21	1	Thermo Fisher cms_095046.txt	EsViritu custom v3.3 NIST SRM2374 certified_v1 reference
 ERCC-00003	D	937.5	564575696.25	1023	17	1	Thermo Fisher cms_095046.txt	EsViritu custom v3.3 NIST SRM2374 certified_v1 reference
 ERCC-00004	A	7500	4516605570	523	20	1	Thermo Fisher cms_095046.txt	EsViritu custom v3.3 NIST SRM2374 certified_v1 reference
