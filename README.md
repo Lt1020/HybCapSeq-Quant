@@ -27,6 +27,50 @@ python -m pip install '.[bam]'
 
 论文分析应固定 Git 提交、软件依赖及数据库校验和。运行记录包含版本、参数、输入文件 SHA256 和样本级计算依据。
 
+## 升级与数据库注释安装
+
+已有克隆和安装的环境可以直接更新：
+
+```bash
+cd HybCapSeq-Quant
+git pull --ff-only
+python -m pip install --upgrade .
+hybcapseq_quant --version
+```
+
+本版本为 **2.0.0**。将环境变量 `DB_DIR` 设置为本次联合比对实际使用的 v3.3 数据库目录，再安装和校验分子注释：
+
+```bash
+hybcapseq_quant install-references --db-dir "$DB_DIR"
+hybcapseq_quant validate-db --db-dir "$DB_DIR"
+```
+
+安装命令解压软件附带的全量注释，在数据库目录生成以下两个文件：
+
+- `virus_pathogen_database.molecular_annotations.tsv`
+- `virus_pathogen_database.molecular_annotations.manifest.json`
+
+原有 FASTA、MMI 和 metadata 无需改写或重建；`ESVIRITU_DB` 环境变量不受影响。定量时用 `--db-dir` 显式选择与联合比对一致的数据库。安装会校验 metadata 的 SHA256；数据库内容不匹配时终止，避免混用参考版本。相同注释重复安装不会改动文件；已有不同注释需先审阅，再显式使用 `--replace`。
+
+## Accession 分子注释
+
+注释覆盖 v3.3 的 **31,003** 条参考，包括 30,907 条病毒参考和 96 条 ERCC 转录本参考。逐条检索 NCBI Nuccore 的精确 `Accession.version` 并核对长度，再匹配 ICTV 官方 `VMR_MSL41.v1.20260729` 的基因组类型。ICTV 匹配层级依次为 accession、species、genus、family、order；分类层级支持的分子类型必须一致。`f__` 等前缀仅在匹配时移除，原始注释保留。
+
+NCBI 中的序列记录可能描述 DNA 克隆、cDNA 或复制形式，因此同时保留 NCBI 记录类型和 ICTV 基因组类型。病毒基因组当量模型优先采用 ICTV 基因组类型，记录差异及证据，不据此断言个别样本中的实际物理核酸形式。不能确认的链型或质量保留 `NA`。
+
+| 基因组类型 | 参考位置质量系数，g/mol | 条目数 |
+|---|---:|---:|
+| ssRNA | 340 | 17,868 |
+| dsRNA | 680 | 7,579 |
+| ssDNA | 330 | 3,740 |
+| dsDNA | 660 | 1,542 |
+| 部分双链 DNA | NA | 263 |
+| RNA，链型未确认 | NA | 11 |
+
+以上系数是明确声明的平均质量近似模型。dsRNA 的 680 为两条 RNA 链各 340 的合计；不是另一份实验测得的常数。参考序列长度表示一条链的位置数；双链系数已包括互补链。注释表分别输出理论摩尔质量（g/mol）、单分子理论质量（g 和 ng），并区分单条参考与完整 assembly 质量。30,729 条参考可赋予理论质量；274 条保留 NA。一个包含 8 条参考的 assembly 存在上游长度不一致，另作标记，不参与两种方法的定量。96 条 ERCC 均可描述为 RNA 转录本参考，商业 Mix 1 浓度只赋予其中 92 条。
+
+下载文件、全部字段、来源与离线重建方法见 [分子注释说明](references/molecular_annotations/README_zh.md)。软件运行无需联网检索 NCBI/ICTV。原始来源记录摘要和校验和随软件分发。
+
 ## 准备输入
 
 从实际 EsViritu 结果目录发现样本并生成模板：
@@ -60,10 +104,11 @@ hybcapseq_quant init --sample SAMPLE_A SAMPLE_B --outdir inputs
 ```bash
 hybcapseq_quant prepare-targets \
   --esviritu-dir esviritu_results \
+  --db-dir "$DB_DIR" \
   --output inputs/targets.tsv
 ```
 
-需要核对数据库中完整参考长度时，可加 `--db-metadata` 并提供本次比对使用的 `virus_pathogen_database.all_metadata.tsv`。靶标表中非 `NA` 的验证值和 LoQ 优先于样本表。阴性对照应按真实操作填写 `negative_control` 和 ERCC 投入，不根据样本名称推断加样情况。
+`--db-dir` 从全量注释载入精确 accession 的分子类型和完整 assembly 长度；仅需逐靶标提供实验验证信息时再使用 `--targets`。不使用数据库注释时，产率法必须提供有来源的显式靶标质量赋值表。靶标表中非 `NA` 的验证值和 LoQ 优先于样本表。阴性对照应按真实操作填写 `negative_control` 和 ERCC 投入，不根据样本名称推断加样情况。
 
 ## 运行定量
 
@@ -73,7 +118,7 @@ hybcapseq_quant prepare-targets \
 hybcapseq_quant run \
   --samples inputs/samples.tsv \
   --esviritu-dir esviritu_results \
-  --targets inputs/targets.tsv \
+  --db-dir "$DB_DIR" \
   --outdir quantification_results \
   --method both
 ```
@@ -85,11 +130,14 @@ hybcapseq_quant run \
   --samples inputs/samples.tsv \
   --sample SAMPLE_A \
   --input-tsv esviritu_results/SAMPLE_A.detected_virus.info.tsv \
+  --db-dir "$DB_DIR" \
   --outdir quantification_sample_a \
   --method both
 ```
 
 `--sample` 可指定一个或多个样本；省略时处理整张样本表。`--method` 可选 `both`、`sequencing_yield` 或 `depth_calibration`。污水单位默认 `copies/mL`，通过 `--wastewater-unit copies/L` 切换。
+
+需要靶标级验证或实际核酸材料的明确质量赋值时，可附加 `--targets inputs/targets.tsv`。该表中非 NA 的值优先；分子类型与质量系数必须一致，质量赋值须提供来源。
 
 输入位置优先级为 `--input-tsv`、`--esviritu-dir`、样本表 `info_tsv`。程序递归发现原始检出表；同一样本匹配到多个文件时终止。样本表中的相对路径以该表所在目录解析，命令中的相对路径以执行目录解析。
 
@@ -123,7 +171,7 @@ hybcapseq_quant run \
 
 主结果列为 `concentration_reaction_copies_ul` 和 `concentration_wastewater`。后者的单位由 `wastewater_concentration_unit` 给出。`estimated_*` 与报告列必须结合 `value_origin`、`reporting_mode` 和 `quantification_status` 解读。分节段参考的每个检出行可重复显示同一目标浓度；不能将这些行相加。
 
-结果根目录另包含输入快照、`run_summary.tsv`、`replicate_diagnostics.tsv` 和 `run_manifest.json`。
+结果根目录另包含输入快照、`run_summary.tsv`、`replicate_diagnostics.tsv` 和 `run_manifest.json`。`inputs/molecular_annotations.tsv` 保存本批次检出参考的注释快照；manifest 记录全量注释、来源 manifest 和数据库 metadata 的 SHA256。主结果附带 `molecule_type`、`molecular_annotation_status`、`mass_model` 和 `quantification_molecular_mass_g_mol`。运行汇总区分可估计、可报告、超出校准范围和缺少质量的靶标数；质量完整不代表所有结果都满足报告条件。
 
 ## 软件验证与方法适用性
 
@@ -133,6 +181,7 @@ python examples/quant/generate_demo.py
 hybcapseq_quant run \
   --samples examples/quant/samples.tsv \
   --esviritu-dir examples/quant \
+  --targets examples/quant/targets.tsv \
   --outdir analytical_example_results
 ```
 

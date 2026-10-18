@@ -56,7 +56,12 @@ class QuantificationTests(unittest.TestCase):
         data = data or self.load()
         settings = settings or self.settings
         cal, _, _, _ = calibrate(data, method, settings)
-        return quantify_rows(data, cal, targets or load_targets(None, [data]), settings)
+        return quantify_rows(
+            data,
+            cal,
+            targets or load_targets(self.root / "targets.tsv", [data]),
+            settings,
+        )
 
     def target(self, rows):
         return next(r for r in rows if r["Accession"] == "SIM_RNA")
@@ -104,7 +109,10 @@ class QuantificationTests(unittest.TestCase):
         mean_yield = sum(p["sequencing_yield"] for p in eligible) / len(eligible)
         self.assertAlmostEqual(calibration["mean_sequencing_yield"], mean_yield)
         results, _, _ = quantify_rows(
-            data, calibration, load_targets(None, [data]), self.settings
+            data,
+            calibration,
+            load_targets(self.root / "targets.tsv", [data]),
+            self.settings,
         )
         signal = data["signals"]["SIM_RNA"]["aligned_bases"]
         expected_mass = data["total_mass"] * signal / data["total_bases"] / mean_yield
@@ -248,7 +256,7 @@ class QuantificationTests(unittest.TestCase):
 
     def test_target_specific_loq_overrides_sample_value(self):
         data = self.load()
-        targets = load_targets(None, [data])
+        targets = load_targets(self.root / "targets.tsv", [data])
         targets["SIM_RNA"]["loq_reaction_copies_ul"] = 1000
         row = self.target(self.quantify(data, targets=targets)[0])
         self.assertIsNone(row[CONC])
@@ -275,9 +283,28 @@ class QuantificationTests(unittest.TestCase):
             )
             self.assertIsNotNone(row[CONC])
 
+    def test_duplex_rna_uses_two_strand_mass(self):
+        data = self.load()
+        targets = load_targets(self.root / "targets.tsv", [data])
+        targets["SIM_RNA"]["molecule_type"] = "dsRNA"
+        targets["SIM_RNA"]["molecular_mass_per_nt_g_mol"] = 680
+        row = self.target(self.quantify(data, targets=targets)[0])
+        self.assertAlmostEqual(row["estimated_reaction_copies_ul"], 10000 / 28)
+
+    def test_invalid_assembly_length_suppresses_both_estimators(self):
+        data = self.load()
+        targets = load_targets(self.root / "targets.tsv", [data])
+        targets["SIM_RNA"]["_reference_length_valid"] = False
+        for method in METHODS:
+            row = self.target(self.quantify(data, method=method, targets=targets)[0])
+            self.assertIsNone(row["estimated_reaction_copies_ul"])
+            self.assertIn(
+                "inconsistent_database_assembly_length", row["quantification_status"]
+            )
+
     def test_molecular_mass_factor_controls_yield_conversion(self):
         data = self.load()
-        targets = load_targets(None, [data])
+        targets = load_targets(self.root / "targets.tsv", [data])
         targets["SIM_RNA"]["molecular_mass_per_nt_g_mol"] = 660
         row = self.target(self.quantify(data, targets=targets)[0])
         self.assertAlmostEqual(row[CONC], 10000 / 14 * 340 / 660)
@@ -340,7 +367,7 @@ class QuantificationTests(unittest.TestCase):
         rows = [r for r in self.rows if r["Accession"] != "SIM_SEG_B"]
         write_tsv(self.path, rows)
         data = self.load()
-        groups = reference_groups(data, load_targets(None, [data]))
+        groups = reference_groups(data, load_targets(self.root / "targets.tsv", [data]))
         self.assertEqual(groups["SIM_SEG_A"]["reference_length_nt"], 10000)
         self.assertEqual(groups["SIM_SEG_A"]["detected_reference_length_nt"], 4000)
         quantified, _, _ = self.quantify(data)

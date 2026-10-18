@@ -90,6 +90,24 @@ def create(out=OUT, sid="SIMULATED_01"):
         "loq_reaction_copies_ul": 1,
     }
     write(out / "samples.tsv", [sample])
+    write(
+        out / "targets.tsv",
+        [
+            {
+                "accession": acc,
+                "target_group": group,
+                "reference_length_nt": 10000,
+                "molecule_type": "ssRNA",
+                "molecular_mass_per_nt_g_mol": 340,
+                "molecular_mass_source": "SIMULATED analytical test definition",
+            }
+            for acc, group in [
+                ("SIM_RNA", "SIM_RNA"),
+                ("SIM_SEG_A", "SIM_SEGMENTED"),
+                ("SIM_SEG_B", "SIM_SEGMENTED"),
+            ]
+        ],
+    )
     return sample, rows
 
 

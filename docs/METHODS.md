@@ -23,7 +23,21 @@ ERCC is added to the library reaction after nucleic-acid extraction. Its assigne
 | $n_T$ | Total measured bases in the analysis-input read set | bases |
 | $k_v$ | Approximate molecular mass per reference position | g mol⁻¹ nt⁻¹ or g mol⁻¹ bp⁻¹ |
 
-The input identity $M_l=C_{NA}V_l$ is checked with relative tolerance $10^{-5}$ and absolute tolerance $10^{-7}$ ng. For RNA, $k=340$; for double-stranded DNA, $k=660$. These are average molecular-mass approximations. The RNA factor is not assigned to unknown DNA chemistries.
+The input identity $M_l=C_{NA}V_l$ is checked with relative tolerance $10^{-5}$ and absolute tolerance $10^{-7}$ ng. For ssRNA, dsRNA, ssDNA and dsDNA, the declared average factors are respectively 340, 680, 330 and 660 g/mol per reference position. Duplex factors include both strands; reference length counts positions on one represented strand. The dsRNA factor is derived as twice the ssRNA factor. These factors are approximate conversion conventions, not sequence-specific exact masses. No factor is assigned when chemistry or strand completion is unresolved.
+
+## Accession-resolved genome chemistry and theoretical mass
+
+The molecular annotation sidecar is joined by exact `Accession.version`; ERCC identifiers retain their official form. Each viral accession is retrieved through NCBI Nuccore ESummary and its returned accession version and sequence length are checked against the database metadata. The original NCBI molecule type, strandedness, taxonomy identifier, record update, source URL and response checksum are retained.
+
+The fixed ICTV Virus Metadata Resource is `VMR_MSL41.v1.20260729`. Matching uses accession, species, genus, family and order in that priority. A taxon-level assignment is accepted only if all supporting VMR records specify the same chemical type; polarity differences within ssRNA or ssDNA do not create a strand-count difference. Rank prefixes are removed for lookup only. The matching rank, taxon, number of supporting records, evidence checksum and workbook checksum identify the provenance of taxon-level inference.
+
+The estimand is a viral genome equivalent. ICTV genome chemistry takes priority over the chemical representation of the deposited sequence record. Disagreements remain explicit, because deposited cDNA, proviral DNA or replication intermediates do not establish the physical genomic form present in a sample. These assignments do not identify the relative amounts of coexisting RNA and DNA forms in mixed extraction. Such material-specific interpretation requires independent evidence and an explicit reviewed target manifest.
+
+For a reference of length $L_j$, theoretical molar mass is $W_j=k_jL_j$, theoretical mass per molecule is $W_j/N_A$ g, and its mass in ng is $10^9W_j/N_A$. These are calculated average-model quantities, not reported experimental molecular masses, virion masses or particle counts. A duplex uses one represented-strand length and a duplex mass factor. Assembly mass is the sum across its references only when lengths are complete and chemistry is coherent. Partially double-stranded DNA-RT is retained as a known genome category, with mass unavailable because strand completion is unspecified. An unknown strand count is never replaced by the ssRNA default.
+
+The bundled catalog contains 31,003 references: 30,907 viral sequences and 96 ERCC references. Of these, 30,729 have assigned theoretical reference mass; 263 partially duplex DNA references and 11 RNA references without confirmed strandedness retain missing mass. Eight otherwise chemically assigned references belong to one assembly whose metadata length differs from the sum of its references. Both estimators suppress this assembly with an explicit length-inconsistency status. No original alignment database file is rewritten.
+
+`--db-dir` requires the sidecar and its manifest beside the original metadata. Runtime validation checks metadata checksum, accession set, reference and assembly lengths, assembly identifiers, factor/type coherence and mass arithmetic. No online taxonomy query occurs during quantification. A selected-reference annotation snapshot and full-catalog checksums are recorded in each analysis. Yield runs require a validated catalog or an explicit sourced target manifest, preventing silent dependence on taxonomy-name heuristics.
 
 ## ERCC assignments
 
@@ -99,7 +113,7 @@ $$
 \widehat C_{r,v}=\widehat N_v/V_r.
 $$
 
-The calibration range is the fitted ERCC log mass-fraction interval. A target's inferred mass fraction is checked against that interval. If the molecular-mass factor is unavailable, the yield concentration is unavailable.
+The calibration range is the fitted ERCC log mass-fraction interval. A target's inferred mass fraction is checked against that interval. If the molecular-mass factor is unavailable, the yield concentration is unavailable and the annotation reason is exported. The depth estimator does not require molecular mass, but still requires a consistent complete reference length. Type-specific capture and conversion efficiencies are not corrected by assigning a theoretical mass.
 
 ## Normalized-depth estimator
 
@@ -186,3 +200,7 @@ The implementation provides point estimates. It does not propagate uncertainty i
 - [EsViritu](https://github.com/cmmr/EsViritu) and [coverage implementation, v1.1.2](https://github.com/cmmr/EsViritu/blob/v1.1.2/src/EsViritu/esv_funcs.py).
 - [Manufacturer ERCC concentration assignments](https://assets.thermofisher.com/TFS-Assets/LSG/manuals/cms_095046.txt), distributed verbatim with a recorded SHA256.
 - [NIST SRM 2374 reference record](https://www-s.nist.gov/srmors/view_detail.cfm?srm=2374), with sequence provenance retained in `references/ercc96`.
+
+- [ICTV Virus Metadata Resource](https://ictv.global/vmr), fixed workbook [VMR MSL41 v1, 29 July 2026](https://ictv.global/sites/default/files/VMR/VMR_MSL41.v1.20260729.xlsx). ICTV data are attributed under their published CC BY 4.0 terms.
+- [NCBI ESummary documentation](https://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.ESummary). Selected accession summaries are retained as a compressed JSONL provenance snapshot.
+- [Promega, Nucleotides and Nucleic Acids, technical reference GE634](https://www.promega.com/-/media/files/resources/technical-references/nucleotides-and-nucleic-acids.pdf). The declared model uses average factors and explicitly derives duplex RNA mass from two RNA strands.

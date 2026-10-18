@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "created_at_utc": "2026-10-18T18:08:57.236571+00:00",
+  "catalog_filename": "virus_pathogen_database.molecular_annotations.tsv",
+  "catalog_sha256": "efa18296a91ee008818c97e046e60cb6d6c8648697e27a9891fc33ff812e8c59",
+  "database_metadata_filename": "virus_pathogen_database.all_metadata.tsv",
+  "database_metadata_sha256": "bb406d8b177deede56ba3642fa2c5e7abfda56911f3fb3a91893a52da0a39ea3",
+  "reference_count": 31003,
+  "resolved_mass_count": 30729,
+  "annotation_status_counts": {
+    "resolved_ictv_genome": 26400,
+    "resolved_ictv_genome_record_strandedness_differs": 2828,
+    "resolved_ictv_genome_record_chemistry_differs": 1405,
+    "partially_double_stranded_DNA_requires_material_assignment": 263,
+    "unresolved_molecular_type": 11,
+    "assigned_ERCC_transcript_reference": 96
+  },
+  "molecule_type_counts": {
+    "ssDNA": 3740,
+    "dsDNA": 1542,
+    "ssRNA": 17868,
+    "partially_dsDNA": 263,
+    "dsRNA": 7579,
+    "NA": 11
+  },
+  "ncbi_summary_endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi",
+  "ncbi_summary_filename": "ncbi_accession_summary.jsonl.gz",
+  "ncbi_summary_sha256": "3d158f7b09b36637b8c36e39c67ca4093fef15e3c3c88b59a2c4c14f8e226cdf",
+  "ncbi_snapshot_input_sha256": "3d158f7b09b36637b8c36e39c67ca4093fef15e3c3c88b59a2c4c14f8e226cdf",
+  "ictv_vmr_url": "https://ictv.global/sites/default/files/VMR/VMR_MSL41.v1.20260729.xlsx",
+  "ictv_vmr_version": "VMR_MSL41.v1.20260729",
+  "ictv_vmr_sha256": "b79b5d82a1b3b8e9dd5e19afe8fe1a8f441267474918a7cefa8ae4913adf45bb",
+  "classification_policy": "ICTV genome chemistry has priority over deposited NCBI record chemistry; both annotations are retained. Mass represents one viral genome equivalent, not an inferred physical chemical form in an individual sample.",
+  "mass_model": "average_reference_position_v1",
+  "mass_factors_g_mol_per_reference_position": {
+    "ssRNA": 340.0,
+    "dsRNA": 680.0,
+    "ssDNA": 330.0,
+    "dsDNA": 660.0
+  },
+  "mass_interpretation": "Calculated approximate molar mass of the annotated reference molecule; not an experimentally measured molecular mass or a virion mass. Reference length represents one strand; duplex factors include both strands.",
+  "avogadro_constant_mol_inverse": 6.02214076e+23
+}

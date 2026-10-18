@@ -15,6 +15,18 @@ import sys
 from pathlib import Path
 
 from . import __version__
+from .references import (
+    CATALOG_NAME,
+    MANIFEST_NAME,
+    METADATA_NAME,
+    MASS_FACTORS,
+    MASS_MODEL,
+    annotation_summary,
+    build_catalog,
+    database_catalog,
+    install_catalog,
+    load_catalog,
+)
 from .core import (
     CONC,
     WWCONC,
@@ -77,10 +89,10 @@ def output_directory(args):
     return Path("hybcapseq_quant_results").resolve()
 
 
-def load_targets(path, datasets):
-    _, rules = read_tsv(DATA / "molecule_families.tsv")
-    rules = {r["family"]: r for r in rules}
+def load_targets(path, datasets, catalog=None):
+    """Use accession-resolved genome chemistry, with explicit reviewed overrides."""
     targets = {}
+    catalog = catalog or {}
     for data in datasets:
         for row in data["rows"]:
             from .core import ercc_id
@@ -88,22 +100,51 @@ def load_targets(path, datasets):
             if ercc_id(row):
                 continue
             acc = row["Accession"]
-            rule = rules.get(row.get("family"), {})
-            if not rule and row.get("kingdom") == "Orthornavirae":
-                rule = {
-                    "molecule_type": "RNA",
-                    "molecular_mass_per_nt_g_mol": "340",
-                    "source": "https://ictv.global/taxonomy; approximate RNA mass per nucleotide",
-                }
+            annotation = catalog.get(acc, {})
+            if catalog and not annotation:
+                raise ValueError(
+                    f"Accession absent from molecular annotation catalog: {acc}"
+                )
+            if annotation:
+                for source_key, annotation_key in (
+                    ("Length", "length_nt"),
+                    ("Asm_length", "assembly_length_nt"),
+                ):
+                    if float(row[source_key]) != float(annotation[annotation_key]):
+                        raise ValueError(
+                            f"Detection table/catalog {source_key} mismatch: {acc}"
+                        )
+                if row.get("Assembly") != annotation["assembly"]:
+                    raise ValueError(
+                        f"Detection table/catalog assembly mismatch: {acc}"
+                    )
+            complete = (
+                annotation.get("assembly_mass_status") == "resolved_complete_assembly"
+            )
             target = {
                 "accession": acc,
                 "target_group": row.get("Assembly", "NA"),
                 "reference_length_nt": row.get("Asm_length") or row["Length"],
-                "molecular_mass_per_nt_g_mol": rule.get(
-                    "molecular_mass_per_nt_g_mol", "NA"
+                "molecular_mass_per_nt_g_mol": (
+                    annotation.get("molecular_mass_per_nt_g_mol", "NA")
+                    if complete
+                    else "NA"
                 ),
-                "molecule_type": rule.get("molecule_type", "NA"),
-                "molecular_mass_source": rule.get("source", "NA"),
+                "molecule_type": annotation.get("molecule_type", "NA"),
+                "molecular_mass_source": annotation.get(
+                    "classification_evidence", "NA"
+                ),
+                "_annotation_status": (
+                    annotation.get("annotation_status")
+                    if complete
+                    else ";".join(
+                        str(annotation.get(k, "molecular_annotation_unavailable"))
+                        for k in ("annotation_status", "assembly_mass_status")
+                    )
+                ),
+                "_mass_model": annotation.get("mass_model", "NA"),
+                "_reference_length_valid": annotation.get("assembly_mass_status")
+                != "inconsistent_assembly_reference_length",
             }
             if acc in targets and targets[acc] != target:
                 raise ValueError(f"Conflicting target metadata across samples: {acc}")
@@ -121,13 +162,34 @@ def load_targets(path, datasets):
             if acc in seen:
                 raise ValueError("Duplicate accession in target manifest")
             seen.add(acc)
-            targets.setdefault(acc, {}).update(row)
-            if str(row.get("molecular_mass_per_nt_g_mol", "NA")).upper() in {"", "NA"}:
-                known_type = {"RNA": "340", "dsDNA": "660"}.get(
-                    row.get("molecule_type")
+            target = targets.setdefault(acc, {"accession": acc})
+            for key, value in row.items():
+                if str(value).strip().upper() not in {"", "NA", "N/A", "NONE", "NULL"}:
+                    target[key] = value
+            explicit_factor = number(
+                row.get("molecular_mass_per_nt_g_mol"), positive=True
+            )
+            explicit_type = row.get("molecule_type")
+            if explicit_factor is not None or explicit_type in MASS_FACTORS:
+                factor = explicit_factor or MASS_FACTORS[explicit_type]
+                effective_type = target.get("molecule_type")
+                if (
+                    effective_type in MASS_FACTORS
+                    and factor != MASS_FACTORS[effective_type]
+                ):
+                    raise ValueError(f"Reviewed molecular type/factor mismatch: {acc}")
+                source = row.get("molecular_mass_source", "NA")
+                if str(source).strip().upper() in {"", "NA"}:
+                    raise ValueError(
+                        f"Reviewed molecular mass requires a source: {acc}"
+                    )
+                target["molecular_mass_per_nt_g_mol"] = factor
+                target["_annotation_status"] = "reviewed_target_manifest_assignment"
+                target["_mass_model"] = (
+                    MASS_MODEL
+                    if effective_type in MASS_FACTORS
+                    else "reviewed_custom_factor"
                 )
-                if known_type:
-                    targets[acc]["molecular_mass_per_nt_g_mol"] = known_type
     return targets
 
 
@@ -305,7 +367,19 @@ def run(args):
         for s in samples
     ]
     repeat_audit = replicate_qc(datasets, settings)
-    targets = load_targets(args.targets, datasets)
+    catalog, catalog_context = (
+        database_catalog(args.db_dir) if args.db_dir else ({}, {})
+    )
+    targets = load_targets(args.targets, datasets, catalog)
+    if (
+        args.method in {"both", "sequencing_yield"}
+        and not catalog
+        and args.targets is None
+    ):
+        raise ValueError(
+            "Sequencing-yield quantification requires --db-dir with molecular annotations "
+            "or an explicitly reviewed --targets manifest. Run install-references first."
+        )
     root = output_directory(args)
     if root.exists() and any(root.iterdir()):
         raise ValueError(
@@ -321,12 +395,14 @@ def run(args):
     write_tsv(
         root / "inputs" / "targets.tsv",
         list(targets.values()),
-        (
-            list(next(iter(targets.values())))
-            if targets
-            else ["accession", "target_group"]
-        ),
+        read_tsv(DATA / "targets_template.tsv")[0],
     )
+    if catalog:
+        used = {r["Accession"] for d in datasets for r in d["rows"]}
+        write_tsv(
+            root / "inputs" / "molecular_annotations.tsv",
+            [catalog[a] for a in sorted(used)],
+        )
     shutil.copyfile(args.ercc_standards, root / "inputs" / "ercc_standards.tsv")
     write_tsv(
         root / "replicate_diagnostics.tsv",
@@ -444,6 +520,7 @@ def run(args):
                 "sample": data["sample"],
                 "method": method,
                 "software_version": __version__,
+                "molecular_annotation_catalog": catalog_context,
                 "python_version": platform.python_version(),
                 "source_info_tsv": str(data["path"]),
                 "source_info_sha256": data["input_sha256"],
@@ -472,6 +549,19 @@ def run(args):
                     "n_fitted": len(eligible),
                     "n_reportable_targets": sum(
                         r["reportable_target_concentration"] for r in assemblies
+                    ),
+                    "n_estimated_targets": sum(
+                        r["estimated_reaction_copies_ul"] is not None
+                        for r in assemblies
+                    ),
+                    "n_outside_calibration_range": sum(
+                        r["within_calibration_range"] is False for r in assemblies
+                    ),
+                    "n_missing_molecular_mass": sum(
+                        r["molecular_mass_per_nt_g_mol"] is None for r in assemblies
+                    ),
+                    "n_validated_targets": sum(
+                        r["target_validation_verified"] for r in assemblies
                     ),
                     "mean_sequencing_yield": calibration["mean_sequencing_yield"],
                     "wastewater_status": recovery["status"],
@@ -504,6 +594,7 @@ def run(args):
             for k, v in input_files.items()
             if v
         },
+        "molecular_annotation_catalog": catalog_context,
         "reference_provenance": json.loads((DATA / "provenance.json").read_text()),
         "settings": vars(settings),
         "selected_sample_ids": [s["sample_id"] for s in samples],
@@ -590,7 +681,8 @@ def prepare_targets(args):
         datasets.append({"rows": rows})
     if not datasets:
         raise ValueError("No original EsViritu detection tables found")
-    targets = load_targets(None, datasets)
+    catalog, _ = database_catalog(args.db_dir) if args.db_dir else ({}, {})
+    targets = load_targets(None, datasets, catalog)
     if args.db_metadata:
         _, reference = read_tsv(args.db_metadata)
         reference = {r["Accession"]: r for r in reference}
@@ -709,6 +801,28 @@ def collect_bam(args):
     return 0
 
 
+def manage_references(args):
+    if args.command == "install-references":
+        records, context = install_catalog(args.db_dir, replace=args.replace)
+    elif args.command == "validate-db":
+        records, context = database_catalog(args.db_dir)
+    else:
+        build_catalog(
+            args.db_dir / METADATA_NAME,
+            args.ictv_vmr,
+            args.cache_dir,
+            args.output_dir or args.db_dir,
+            workers=args.workers,
+            ncbi_snapshot=args.ncbi_snapshot,
+        )
+        output = args.output_dir or args.db_dir
+        records, context = load_catalog(
+            output / CATALOG_NAME, args.db_dir / METADATA_NAME
+        )
+    print(json.dumps(annotation_summary(records, context), indent=2))
+    return 0
+
+
 def parser():
     p = argparse.ArgumentParser(
         prog="hybcapseq_quant",
@@ -733,6 +847,11 @@ def parser():
     )
     r.add_argument("--ercc-standards", type=Path, default=STANDARD_PATH)
     r.add_argument("--targets", type=Path)
+    r.add_argument(
+        "--db-dir",
+        type=Path,
+        help="alignment database directory containing accession molecular annotations",
+    )
     r.add_argument("--ercc-qc", type=Path)
     r.add_argument("--method", choices=["both", *METHODS], default="both")
     r.add_argument(
@@ -765,6 +884,7 @@ def parser():
     )
     t.add_argument("--esviritu-dir", type=Path, required=True)
     t.add_argument("--db-metadata", type=Path)
+    t.add_argument("--db-dir", type=Path)
     t.add_argument("--output", type=Path, required=True)
     t.set_defaults(func=prepare_targets)
     b = sub.add_parser(
@@ -781,13 +901,40 @@ def parser():
     c.add_argument("--output", type=Path, required=True)
     c.add_argument("--min-mapq", type=int, default=20)
     c.set_defaults(func=collect_bam)
+    for command in ("install-references", "validate-db", "build-molecular-annotations"):
+        ref = sub.add_parser(
+            command, help="install, validate or rebuild accession molecular annotations"
+        )
+        ref.add_argument("--db-dir", type=Path, required=True)
+        if command == "install-references":
+            ref.add_argument("--replace", action="store_true")
+        if command == "build-molecular-annotations":
+            ref.add_argument("--ictv-vmr", type=Path, required=True)
+            ref.add_argument("--cache-dir", type=Path, required=True)
+            ref.add_argument(
+                "--ncbi-snapshot",
+                type=Path,
+                help="rebuild offline from a saved NCBI summary snapshot",
+            )
+            ref.add_argument("--output-dir", type=Path)
+            ref.add_argument("--workers", type=int, choices=[1, 2, 3], default=3)
+        ref.set_defaults(func=manage_references)
     return p
 
 
 def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
     command_line = ["hybcapseq_quant", *argv]
-    commands = {"run", "init", "prepare-targets", "measure-input-bases", "collect-bam"}
+    commands = {
+        "run",
+        "init",
+        "prepare-targets",
+        "measure-input-bases",
+        "collect-bam",
+        "install-references",
+        "validate-db",
+        "build-molecular-annotations",
+    }
     if (
         argv
         and argv[0] not in commands

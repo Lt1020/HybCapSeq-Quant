@@ -22,7 +22,7 @@ jobs:
         run: |
           hybcapseq_quant --version
           python examples/quant/generate_demo.py
-          hybcapseq_quant run --samples examples/quant/samples.tsv --esviritu-dir examples/quant --outdir quantification_output
+          hybcapseq_quant run --samples examples/quant/samples.tsv --esviritu-dir examples/quant --targets examples/quant/targets.tsv --outdir quantification_output
       - uses: actions/upload-artifact@v4
         with:
           name: analytical-example-python-${{ matrix.python-version }}

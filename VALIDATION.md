@@ -28,6 +28,12 @@ Command-line checks cover single-sample and batch execution, source-column prese
 
 GitHub Actions runs the suite and analytical example under Python 3.10, 3.11 and 3.12. Each job retains its generated result files and plots as an artifact. The status for a particular analysis must be taken from its exact commit, not inferred from the project badge alone.
 
+## Molecular annotation verification
+
+The suite validates the packaged full-catalog checksum, 31,003 unique accession keys, mass arithmetic and declared chemistry factors. It checks exact source length, preservation of NCBI/ICTV disagreement, prefix-normalized taxon lookup, unassigned unknown strandedness, accession-specific dsRNA assignment, rejection of unrelated database metadata and checksum tampering, and refusal to derive a group mass from only its known segment. The analytical fixture supplies an explicitly simulated chemistry manifest rather than relying on viral taxonomy labels.
+
+These checks establish the integrity of the distributed source-to-model mapping; they do not independently validate every deposited taxonomic assignment or establish chemical composition in a study sample.
+
 ## Reproduction
 
 ```bash
@@ -37,6 +43,7 @@ python examples/quant/generate_demo.py
 hybcapseq_quant run \
   --samples examples/quant/samples.tsv \
   --esviritu-dir examples/quant \
+  --targets examples/quant/targets.tsv \
   --outdir analytical_example_results
 ```
 

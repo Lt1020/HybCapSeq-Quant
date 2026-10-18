@@ -16,5 +16,12 @@
   "double_stranded_dna_molecular_mass_per_bp_g_mol": 660,
   "alignment_statistics_source": "https://github.com/cmmr/EsViritu/blob/v1.1.2/src/EsViritu/esv_funcs.py",
   "model_definitions": "docs/METHODS.md",
-  "concentration_assignment": "Nominal manufacturer Mix 1 values; dilution and pipetting uncertainty are not supplied."
+  "concentration_assignment": "Nominal manufacturer Mix 1 values; dilution and pipetting uncertainty are not supplied.",
+  "molecular_annotation_manifest": "data/reference/virus_pathogen_database.molecular_annotations.manifest.json",
+  "mass_factors_g_mol_per_reference_position": {
+    "ssRNA": 340,
+    "dsRNA": 680,
+    "ssDNA": 330,
+    "dsDNA": 660
+  }
 }

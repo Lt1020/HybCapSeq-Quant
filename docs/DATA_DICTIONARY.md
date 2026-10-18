@@ -56,7 +56,7 @@ A custom `--ercc-standards` file must retain the 92 Mix 1 identifiers and cohere
 | `accession` | Exact upstream `Accession` |
 | `target_group` | Reference/assembly group to quantify once |
 | `reference_length_nt` | Locked complete group length; for dsDNA the numerical length is in bp |
-| `molecule_type` | Reviewed molecule chemistry, e.g. RNA or dsDNA |
+| `molecule_type` | Reviewed genome/material chemistry: ssRNA, dsRNA, ssDNA or dsDNA |
 | `molecular_mass_per_nt_g_mol` | Average molar mass per reference position, required for yield conversion |
 | `molecular_mass_source` | Evidence supporting the chemistry/factor assignment |
 | `alignment_qc_verified` | Target-specific mapping/duplicate evidence declaration |
@@ -66,7 +66,7 @@ A custom `--ercc-standards` file must retain the 92 Mix 1 identifiers and cohere
 
 Non-missing target validation fields override sample-level declarations; `NA` inherits the sample-level field. An explicit `0` overrides a sample-level true declaration. For segmented groups, all detected members must satisfy the validation declarations, and the largest supplied member LoQ is used. Complete group length and molecular-mass factor must be consistent across members.
 
-`prepare-targets` proposes RNA or selected dsDNA factors from database taxonomy, records the assignment source and leaves validation fields unavailable. Taxonomic assignment is an inference about molecular chemistry, not evidence of calibration transfer. Unknown molecular types remain unassigned.
+`prepare-targets --db-dir` loads accession-resolved chemistry and mass from the checksum-validated catalog. Without a catalog, chemistry remains unavailable; rank names alone do not assign mass. Validation fields remain unavailable. Non-missing target fields override database defaults. A supplied molecular type must agree with its canonical factor; any explicit mass assignment requires `molecular_mass_source`. Assignment records a user declaration and does not establish calibration transfer.
 
 ### ERCC QC table
 
@@ -102,6 +102,11 @@ A true `use_for_fit` does not override a missing signal, failed read/breadth thr
 | `reference_length_nt` | Locked reference length used in molecular/depth conversion |
 | `quantification_aligned_bases` | Group-summed cumulative aligned bases |
 | `molecular_mass_per_nt_g_mol` | Approximate average molar mass per reference position |
+| `molecule_type` | Assigned ssRNA, dsRNA, ssDNA, dsDNA or unresolved category; describes the stated genome/material model |
+| `molecular_annotation_status` | Catalog resolution, source disagreement, incomplete assembly or explicit target assignment |
+| `quantification_molecular_mass_g_mol` | Theoretical mass of the complete quantification reference group, not necessarily the mass of one detected segment |
+| `mass_model` | Declared average-position mass model or sourced custom assignment |
+| `molecular_mass_source` | Source of the selected chemistry/mass assignment |
 | `value_origin` | `assigned_standard` or `model_estimate` |
 | `reporting_mode` | `validated` or `exploratory` |
 | `target_validation_verified` | All supplied target evidence declarations and a positive LoQ are available; does not certify evidence quality |
@@ -124,14 +129,18 @@ A true `use_for_fit` does not override a missing signal, failed read/breadth thr
 | `.reaction_concentration_model.tsv` | Algebraic reaction-scale equation; RNA factor 340. Its R² describes agreement with the transformed model, not an additional optimized fit |
 | `.wastewater_conversion.tsv` | Actual volumes, PMMoV concentrations where derived, recovery source, recovery fraction, unit, extract-to-water multiplier and status |
 | `replicate_diagnostics.tsv` | Batch/group/transcript, observation count, sample CV, assessment status and whether filtering was applied |
-| `run_summary.tsv` | One sample/method per row, calibration status and coefficients, fitted count, reportable-target count and conversion status |
+| `run_summary.tsv` | One sample/method per row, calibration status and coefficients, fitted count, estimated/reportable/externally validated target counts, out-of-range count, missing-mass count and conversion status |
 
 The calibration point table always retains all 92 standards. A detected standard may be eligible for general QC but excluded from a particular model when its required signal is unavailable; `included_in_model` is the definitive model-membership field. `fit_exclusion` records general eligibility decisions.
 
-Qualification codes include `calibration_failed`, `outside_calibration_range`, `below_loq`, `loq_unavailable`, `alignment_qc_unverified`, `detection_qc_unverified`, `calibration_transfer_unverified`, `partial_reference_detected`, `missing_molecular_mass_factor` and `wastewater_conversion_unavailable`. `accepted` indicates no additional qualification flags. `known_ercc_input` marks an assigned standard rather than an inferred target concentration.
+Qualification codes include `calibration_failed`, `outside_calibration_range`, `below_loq`, `loq_unavailable`, `alignment_qc_unverified`, `detection_qc_unverified`, `calibration_transfer_unverified`, `partial_reference_detected`, `missing_molecular_mass_factor`, `inconsistent_database_assembly_length` and `wastewater_conversion_unavailable`. `accepted` indicates no additional qualification flags. `known_ercc_input` marks an assigned standard rather than an inferred target concentration.
 
 ## Provenance
 
-`inputs/` stores the selected sample records, resolved target metadata, standard table and one calculated ERCC-input table per sample. `run_manifest.json` records software version, UTC timestamps, invocation, Python/platform/dependency versions, input checksums, thresholds, reporting mode and selected samples. Each `.analysis_manifest.json` adds source detection and alignment-metrics checksums, fastp checksum when used, total-base source, total input mass, calibration details and recovery conversion.
+`inputs/` stores the selected sample records, resolved target metadata, standard table and one calculated ERCC-input table per sample. When a catalog is used, `molecular_annotations.tsv` contains the exact annotation rows for all detected references, including ERCC. Run and sample manifests include the complete catalog and manifest hashes, database metadata hash, model and classification policy. `run_manifest.json` records software version, UTC timestamps, invocation, Python/platform/dependency versions, input checksums, thresholds, reporting mode and selected samples. Each `.analysis_manifest.json` adds source detection and alignment-metrics checksums, fastp checksum when used, total-base source, total input mass, calibration details and recovery conversion.
 
 The manifests record actual input locations for traceability. They contain caller-supplied paths only; the distributed workflow has no fixed experiment directory. Shared analyses may require redaction of local path metadata in accordance with the study's data-management policy, without changing computational values or input checksums.
+
+## Molecular annotation database
+
+The full field dictionary and generation policy are documented in [MOLECULAR_ANNOTATIONS](MOLECULAR_ANNOTATIONS.md). The file `virus_pathogen_database.molecular_annotations.tsv` is a separate database sidecar; its `accession` key matches the unchanged metadata `Accession` column exactly. Runtime target-level molecular mass uses a coherent complete assembly rather than a detected-segment length.

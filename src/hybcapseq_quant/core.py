@@ -640,6 +640,8 @@ def reference_groups(data, targets):
     for gid, items in groups.items():
         lengths = set()
         masses = set()
+        chemistry = set()
+        missing_mass = False
         for row, target in items:
             length = number(target.get("reference_length_nt"), positive=True)
             if length is None:
@@ -650,6 +652,9 @@ def reference_groups(data, targets):
             mass = number(target.get("molecular_mass_per_nt_g_mol"), positive=True)
             if mass is not None:
                 masses.add(mass)
+            else:
+                missing_mass = True
+            chemistry.add(target.get("molecule_type", "NA"))
         if len(lengths) != 1 or len(masses) > 1:
             raise ValueError(
                 f"Inconsistent quantification reference metadata for {gid}"
@@ -669,7 +674,30 @@ def reference_groups(data, targets):
             "aligned_bases": n,
             "mean_depth": n / length,
             "breadth": covered / length,
-            "molecular_mass_per_nt_g_mol": next(iter(masses), None),
+            "molecular_mass_per_nt_g_mol": (
+                next(iter(masses), None) if not missing_mass else None
+            ),
+            "molecule_type": next(iter(chemistry)) if len(chemistry) == 1 else "NA",
+            "molecular_annotation_status": ";".join(
+                sorted(
+                    {
+                        t.get("_annotation_status", "molecular_annotation_unavailable")
+                        for _, t in items
+                    }
+                )
+            ),
+            "molecular_mass_source": ";".join(
+                sorted({t.get("molecular_mass_source", "NA") for _, t in items})
+            ),
+            "mass_model": ";".join(
+                sorted({t.get("_mass_model", "NA") for _, t in items})
+            ),
+            "reference_length_valid": all(
+                t.get("_reference_length_valid", True) for _, t in items
+            ),
+            "quantification_molecular_mass_g_mol": (
+                next(iter(masses)) * length if masses and not missing_mass else None
+            ),
             "detected_accessions": ",".join(r["Accession"] for r, _ in items),
             "detected_reference_length_nt": sum(float(r["Length"]) for r, _ in items),
         }
@@ -727,11 +755,13 @@ def quantify_rows(data, calibration, targets, settings):
             if group["detected_reference_length_nt"] < group["reference_length_nt"]:
                 flags.append("partial_reference_detected")
             n, length = group["aligned_bases"], group["reference_length_nt"]
+            if not group["reference_length_valid"]:
+                flags.append("inconsistent_database_assembly_length")
             if n <= 0:
                 flags.append("no_quantifiable_aligned_bases")
             if not calibration["passes"]:
                 flags.append("calibration_failed")
-            if calibration["passes"] and n > 0:
+            if calibration["passes"] and n > 0 and group["reference_length_valid"]:
                 if method == "sequencing_yield":
                     mw = group["molecular_mass_per_nt_g_mol"]
                     if mw is None:
@@ -839,6 +869,25 @@ def quantify_rows(data, calibration, targets, settings):
             "loq_reaction_copies_ul": loq,
             "molecular_mass_per_nt_g_mol": (
                 group["molecular_mass_per_nt_g_mol"] if group else 340
+            ),
+            "molecule_type": group["molecule_type"] if group else "ssRNA",
+            "molecular_annotation_status": (
+                group["molecular_annotation_status"]
+                if group
+                else "ERCC_transcript_reference"
+            ),
+            "quantification_molecular_mass_g_mol": (
+                group["quantification_molecular_mass_g_mol"]
+                if group
+                else 340 * float(row["Length"])
+            ),
+            "mass_model": (
+                group["mass_model"] if group else "average_reference_position_v1"
+            ),
+            "molecular_mass_source": (
+                group["molecular_mass_source"]
+                if group
+                else "ERCC_RNA_transcript_definition"
             ),
             "pmmov_recovery_fraction": recovery_audit.get("pmmov_recovery_fraction"),
         }

@@ -104,6 +104,8 @@ class PortableDirectoriesTests(unittest.TestCase):
                     "run",
                     "--samples",
                     relocated / "input tables/samples.tsv",
+                    "--targets",
+                    relocated / "mapping results/sample/targets.tsv",
                     "--processed-dir",
                     relocated,
                 ]
@@ -119,6 +121,26 @@ class PortableDirectoriesTests(unittest.TestCase):
             )
             target = next(v for v in values if v["Accession"] == "SIM_RNA")
             self.assertAlmostEqual(float(target[CONC]), 10000 / 14, places=7)
+
+    def test_yield_requires_catalog_or_explicit_chemistry_manifest(self):
+        source = self.root / "mapping"
+        DEMO.create(source)
+        out = self.root / "output"
+        self.assertEqual(
+            self.command(
+                [
+                    "run",
+                    "--samples",
+                    source / "samples.tsv",
+                    "--esviritu-dir",
+                    source,
+                    "--outdir",
+                    out,
+                ]
+            ),
+            2,
+        )
+        self.assertFalse(out.exists())
 
     def test_explicit_location_priority(self):
         left, right = self.root / "left", self.root / "right"
@@ -141,6 +163,8 @@ class PortableDirectoriesTests(unittest.TestCase):
                     "run",
                     "--samples",
                     source / "samples.tsv",
+                    "--targets",
+                    source / "targets.tsv",
                     "--esviritu-dir",
                     source,
                     "--processed-dir",
@@ -184,6 +208,8 @@ class PortableDirectoriesTests(unittest.TestCase):
                     "run",
                     "--samples",
                     source / "samples.tsv",
+                    "--targets",
+                    source / "targets.tsv",
                     "--outdir",
                     out,
                     "--esviritu-dir",
@@ -226,6 +252,8 @@ class PortableDirectoriesTests(unittest.TestCase):
             "run",
             "--samples",
             self.root / "samples.tsv",
+            "--targets",
+            source / "first/targets.tsv",
             "--esviritu-dir",
             source,
         ]
@@ -254,6 +282,8 @@ class PortableDirectoriesTests(unittest.TestCase):
                     "run",
                     "--samples",
                     source / "samples.tsv",
+                    "--targets",
+                    source / "targets.tsv",
                     "--esviritu-dir",
                     source,
                     "--outdir",
@@ -309,6 +339,8 @@ class PortableDirectoriesTests(unittest.TestCase):
                         "run",
                         "--samples",
                         source / "samples.tsv",
+                        "--targets",
+                        source / "targets.tsv",
                         "--esviritu-dir",
                         source,
                     ]
