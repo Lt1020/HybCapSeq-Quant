@@ -14,7 +14,7 @@ The selected chemistry describes a viral genome-equivalent or explicitly identif
 | `assembly` | Unchanged database `Assembly` |
 | `reference_name` | Unchanged database `Name` |
 | `length_nt` | Represented-strand reference length; numerical bp length for duplex genomes |
-| `assembly_length_nt` | Upstream declared `Asm_length`, retained even if inconsistent |
+| `assembly_length_nt` | Declared reference-group length, including published checksum-bound corrections; historical input values remain in source detection fields |
 | `family_raw` | Original family annotation, including rank prefix |
 | `family_normalized` | Prefix-normalized lookup value; missing remains NA |
 | `ncbi_taxid` | Taxonomy identifier in the retrieved accession summary |

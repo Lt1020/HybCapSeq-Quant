@@ -46,6 +46,7 @@ from .core import (
     sha256,
     write_tsv,
 )
+from .reference_updates import applicable_correction, upgrade_database
 
 DATA = Path(__file__).parent / "data"
 SAMPLE_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]*$")
@@ -101,6 +102,7 @@ def load_targets(path, datasets, catalog=None):
                 continue
             acc = row["Accession"]
             annotation = catalog.get(acc, {})
+            correction = applicable_correction(acc, annotation)
             if catalog and not annotation:
                 raise ValueError(
                     f"Accession absent from molecular annotation catalog: {acc}"
@@ -111,6 +113,13 @@ def load_targets(path, datasets, catalog=None):
                     ("Asm_length", "assembly_length_nt"),
                 ):
                     if float(row[source_key]) != float(annotation[annotation_key]):
+                        if (
+                            source_key == "Asm_length"
+                            and correction
+                            and float(row[source_key])
+                            == correction["original_assembly_length_nt"]
+                        ):
+                            continue
                         raise ValueError(
                             f"Detection table/catalog {source_key} mismatch: {acc}"
                         )
@@ -118,13 +127,33 @@ def load_targets(path, datasets, catalog=None):
                     raise ValueError(
                         f"Detection table/catalog assembly mismatch: {acc}"
                     )
+            if correction:
+                data.setdefault("reference_corrections", []).append(
+                    {
+                        "sample_id": data.get("sample", {}).get(
+                            "sample_id", row.get("sample_ID", "NA")
+                        ),
+                        "accession": acc,
+                        "assembly": annotation["assembly"],
+                        "input_assembly_length_nt": row["Asm_length"],
+                        "reference_assembly_length_nt": annotation[
+                            "assembly_length_nt"
+                        ],
+                        "input_length_was_corrected": float(row["Asm_length"])
+                        != float(annotation["assembly_length_nt"]),
+                        "correction_id": correction["correction_id"],
+                        "source_table": str(data.get("path", "NA")),
+                    }
+                )
             complete = (
                 annotation.get("assembly_mass_status") == "resolved_complete_assembly"
             )
             target = {
                 "accession": acc,
                 "target_group": row.get("Assembly", "NA"),
-                "reference_length_nt": row.get("Asm_length") or row["Length"],
+                "reference_length_nt": annotation.get("assembly_length_nt")
+                or row.get("Asm_length")
+                or row["Length"],
                 "molecular_mass_per_nt_g_mol": (
                     annotation.get("molecular_mass_per_nt_g_mol", "NA")
                     if complete
@@ -145,6 +174,9 @@ def load_targets(path, datasets, catalog=None):
                 "_mass_model": annotation.get("mass_model", "NA"),
                 "_reference_length_valid": annotation.get("assembly_mass_status")
                 != "inconsistent_assembly_reference_length",
+                "_reference_correction_id": (
+                    correction["correction_id"] if correction else None
+                ),
             }
             if acc in targets and targets[acc] != target:
                 raise ValueError(f"Conflicting target metadata across samples: {acc}")
@@ -163,6 +195,16 @@ def load_targets(path, datasets, catalog=None):
                 raise ValueError("Duplicate accession in target manifest")
             seen.add(acc)
             target = targets.setdefault(acc, {"accession": acc})
+            correction = applicable_correction(acc, catalog.get(acc, {}))
+            if (
+                correction
+                and number(row.get("reference_length_nt"), positive=True)
+                == correction["original_assembly_length_nt"]
+            ):
+                row = {
+                    **row,
+                    "reference_length_nt": correction["corrected_assembly_length_nt"],
+                }
             for key, value in row.items():
                 if str(value).strip().upper() not in {"", "NA", "N/A", "NONE", "NULL"}:
                     target[key] = value
@@ -403,6 +445,23 @@ def run(args):
             root / "inputs" / "molecular_annotations.tsv",
             [catalog[a] for a in sorted(used)],
         )
+    reference_corrections = [
+        r for data in datasets for r in data.get("reference_corrections", [])
+    ]
+    write_tsv(
+        root / "reference_corrections.tsv",
+        reference_corrections,
+        [
+            "sample_id",
+            "accession",
+            "assembly",
+            "input_assembly_length_nt",
+            "reference_assembly_length_nt",
+            "input_length_was_corrected",
+            "correction_id",
+            "source_table",
+        ],
+    )
     shutil.copyfile(args.ercc_standards, root / "inputs" / "ercc_standards.tsv")
     write_tsv(
         root / "replicate_diagnostics.tsv",
@@ -524,6 +583,7 @@ def run(args):
                 "python_version": platform.python_version(),
                 "source_info_tsv": str(data["path"]),
                 "source_info_sha256": data["input_sha256"],
+                "reference_metadata_corrections": data.get("reference_corrections", []),
                 "alignment_basis": data["evidence_basis"],
                 "alignment_metrics_sha256": data["alignment_metrics_sha256"],
                 "fastp_json_sha256": data["fastp_json_sha256"],
@@ -599,6 +659,8 @@ def run(args):
         "settings": vars(settings),
         "selected_sample_ids": [s["sample_id"] for s in samples],
         "replicate_cv_filter_enabled": settings.filter_replicate_cv,
+        "reference_corrections_sha256": sha256(root / "reference_corrections.tsv"),
+        "n_reference_correction_records": len(reference_corrections),
     }
     (root / "run_manifest.json").write_text(
         json.dumps(provenance, indent=2, allow_nan=False) + "\n"
@@ -802,6 +864,11 @@ def collect_bam(args):
 
 
 def manage_references(args):
+    if args.command == "upgrade-db":
+        print(
+            json.dumps(upgrade_database(args.db_dir, check_only=args.check), indent=2)
+        )
+        return 0
     if args.command == "install-references":
         records, context = install_catalog(args.db_dir, replace=args.replace)
     elif args.command == "validate-db":
@@ -866,7 +933,20 @@ def parser():
     r.add_argument("--min-levels", type=int, default=4)
     r.add_argument("--slope-min", type=float, default=0.8)
     r.add_argument("--slope-max", type=float, default=1.2)
-    r.add_argument("--allow-extrapolation", action="store_true")
+    extrapolation = r.add_mutually_exclusive_group()
+    extrapolation.add_argument(
+        "--allow-extrapolation",
+        dest="allow_extrapolation",
+        action="store_true",
+        default=None,
+        help="allow model estimates outside the fitted ERCC interval; default in exploratory mode",
+    )
+    extrapolation.add_argument(
+        "--no-extrapolation",
+        dest="allow_extrapolation",
+        action="store_false",
+        help="suppress out-of-range primary concentrations; default in validated mode",
+    )
     r.add_argument(
         "--filter-replicate-cv",
         action="store_true",
@@ -901,13 +981,24 @@ def parser():
     c.add_argument("--output", type=Path, required=True)
     c.add_argument("--min-mapq", type=int, default=20)
     c.set_defaults(func=collect_bam)
-    for command in ("install-references", "validate-db", "build-molecular-annotations"):
+    for command in (
+        "install-references",
+        "validate-db",
+        "build-molecular-annotations",
+        "upgrade-db",
+    ):
         ref = sub.add_parser(
             command, help="install, validate or rebuild accession molecular annotations"
         )
         ref.add_argument("--db-dir", type=Path, required=True)
         if command == "install-references":
             ref.add_argument("--replace", action="store_true")
+        if command == "upgrade-db":
+            ref.add_argument(
+                "--check",
+                action="store_true",
+                help="verify the database and show the planned revision without writing files",
+            )
         if command == "build-molecular-annotations":
             ref.add_argument("--ictv-vmr", type=Path, required=True)
             ref.add_argument("--cache-dir", type=Path, required=True)
@@ -934,6 +1025,7 @@ def main(argv=None):
         "install-references",
         "validate-db",
         "build-molecular-annotations",
+        "upgrade-db",
     }
     if (
         argv

@@ -1,0 +1,25 @@
+{
+  "source_archive_sha256": "475bc5c43b74838078c5f0bc8b221490bf134070375cfe8d7fefdba5ad5340b8",
+  "sample_count": 13,
+  "experimental_parameters_changed": false,
+  "input_reconstruction": "Unchanged source detection columns; total bases copied from archived analysis manifests; paths made portable.",
+  "methods": {
+    "sequencing_yield": {
+      "target_groups": 1603,
+      "newly_computable_corrected_groups": 7,
+      "unchanged_uncorrected_group_estimates": 1596,
+      "reported_concentrations": 1582,
+      "remaining_NA": 21,
+      "calibration_models_unchanged": true
+    },
+    "depth_calibration": {
+      "target_groups": 1603,
+      "newly_computable_corrected_groups": 7,
+      "unchanged_uncorrected_group_estimates": 1596,
+      "reported_concentrations": 1595,
+      "remaining_NA": 8,
+      "calibration_models_unchanged": true
+    }
+  },
+  "source_columns_preserved": true
+}

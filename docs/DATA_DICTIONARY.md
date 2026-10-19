@@ -100,6 +100,7 @@ A true `use_for_fit` does not override a missing signal, failed read/breadth thr
 | `quantification_method` | `sequencing_yield` or `depth_calibration` |
 | `target_group` | Quantification group; ERCC identifier for standard rows |
 | `reference_length_nt` | Locked reference length used in molecular/depth conversion |
+| `reference_correction_ids` | Identifiers of published reference corrections used by the group; original source fields remain unchanged |
 | `quantification_aligned_bases` | Group-summed cumulative aligned bases |
 | `molecular_mass_per_nt_g_mol` | Approximate average molar mass per reference position |
 | `molecule_type` | Assigned ssRNA, dsRNA, ssDNA, dsDNA or unresolved category; describes the stated genome/material model |
@@ -130,10 +131,11 @@ A true `use_for_fit` does not override a missing signal, failed read/breadth thr
 | `.wastewater_conversion.tsv` | Actual volumes, PMMoV concentrations where derived, recovery source, recovery fraction, unit, extract-to-water multiplier and status |
 | `replicate_diagnostics.tsv` | Batch/group/transcript, observation count, sample CV, assessment status and whether filtering was applied |
 | `run_summary.tsv` | One sample/method per row, calibration status and coefficients, fitted count, estimated/reportable/externally validated target counts, out-of-range count, missing-mass count and conversion status |
+| `reference_corrections.tsv` | Sample/accession, original and effective assembly length, correction identifier and source table; includes whether the source length required compatibility handling |
 
 The calibration point table always retains all 92 standards. A detected standard may be eligible for general QC but excluded from a particular model when its required signal is unavailable; `included_in_model` is the definitive model-membership field. `fit_exclusion` records general eligibility decisions.
 
-Qualification codes include `calibration_failed`, `outside_calibration_range`, `below_loq`, `loq_unavailable`, `alignment_qc_unverified`, `detection_qc_unverified`, `calibration_transfer_unverified`, `partial_reference_detected`, `missing_molecular_mass_factor`, `inconsistent_database_assembly_length` and `wastewater_conversion_unavailable`. `accepted` indicates no additional qualification flags. `known_ercc_input` marks an assigned standard rather than an inferred target concentration.
+Qualification codes include `calibration_failed`, `outside_calibration_range`, `below_loq`, `loq_unavailable`, `alignment_qc_unverified`, `detection_qc_unverified`, `calibration_transfer_unverified`, `partial_reference_detected`, `missing_molecular_mass_factor`, `inconsistent_database_assembly_length`, `reference_metadata_corrected` and `wastewater_conversion_unavailable`. `reference_metadata_corrected` identifies a published reference correction and is not a concentration failure. `accepted` indicates no additional qualification flags. `known_ercc_input` marks an assigned standard rather than an inferred target concentration. Exploratory mode defaults to preserving computable out-of-range primary values; validated mode defaults to suppressing them. Neither mode infers LoD/LoQ from an ERCC endpoint.
 
 ## Provenance
 

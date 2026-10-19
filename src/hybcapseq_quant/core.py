@@ -188,11 +188,15 @@ class Settings:
     min_levels: int = 4
     slope_min: float = 0.8
     slope_max: float = 1.2
-    allow_extrapolation: bool = False
+    allow_extrapolation: bool | None = None
     reporting_mode: str = "validated"
     filter_replicate_cv: bool = False
     max_replicate_cv: float = 0.35
     wastewater_unit: str = "copies/mL"
+
+    def __post_init__(self):
+        if self.allow_extrapolation is None:
+            self.allow_extrapolation = self.reporting_mode == "exploratory"
 
 
 def resolve_path(value, base):
@@ -695,6 +699,15 @@ def reference_groups(data, targets):
             "reference_length_valid": all(
                 t.get("_reference_length_valid", True) for _, t in items
             ),
+            "reference_correction_ids": ",".join(
+                sorted(
+                    {
+                        t["_reference_correction_id"]
+                        for _, t in items
+                        if t.get("_reference_correction_id")
+                    }
+                )
+            ),
             "quantification_molecular_mass_g_mol": (
                 next(iter(masses)) * length if masses and not missing_mass else None
             ),
@@ -752,6 +765,8 @@ def quantify_rows(data, calibration, targets, settings):
         else:
             value_origin = "model_estimate"
             group = groups[row["Accession"]]
+            if group["reference_correction_ids"]:
+                flags.append("reference_metadata_corrected")
             if group["detected_reference_length_nt"] < group["reference_length_nt"]:
                 flags.append("partial_reference_detected")
             n, length = group["aligned_bases"], group["reference_length_nt"]
@@ -854,6 +869,9 @@ def quantify_rows(data, calibration, targets, settings):
             "target_group": group["target_group"] if group else eid,
             "reference_length_nt": (
                 group["reference_length_nt"] if group else float(row["Length"])
+            ),
+            "reference_correction_ids": (
+                group["reference_correction_ids"] if group else "NA"
             ),
             "quantification_aligned_bases": (
                 group["aligned_bases"]

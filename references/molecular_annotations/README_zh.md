@@ -1,24 +1,26 @@
-# EsViritu v3.3 分子类型与理论质量注释
+# EsViritu v3.3.1 分子类型与理论质量注释
 
-本参考文件与原始 v3.3 数据库通过精确 Accession 键和 metadata SHA256 绑定。全量注释覆盖 31,003 条参考，使用 NCBI Nuccore 记录和 ICTV 官方 VMR，保留证据、来源差异与缺失原因。
+本参考文件与数据库通过精确 Accession 键和 metadata SHA256 绑定。全量注释覆盖 31,003 条参考，使用 NCBI Nuccore 记录和 ICTV 官方 VMR，保留证据、来源差异与缺失原因。v3.3.1依据已核实的参考集合长度修正一个乙流组装；安装时离线应用软件内附的修正规则，来源快照保留。
 
 ## 文件
 
 | 文件 | 用途 |
 |---|---|
-| [virus_pathogen_database.molecular_annotations.tsv.gz](../../src/hybcapseq_quant/data/reference/virus_pathogen_database.molecular_annotations.tsv.gz) | 全量注释，解压后文件名去掉 `.gz` |
-| [virus_pathogen_database.molecular_annotations.manifest.json](../../src/hybcapseq_quant/data/reference/virus_pathogen_database.molecular_annotations.manifest.json) | 注释、来源及配套 metadata 的校验和与模型定义 |
+| [v3.3.1修订注释发行文件](https://github.com/Lt1020/HybCapSeq-Quant/releases/tag/v2.1.0) | 修订后的完整注释、配套manifest及更新包 |
+| [原始注释来源快照](../../src/hybcapseq_quant/data/reference/virus_pathogen_database.molecular_annotations.tsv.gz) | 修正前的固定来源输入；不直接复制为v3.3.1现行注释 |
+| [原始来源manifest](../../src/hybcapseq_quant/data/reference/virus_pathogen_database.molecular_annotations.manifest.json) | 固定来源快照的校验和与模型定义 |
+| [reference_corrections.json](../../src/hybcapseq_quant/data/reference/virus_pathogen_database.reference_corrections.json) | 修正成员、原值、新值和修订后manifest；升级据此生成当前注释 |
 | [ncbi_accession_summary.jsonl.gz](../../src/hybcapseq_quant/data/reference/ncbi_accession_summary.jsonl.gz) | 每条病毒 Accession 的 NCBI 检索摘要，用于追溯和离线重建 |
 | [MOLECULAR_ANNOTATIONS.md](../../docs/MOLECULAR_ANNOTATIONS.md) | 英文字段定义及计算说明 |
 
 推荐通过安装命令将注释直接放入实际数据库目录。先在当前 shell 中将 `DB_DIR` 设置为实际目录：
 
 ```bash
-hybcapseq_quant install-references --db-dir "$DB_DIR"
+hybcapseq_quant upgrade-db --db-dir "$DB_DIR"
 hybcapseq_quant validate-db --db-dir "$DB_DIR"
 ```
 
-最终目录包含原有 `virus_pathogen_database.fna`、`virus_pathogen_database.mmi`、`virus_pathogen_database.all_metadata.tsv`，以及新增的 `.molecular_annotations.tsv` 和 `.molecular_annotations.manifest.json`。两份新增文件必须放在一起，文件名保持不变。不会改写原始三个文件。
+最终目录保留 `virus_pathogen_database.fna`和`virus_pathogen_database.mmi`，metadata只更新已核实的8个组装长度单元格，同时安装匹配的`.molecular_annotations.tsv`和`.molecular_annotations.manifest.json`。文件名保持不变，升级备份和修正证据一并保存。metadata已为修订版时，可用`install-references`补装注释。
 
 ## 来源和判定原则
 
@@ -26,7 +28,7 @@ hybcapseq_quant validate-db --db-dir "$DB_DIR"
 2. 使用 [ICTV VMR MSL41 v1，2026-07-29](https://ictv.global/sites/default/files/VMR/VMR_MSL41.v1.20260729.xlsx)。先匹配 Accession，再依次匹配 species、genus、family 和 order；分类层级支持的分子化学类型必须一致。匹配层级和证据数量保留在表中。
 3. 同时保留 NCBI 序列记录的核酸类型与 ICTV 病毒基因组类型。基因组当量模型优先采用 ICTV 类型。两者不一致时显式记录，不将序列记录中的 DNA/cDNA/复制形式误作样本实际化学组成的证明。
 4. 263 条部分双链 DNA 参考保留已知类别 `partially_dsDNA`，因互补链完成程度未知，质量为 NA。11 条参考可确认 RNA，但链型未确认，质量为 NA。不能确认的信息不补填默认值。
-5. 单条参考质量可计算，不代表整个 assembly 一定可定量。完整组的长度、分子类型及成员质量均需一致。8 条参考所在的一个组存在上游总长度不一致，两种估计器均输出长度质控标记。
+5. 单条参考质量可计算，不代表整个 assembly 一定可定量。完整组的长度、分子类型及成员质量均需一致。v3.3.1将Rochester乙流8条现存参考的声明总长度校正为13,859 nt，完整组质量按同一参考集合计算；历史输入兼容过程保留明细，其他未核实的长度冲突不自动放行。
 
 ## 质量的含义
 

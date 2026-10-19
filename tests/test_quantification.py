@@ -283,6 +283,39 @@ class QuantificationTests(unittest.TestCase):
             )
             self.assertIsNotNone(row[CONC])
 
+    def test_exploratory_low_signal_is_estimated_without_assigning_a_loq(self):
+        data = self.load({**self.sample, "loq_reaction_copies_ul": "NA"})
+        signal = data["signals"]["SIM_RNA"]
+        # Isolate the reporting policy with a positive synthetic sub-range signal.
+        signal["aligned_bases"] *= 1e-12
+        signal["depth"] *= 1e-12
+        for method in METHODS:
+            row = self.target(
+                self.quantify(
+                    data, method=method, settings=Settings(reporting_mode="exploratory")
+                )[0]
+            )
+            self.assertIsNotNone(row[CONC])
+            self.assertGreater(row[CONC], 0)
+            self.assertFalse(row["within_calibration_range"])
+            self.assertIn("outside_calibration_range", row["quantification_status"])
+            self.assertIn("loq_unavailable", row["quantification_status"])
+            self.assertNotIn("below_loq", row["quantification_status"])
+            strict = self.target(
+                self.quantify(
+                    data,
+                    method=method,
+                    settings=Settings(
+                        reporting_mode="exploratory", allow_extrapolation=False
+                    ),
+                )[0]
+            )
+            self.assertIsNone(strict[CONC])
+            self.assertEqual(
+                strict["estimated_reaction_copies_ul"],
+                row["estimated_reaction_copies_ul"],
+            )
+
     def test_duplex_rna_uses_two_strand_mass(self):
         data = self.load()
         targets = load_targets(self.root / "targets.tsv", [data])

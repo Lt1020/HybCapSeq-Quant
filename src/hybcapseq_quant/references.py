@@ -489,6 +489,42 @@ def load_catalog(path, metadata_path=None):
         records[acc] = row
     if len(records) != manifest.get("reference_count"):
         raise ValueError("Molecular annotation record count mismatch")
+    assemblies = defaultdict(list)
+    for row in records.values():
+        assemblies[row["assembly"]].append(row)
+    for assembly, members in assemblies.items():
+        lengths = {float(r["assembly_length_nt"]) for r in members}
+        factors = {
+            number(r.get("molecular_mass_per_nt_g_mol"), positive=True) for r in members
+        }
+        if len(lengths) != 1 or sum(float(r["length_nt"]) for r in members) != next(
+            iter(lengths)
+        ):
+            expected_status = "inconsistent_assembly_reference_length"
+        elif None in factors:
+            expected_status = "unresolved_assembly_member_mass"
+        elif len(factors) != 1:
+            expected_status = "inconsistent_assembly_molecular_chemistry"
+        else:
+            expected_status = "resolved_complete_assembly"
+        expected_mass = (
+            sum(float(r["reference_molecular_mass_g_mol"]) for r in members)
+            if expected_status == "resolved_complete_assembly"
+            else None
+        )
+        for row in members:
+            if row["assembly_mass_status"] != expected_status or int(
+                row["assembly_reference_count"]
+            ) != len(members):
+                raise ValueError(
+                    f"Assembly annotation status/count mismatch: {assembly}"
+                )
+            group_mass = number(row.get("assembly_molecular_mass_g_mol"), positive=True)
+            if (expected_mass is None) != (group_mass is None) or (
+                expected_mass is not None
+                and not math.isclose(group_mass, expected_mass, rel_tol=1e-10)
+            ):
+                raise ValueError(f"Assembly molecular mass mismatch: {assembly}")
     if metadata_path:
         metadata_path = Path(metadata_path)
         if sha256(metadata_path) != manifest.get("database_metadata_sha256"):
@@ -515,12 +551,25 @@ def load_catalog(path, metadata_path=None):
         "mass_model": manifest.get("mass_model"),
         "classification_policy": manifest.get("classification_policy"),
         "database_metadata_sha256": manifest.get("database_metadata_sha256"),
+        "database_revision": manifest.get("database_revision", "v3.3"),
+        "reference_correction_ids": manifest.get("reference_correction_ids", []),
     }
 
 
 def database_catalog(directory):
     """Require a checksum-matched sidecar in the selected database directory."""
     directory = Path(directory)
+    from .reference_updates import read_corrections
+
+    metadata = directory / METADATA_NAME
+    if (
+        metadata.is_file()
+        and sha256(metadata) == read_corrections()["original_metadata_sha256"]
+    ):
+        raise ValueError(
+            "The selected v3.3 metadata needs the verified reference-length update. "
+            f"Run: hybcapseq_quant upgrade-db --db-dir {directory}"
+        )
     return load_catalog(directory / CATALOG_NAME, directory / METADATA_NAME)
 
 
@@ -533,10 +582,16 @@ def install_catalog(directory, replace=False):
     metadata = directory / METADATA_NAME
     if not metadata.is_file():
         raise ValueError(f"Database metadata is required: {metadata}")
-    manifest = json.loads((PACKAGE_REFERENCE / MANIFEST_NAME).read_text())
+    from .reference_updates import bundled_reference_files, read_corrections
+
+    catalog_bytes, manifest = bundled_reference_files()
+    if sha256(metadata) == read_corrections()["original_metadata_sha256"]:
+        raise ValueError(
+            "Database metadata needs correction first. Run hybcapseq_quant upgrade-db --db-dir with this database directory."
+        )
     if sha256(metadata) != manifest["database_metadata_sha256"]:
         raise ValueError(
-            "Bundled annotations require the documented v3.3 metadata checksum. "
+            "Bundled annotations require the documented v3.3.1 metadata checksum. "
             "Build a new catalog for a different database."
         )
     destinations = [directory / CATALOG_NAME, directory / MANIFEST_NAME]
@@ -552,10 +607,8 @@ def install_catalog(directory, replace=False):
         prefix=".molecular_annotations_", dir=directory
     ) as tmp:
         staging = Path(tmp)
-        with gzip.open(PACKAGE_REFERENCE / (CATALOG_NAME + ".gz"), "rb") as source:
-            with (staging / CATALOG_NAME).open("wb") as dest:
-                shutil.copyfileobj(source, dest)
-        shutil.copyfile(PACKAGE_REFERENCE / MANIFEST_NAME, staging / MANIFEST_NAME)
+        (staging / CATALOG_NAME).write_bytes(catalog_bytes)
+        (staging / MANIFEST_NAME).write_text(json.dumps(manifest, indent=2) + "\n")
         load_catalog(staging / CATALOG_NAME, metadata)
         for dest in destinations:
             (staging / dest.name).replace(dest)

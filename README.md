@@ -38,19 +38,26 @@ python -m pip install --upgrade .
 hybcapseq_quant --version
 ```
 
-本版本为 **2.0.0**。将环境变量 `DB_DIR` 设置为本次联合比对实际使用的 v3.3 数据库目录，再安装和校验分子注释：
+本版本为 **2.1.0**，配套数据库修订为 **v3.3.1**。也可以在当前 Python/conda 环境直接安装固定发行版本：
 
 ```bash
-hybcapseq_quant install-references --db-dir "$DB_DIR"
+python -m pip install --upgrade --no-cache-dir "git+https://github.com/Lt1020/HybCapSeq-Quant.git@v2.1.0"
+hybcapseq_quant --version
+```
+
+将环境变量 `DB_DIR` 设置为实际联合参考数据库目录。已有 v3.3 用户执行一次数据库升级，然后校验：
+
+```bash
+hybcapseq_quant upgrade-db --db-dir "$DB_DIR"
 hybcapseq_quant validate-db --db-dir "$DB_DIR"
 ```
 
-安装命令解压软件附带的全量注释，在数据库目录生成以下两个文件：
+升级在原目录完成，不要求修改目录名。它校验原 metadata、FASTA 和注释指纹，备份被替换文件，再校正 Rochester 乙流 8 条参考的组装总长度并安装匹配注释。重复执行不会重复修改；可加 `--check` 先只检查。原有 FASTA、MMI 及 `ESVIRITU_DB` 环境变量保留，三个数据库文件名保持不变，无需重新比对旧数据。升级后的注释文件仍为：
 
 - `virus_pathogen_database.molecular_annotations.tsv`
 - `virus_pathogen_database.molecular_annotations.manifest.json`
 
-原有 FASTA、MMI 和 metadata 无需改写或重建；`ESVIRITU_DB` 环境变量不受影响。定量时用 `--db-dir` 显式选择与联合比对一致的数据库。安装会校验 metadata 的 SHA256；数据库内容不匹配时终止，避免混用参考版本。相同注释重复安装不会改动文件；已有不同注释需先审阅，再显式使用 `--replace`。
+目录另保存 `virus_pathogen_database.reference_corrections.json`、v3.3.1校验清单和升级报告。仅当 metadata 已经是 v3.3.1、需要补装注释时使用 `install-references --db-dir "$DB_DIR"`。未知或手动改动的数据库不会被自动覆盖。完整说明见 [升级说明](docs/UPGRADE_2.1.0.md)。
 
 ## Accession 分子注释
 
@@ -67,7 +74,7 @@ NCBI 中的序列记录可能描述 DNA 克隆、cDNA 或复制形式，因此�
 | 部分双链 DNA | NA | 263 |
 | RNA，链型未确认 | NA | 11 |
 
-以上系数是明确声明的平均质量近似模型。dsRNA 的 680 为两条 RNA 链各 340 的合计；不是另一份实验测得的常数。参考序列长度表示一条链的位置数；双链系数已包括互补链。注释表分别输出理论摩尔质量（g/mol）、单分子理论质量（g 和 ng），并区分单条参考与完整 assembly 质量。30,729 条参考可赋予理论质量；274 条保留 NA。一个包含 8 条参考的 assembly 存在上游长度不一致，另作标记，不参与两种方法的定量。96 条 ERCC 均可描述为 RNA 转录本参考，商业 Mix 1 浓度只赋予其中 92 条。
+以上系数是明确声明的平均质量近似模型。dsRNA 的 680 为两条 RNA 链各 340 的合计；不是另一份实验测得的常数。参考序列长度表示一条链的位置数；双链系数已包括互补链。注释表分别输出理论摩尔质量（g/mol）、单分子理论质量（g 和 ng），并区分单条参考与完整 assembly 质量。30,729 条参考可赋予理论质量；274 条保留 NA。v3.3.1 已将 Rochester 乙流参考组的声明总长度与8条现存序列的长度和统一为13,859 nt。96 条 ERCC 均可描述为 RNA 转录本参考，商业 Mix 1 浓度只赋予其中 92 条。
 
 下载文件、全部字段、来源与离线重建方法见 [分子注释说明](references/molecular_annotations/README_zh.md)。软件运行无需联网检索 NCBI/ICTV。原始来源记录摘要和校验和随软件分发。
 
@@ -149,7 +156,7 @@ hybcapseq_quant run \
 
 默认 `--reporting-mode validated`：模型估计值始终写入 `estimated_*` 字段；只有校准、校准范围、LoQ 及外部验证条件满足时，才填写报告浓度列。`alignment_qc_verified`、`detection_qc_verified` 和 `calibration_transfer_verified` 是使用者提供的验证声明，软件不会通过读取 TSV 自动建立这些证据。探索性分析可显式使用 `--reporting-mode exploratory`，结果仍保留验证状态与限制标记。
 
-默认要求至少 4 个相邻浓度等级、R² ≥ 0.95、产率法斜率为 0.8–1.2；深度法要求正斜率。默认不允许外推。最低读数、覆盖广度和各阈值应在分析前确定，并在方法部分报告。重复间 CV 默认仅作诊断；需要按预先设定规则排除 ERCC 时，使用 `--filter-replicate-cv --max-replicate-cv 0.35`，且每条 ERCC 至少有 3 个可比较重复。
+默认要求至少 4 个相邻浓度等级、R² ≥ 0.95、产率法斜率为 0.8–1.2；深度法要求正斜率。`exploratory` 模式默认输出可计算的区间外模型估计，并保留 `outside_calibration_range`；`validated` 模式默认不允许外推。可用 `--no-extrapolation` 或 `--allow-extrapolation` 显式选择。最低ERCC浓度和校准下界均不自动构成LoD/LoQ；LoQ只使用明确提供的靶标或样本参数。最低读数、覆盖广度和各阈值应在分析前确定，并在方法部分报告。重复间 CV 默认仅作诊断；需要按预先设定规则排除 ERCC 时，使用 `--filter-replicate-cv --max-replicate-cv 0.35`，且每条 ERCC 至少有 3 个可比较重复。
 
 缺少回收率或体积参数时，污水浓度为 `NA`；不会默认回收率为 1。ERCC 在提取后加入，其反应体系浓度为已知投入值，污水浓度始终为 `NA`。无 ERCC 的样本不自动借用其他样本的校准曲线。
 
@@ -171,7 +178,7 @@ hybcapseq_quant run \
 
 主结果列为 `concentration_reaction_copies_ul` 和 `concentration_wastewater`。后者的单位由 `wastewater_concentration_unit` 给出。`estimated_*` 与报告列必须结合 `value_origin`、`reporting_mode` 和 `quantification_status` 解读。分节段参考的每个检出行可重复显示同一目标浓度；不能将这些行相加。
 
-结果根目录另包含输入快照、`run_summary.tsv`、`replicate_diagnostics.tsv` 和 `run_manifest.json`。`inputs/molecular_annotations.tsv` 保存本批次检出参考的注释快照；manifest 记录全量注释、来源 manifest 和数据库 metadata 的 SHA256。主结果附带 `molecule_type`、`molecular_annotation_status`、`mass_model` 和 `quantification_molecular_mass_g_mol`。运行汇总区分可估计、可报告、超出校准范围和缺少质量的靶标数；质量完整不代表所有结果都满足报告条件。
+结果根目录另包含输入快照、`run_summary.tsv`、`replicate_diagnostics.tsv`、`reference_corrections.tsv` 和 `run_manifest.json`。`inputs/molecular_annotations.tsv` 保存本批次检出参考的注释快照；manifest 记录全量注释、来源 manifest 和数据库 metadata 的 SHA256。原检出表的 `Asm_length` 保留不变，实际计算使用 `reference_length_nt`；只有已核实的历史长度值能够按公开修正规则兼容。主结果附带 `reference_correction_ids`、`molecule_type`、`molecular_annotation_status`、`mass_model` 和 `quantification_molecular_mass_g_mol`。运行汇总区分可估计、可报告、超出校准范围和缺少质量的靶标数；质量完整不代表所有结果都满足报告条件。
 
 ## 软件验证与方法适用性
 

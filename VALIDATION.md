@@ -34,6 +34,12 @@ The suite validates the packaged full-catalog checksum, 31,003 unique accession 
 
 These checks establish the integrity of the distributed source-to-model mapping; they do not independently validate every deposited taxonomic assignment or establish chemical composition in a study sample.
 
+## Reference revision and reporting-mode verification
+
+Version 2.1.0 tests staged database upgrades, byte-level preservation of unrelated metadata and line endings, unchanged FASTA/index files, original-file backups, no-write inspection, idempotence, rejection of unknown changes, recovery from a simulated write failure, exact legacy-reference compatibility and continued rejection of other mismatches. Catalog validation independently recomputes full-group length, member count, status and mass arithmetic. Exploratory-mode tests verify that a positive out-of-range model estimate is retained without assigning an ERCC endpoint as a LoQ; explicit non-extrapolation remains available.
+
+The aggregate archived-batch regression in `validation/reference_revision_2.1.0.json` covers 13 libraries. Each estimator has 1,603 sample/reference-group observations: seven documented corrected groups become computable, while estimates for the other 1,596 groups and all calibration coefficients remain unchanged. Original detection fields remain byte-equivalent as TSV cell values. These are software regression results on existing observations, not a new experimental accuracy validation. `scripts/verify_reference_revision.py` reproduces this audit from the original result archive and a revised reference directory; no sample measurements are distributed in this repository.
+
 ## Reproduction
 
 ```bash
