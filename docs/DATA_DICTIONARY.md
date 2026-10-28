@@ -1,5 +1,9 @@
 # Data dictionary
 
+Version 2.2.0 adds target-correction input/output tables documented in [TARGET_CORRECTION.md](TARGET_CORRECTION.md). `factor` is dimensionless; original and corrected extract concentrations use copies/µL. Missing coefficients remain `NA`. `fit_scope` is an exact batch label or `pooled`; `correction_profile` is an exact method label or `shared_depth_yield`. Training-parent counts and held-out counts refer to parent groups, not reads. `validation_status` does not certify an assay. `corrected_extract_copies_ul` never overwrites `seq_extract_copies_ul`.
+
+Calibration model tables now include `diagnostic_codes`, and manifests retain `enforce_yield_slope_range`. The default R² threshold is 0.80. `yield_slope_outside_diagnostic_range` is informational unless the explicit historical acceptance gate is enabled.
+
 ## File conventions
 
 All tabular files are UTF-8 TSV with one header row, a period as decimal separator and `NA` for unavailable values. Numeric output is written with up to 12 significant digits. Boolean output is `true` or `false`; boolean input accepts `1`/`0` and the documented true/false equivalents. Empty values are treated as missing, not zero. Filenames and new field names use English identifiers; upstream EsViritu fields retain their exact spelling and case.

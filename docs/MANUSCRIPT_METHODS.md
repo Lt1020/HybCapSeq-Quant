@@ -1,0 +1,41 @@
+# ERCC calibrated quantification of hybrid capture sequencing
+
+## Reference data and signal processing
+
+HybCapSeq-Quant version 2.2.0 analyzes EsViritu detection tables using separate sequencing-yield and normalized-depth estimators. Software commits, database revisions, dependencies, input fingerprints and effective settings are recorded for each run. The active reference revision is v3.3.1, including the accession-resolved molecular annotations and documented assembly-length correction. The ERCC alignment catalog contains 96 reference transcripts, of which 92 have manufacturer-assigned Mix 1 concentrations. Database v3.4 is a preparation specification and was not used to generate alignment or quantification results.
+
+Observed mean depth is defined over the full reference length, including uncovered positions. When this definition is verified for the upstream implementation, cumulative aligned bases are reconstructed as mean depth multiplied by reference length. Otherwise, a reviewed compatible alignment-metrics table is required. Distinct covered reference positions are used for coverage breadth, not cumulative aligned bases. Analysis-input bases and the EsViritu filtering stage must match. RPKMF is preserved but does not replace aligned-base signal in either primary estimator. Optional BAM extraction applies explicitly recorded filters; it does not infer unmarked PCR duplicates or claim fragment-level overlap correction.
+
+## ERCC assignment and calibration
+
+For transcript i, the manufacturer-assigned stock concentration s_i in amol/µL was converted to molecules using the exact Avogadro constant, the total stock dilution D and added volume V_s: N_i = s_i × 10^-18 × N_A × V_s / D. Starting-mixture and extract-equivalent concentrations were N_i/V_r and N_i/V_l, respectively, where V_r is the starting mixture volume and V_l is the actual extract aliquot. The extract-equivalent assignment is a calibration quantity; ERCC was added after extraction. Actual experiment volumes remain sample inputs rather than software constants.
+
+The sequencing-yield estimator follows the yield concept of Li et al. [1]. For ERCC mass m_i, total input mass M_T, ERCC aligned bases n_i and total analysis-input bases n_T, define f_i = m_i/M_T, q_i = n_i/n_T and Y_i = q_i/f_i. An unweighted regression of log10(q_i) on log10(f_i) evaluates response proportionality. The arithmetic mean of eligible Y_i values converts target aligned-base fraction to mass: m_v = [(n_v/n_T)/mean(Y_i)] × M_T. Target molecules are m_v × N_A /(10^9 × k_v × L_v), where k_v is the declared average molecular-mass factor and L_v is the locked reference length. All spiked ERCC mass enters M_T, including transcripts excluded from fitting. Unresolved molecular mass is not replaced by an RNA default.
+
+The normalized-depth estimator adapts depth-based quantitative metagenomics [2]. For mean ERCC depth d_i, mixed extract concentration C_NA and input mass M_l, O_i = d_i × C_NA/M_l. Regression is log10(A_i) = alpha + beta × log10(O_i), with A_i = N_i/V_l. The corresponding target signal predicts extract-equivalent copies/µL; multiplication by V_l/V_r gives starting-mixture concentration. Numerical log units are defined in METHODS.md. The ERCC RNA/hybrid-capture implementation differs from the original DNA-standard metagenomic workflows and requires independent transfer assessment.
+
+Both models require at least four adjacent assigned levels, positive slope and R² ≥0.80. A sequencing-yield slope outside 0.8–1.2 is diagnostic. A separately recorded option reproduces the former slope gate and 0.95 R² policy. Undetected ERCCs remain in the audit but do not receive fabricated log-scale observations. A fitted lower endpoint does not establish LoD or LoQ. Validated reporting requires externally supported detection/alignment QC, calibration transfer and an independently supplied LoQ; exploratory estimates remain labeled.
+
+## Target aggregation and wastewater conversion
+
+Segmented references are combined using reviewed groups and complete reference lengths. Missing segments do not shorten denominators. Concentrations repeated across source segment rows are not summed. Unresolved alternative assemblies and ambiguous mapping require review. Local-reference abundance, if later implemented, must be defined separately from whole-genome-equivalent abundance.
+
+For extract concentration C_e, elution volume V_e (µL), extracted concentrate aliquot V_x (µL), total concentrate volume V_c (mL), original wastewater volume V_0 (mL), and mass recovery r, wastewater copies/mL equal 1000 × C_e × V_e/V_x × V_c/(V_0 × r). A further factor of 1000 gives copies/L. Recovery is supplied independently or calculated from paired PMMoV measurements and matching volumes. Missing recovery is not replaced by one. ERCC added after extraction does not correct upstream losses, and PMMoV recovery is not assumed to represent every target without evidence.
+
+## Target-specific correction and independent comparison
+
+Only reviewed positive dPCR/sequencing pairs with accepted calibration and complete in-range estimates enter coefficient fitting. Zero, missing and ineligible results remain in an exclusion audit. For each target and method, log10(dPCR/sequencing) ratios are summarized by their median within extraction and method across ERCC conditions, then within parent specimen, and finally across parents. Exponentiation gives a positive multiplicative coefficient. Batch-specific, pooled and shared depth/yield coefficients are assessed separately; no per-sample coefficient is selected.
+
+For each observed positive pair, APE = 100 × abs(K × sequencing/dPCR - 1). A single K can place all existing pairs within 30% only if the intervals [0.7 × dPCR/sequencing, 1.3 × dPCR/sequencing] intersect. This feasibility check is descriptive. Leave-one-parent-out prediction excludes all observations from the held-out specimen and requires at least three training parents. Cross-batch prediction fits one batch and evaluates others. A deterministic parent bootstrap provides conditional coefficient intervals. These intervals do not propagate the entire experimental uncertainty budget.
+
+Accuracy summaries report paired-observation and parent counts, median/maximum APE, the fraction within 30%, mean log10 bias, log10 RMSE, log10 R² and Lin CCC [3]. Summaries of repeated library observations are descriptive; individual libraries are not claimed as independent biological specimens. Complete leave-parent-out coverage with at least four evaluated parents and all held-out APE values ≤30% is the software's coefficient-application criterion, not formal assay validation. Other coefficients require explicit exploratory application. Source concentrations remain unchanged, and estimates outside the factor training interval are not filled.
+
+## Reproducibility and analytical limits
+
+Implemented equations, accepted parameters, source fields, reference checksums and run manifests are distributed with the software. Numerical verification uses explicitly simulated observations with known truth. Software verification, experimental quantitative agreement, and determination of target-specific LoD/LoQ are separate tasks. Existing sparse standards and minimum detected inputs are not relabeled as formal limits. A new reference region or alignment database requires renewed assessment rather than automatic reuse of a previous coefficient.
+
+## References
+
+1. Li et al. A Quantitative Metagenomic Sequencing Approach for High-Throughput Gene Quantification and Demonstration with Antibiotic Resistance Genes. Applied and Environmental Microbiology. 2021;87:e00871-21. https://doi.org/10.1128/AEM.00871-21
+2. Langenfeld et al. Development of a quantitative metagenomic approach to establish quantitative limits and its application to viruses. Nucleic Acids Research. 2025;53:gkaf118. https://doi.org/10.1093/nar/gkaf118
+3. Lin LI. A concordance correlation coefficient to evaluate reproducibility. Biometrics. 1989;45:255–268. https://doi.org/10.2307/2532051

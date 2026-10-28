@@ -1,0 +1,14 @@
+{
+  "candidate_version": "v3.4",
+  "active_database_revision": "v3.3.1",
+  "status": "blocked_missing_reviewed_target_references",
+  "release_ready": false,
+  "sequence_asset_created": false,
+  "index_created": false,
+  "blocking_issues": [
+    "Actual digital-PCR assay region annotations have not been supplied",
+    "Reviewed local-reference FASTA files have not been supplied",
+    "Reference redistribution permissions have not been confirmed",
+    "The complete active alignment database has not been supplied for rebuilding"
+  ]
+}

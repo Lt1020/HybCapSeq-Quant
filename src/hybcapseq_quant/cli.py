@@ -314,6 +314,7 @@ def settings_from_args(args):
         min_levels=args.min_levels,
         slope_min=args.slope_min,
         slope_max=args.slope_max,
+        enforce_yield_slope_range=args.enforce_yield_slope_range,
         allow_extrapolation=args.allow_extrapolation,
         reporting_mode=args.reporting_mode,
         filter_replicate_cv=args.filter_replicate_cv,
@@ -530,6 +531,7 @@ def run(args):
                         **fit,
                         "accepted": calibration["passes"],
                         "failure_codes": ";".join(calibration["errors"]),
+                        "diagnostic_codes": ";".join(calibration["diagnostics"]),
                         "n_fitted": calibration["n_fitted"],
                         "distinct_levels": calibration["distinct_levels"],
                         "adjacent_levels": calibration["longest_adjacent_levels"],
@@ -603,6 +605,7 @@ def run(args):
                     "method": method,
                     "calibration_accepted": calibration["passes"],
                     "calibration_failure_codes": ";".join(calibration["errors"]),
+                    "calibration_diagnostic_codes": ";".join(calibration["diagnostics"]),
                     "slope": fit.get("slope"),
                     "intercept": fit.get("intercept"),
                     "r2": fit.get("r2"),
@@ -929,10 +932,15 @@ def parser():
     )
     r.add_argument("--min-ercc-reads", type=int, default=1)
     r.add_argument("--min-ercc-breadth", type=float, default=0)
-    r.add_argument("--min-r2", type=float, default=0.95)
+    r.add_argument("--min-r2", type=float, default=0.80)
     r.add_argument("--min-levels", type=int, default=4)
     r.add_argument("--slope-min", type=float, default=0.8)
     r.add_argument("--slope-max", type=float, default=1.2)
+    r.add_argument(
+        "--enforce-yield-slope-range",
+        action="store_true",
+        help="apply the former yield-slope acceptance gate; diagnostic only by default",
+    )
     extrapolation = r.add_mutually_exclusive_group()
     extrapolation.add_argument(
         "--allow-extrapolation",
@@ -1010,6 +1018,9 @@ def parser():
             ref.add_argument("--output-dir", type=Path)
             ref.add_argument("--workers", type=int, choices=[1, 2, 3], default=3)
         ref.set_defaults(func=manage_references)
+    from .corrections import add_commands
+
+    add_commands(sub)
     return p
 
 
@@ -1026,6 +1037,8 @@ def main(argv=None):
         "validate-db",
         "build-molecular-annotations",
         "upgrade-db",
+        "fit-correction",
+        "apply-correction",
     }
     if (
         argv

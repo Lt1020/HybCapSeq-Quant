@@ -22,7 +22,7 @@ These values are recovered independently by both estimators. Validation flags an
 
 ## Verification domains
 
-The automated suite checks official stock assignments and original-source checksums, reference lengths, dilution and Avogadro conversion, inclusion of all spiked standard mass, arithmetic-mean yield estimation, normalized-depth calibration, target molecular mass, segment aggregation, mass-balance recovery and unit conversion. It also checks failed slope criteria despite perfect R², adjacent-level requirements, non-extrapolation, missing inputs, reporting policy, target-specific LoQ, unspiked controls and optional replicate filtering.
+The automated suite checks official stock assignments and original-source checksums, reference lengths, dilution and Avogadro conversion, inclusion of all spiked standard mass, arithmetic-mean yield estimation, normalized-depth calibration, target molecular mass, segment aggregation, mass-balance recovery and unit conversion. It checks positive yield slopes outside the diagnostic interval, rejection when the historical gate is explicitly enabled, adjacent-level requirements, non-extrapolation, missing inputs, reporting policy, target-specific LoQ, unspiked controls and optional replicate filtering.
 
 Command-line checks cover single-sample and batch execution, source-column preservation, English output fields, input/output conflict detection, relative paths, relocation, directory names with spaces, independent working directories, installed schemas, provenance and figure generation. Optional BAM checks use a constructed alignment file containing known duplicate, secondary, supplementary and multi-mapping records.
 
@@ -40,7 +40,13 @@ Version 2.1.0 tests staged database upgrades, byte-level preservation of unrelat
 
 The aggregate archived-batch regression in `validation/reference_revision_2.1.0.json` covers 13 libraries. Each estimator has 1,603 sample/reference-group observations: seven documented corrected groups become computable, while estimates for the other 1,596 groups and all calibration coefficients remain unchanged. Original detection fields remain byte-equivalent as TSV cell values. These are software regression results on existing observations, not a new experimental accuracy validation. `scripts/verify_reference_revision.py` reproduces this audit from the original result archive and a revised reference directory; no sample measurements are distributed in this repository.
 
-## Reproduction
+## Version 2.2.0 additions
+
+Correction fixtures have independent analytical factors of 10 and 5 for the depth and yield observations. Tests check exact factor recovery, incompatible shared factors, unchanged parent weights under extra dilution observations, grouped training/test separation, explicit exclusion audits, duplicate-key rejection, insufficient training parents, source-value preservation and end-to-end command execution. Policy tests check the 0.80 default and explicit legacy slope gate. Reference-preflight fixtures are nonpathogen synthetic padding and verify that input checks do not claim a database release. No experimental target measurements enter public test fixtures.
+
+Local checks and GitHub Actions results refer to a specific commit. Optional BAM tests are skipped when pysam is absent; that skip must remain visible. Passing source checks does not establish empirical accuracy. Database v3.4 remains blocked until actual assay-region information and reviewed reference files are supplied; no v3.4 sequence/index validation has been performed.
+
+## Reproduction commands
 
 ```bash
 python -m pip install '.[bam]'

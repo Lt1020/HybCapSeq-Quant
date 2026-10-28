@@ -346,7 +346,7 @@ class QuantificationTests(unittest.TestCase):
         self.assertIsNone(row[CONC])
         self.assertIn("missing_molecular_mass_factor", row["quantification_status"])
 
-    def test_high_r2_does_not_override_slope_criterion(self):
+    def test_positive_yield_slope_is_diagnostic_unless_explicitly_enforced(self):
         for row in self.rows:
             if row["Accession"].startswith("ERCC-"):
                 row["mean_coverage"] = (
@@ -360,7 +360,15 @@ class QuantificationTests(unittest.TestCase):
         calibration = calibrate(self.load(), METHODS[0], self.settings)[0]
         self.assertAlmostEqual(calibration["fit"]["r2"], 1)
         self.assertAlmostEqual(calibration["fit"]["slope"], 0.4)
-        self.assertFalse(calibration["passes"])
+        self.assertTrue(calibration["passes"])
+        self.assertIn(
+            "yield_slope_outside_diagnostic_range", calibration["diagnostics"]
+        )
+        strict = calibrate(
+            self.load(), METHODS[0], Settings(enforce_yield_slope_range=True)
+        )[0]
+        self.assertFalse(strict["passes"])
+        self.assertIn("yield_slope_outside_acceptance_range", strict["errors"])
 
     def test_levels_must_be_adjacent(self):
         data = self.load()

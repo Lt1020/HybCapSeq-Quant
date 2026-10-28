@@ -184,10 +184,11 @@ def adjacent_run(levels):
 class Settings:
     min_ercc_reads: int = 1
     min_ercc_breadth: float = 0.0
-    min_r2: float = 0.95
+    min_r2: float = 0.80
     min_levels: int = 4
     slope_min: float = 0.8
     slope_max: float = 1.2
+    enforce_yield_slope_range: bool = False
     allow_extrapolation: bool | None = None
     reporting_mode: str = "validated"
     filter_replicate_cv: bool = False
@@ -486,6 +487,7 @@ def replicate_qc(samples, settings=None):
 def calibrate(data, method, settings):
     eligible = [p for p in data["points"] if p["fit_used"]]
     errors = []
+    diagnostics = []
     if method == "sequencing_yield":
         eligible = [
             p
@@ -529,7 +531,9 @@ def calibrate(data, method, settings):
             method == "sequencing_yield"
             and not settings.slope_min <= fit["slope"] <= settings.slope_max
         ):
-            errors.append("yield_slope_outside_acceptance_range")
+            diagnostics.append("yield_slope_outside_diagnostic_range")
+            if settings.enforce_yield_slope_range:
+                errors.append("yield_slope_outside_acceptance_range")
     yields = (
         [p["sequencing_yield"] for p in eligible]
         if method == "sequencing_yield"
@@ -540,6 +544,7 @@ def calibrate(data, method, settings):
         "fit": fit,
         "passes": not errors,
         "errors": errors,
+        "diagnostics": diagnostics,
         "n_fitted": len(eligible),
         "distinct_levels": len(set(p["level"] for p in eligible)),
         "longest_adjacent_levels": run,
