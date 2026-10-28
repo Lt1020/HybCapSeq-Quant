@@ -38,10 +38,10 @@ python -m pip install --upgrade .
 hybcapseq_quant --version
 ```
 
-本版本为 **2.2.0**，配套数据库修订为 **v3.3.1**。也可以在当前 Python/conda 环境直接安装固定发行版本：
+本版本为 **2.2.0**，配套数据库修订为 **v3.3.1**。也可以在当前 Python/conda 环境直接安装固定提交版本：
 
 ```bash
-python -m pip install --upgrade --no-cache-dir "git+https://github.com/Lt1020/HybCapSeq-Quant.git@v2.2.0"
+python -m pip install --upgrade --no-cache-dir "git+https://github.com/Lt1020/HybCapSeq-Quant.git@72860b90516b0e54eb6747f8a82e3add6467169d"
 hybcapseq_quant --version
 ```
 

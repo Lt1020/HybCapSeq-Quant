@@ -605,7 +605,9 @@ def run(args):
                     "method": method,
                     "calibration_accepted": calibration["passes"],
                     "calibration_failure_codes": ";".join(calibration["errors"]),
-                    "calibration_diagnostic_codes": ";".join(calibration["diagnostics"]),
+                    "calibration_diagnostic_codes": ";".join(
+                        calibration["diagnostics"]
+                    ),
                     "slope": fit.get("slope"),
                     "intercept": fit.get("intercept"),
                     "r2": fit.get("r2"),
