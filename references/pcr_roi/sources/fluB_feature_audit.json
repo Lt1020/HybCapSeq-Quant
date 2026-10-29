@@ -1,0 +1,43 @@
+{
+  "source_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CY040733.1&rettype=gb&retmode=xml&seq_start=633&seq_stop=935",
+  "features": [
+    {
+      "key": "source",
+      "location": "1..303",
+      "qualifiers": {
+        "segment": "8"
+      }
+    },
+    {
+      "key": "gene",
+      "location": "<1..>303",
+      "qualifiers": {
+        "gene": "NEP"
+      }
+    },
+    {
+      "key": "CDS",
+      "location": "<74..>303",
+      "qualifiers": {
+        "gene": "NEP",
+        "note": "nonstructural protein 2",
+        "product": "nuclear export protein"
+      }
+    },
+    {
+      "key": "gene",
+      "location": "<1..231",
+      "qualifiers": {
+        "gene": "NS1"
+      }
+    },
+    {
+      "key": "CDS",
+      "location": "<1..231",
+      "qualifiers": {
+        "gene": "NS1",
+        "product": "nonstructural protein 1"
+      }
+    }
+  ]
+}

@@ -6,6 +6,12 @@ HybCapSeq-Quant estimates target nucleic-acid copies from ERCC-calibrated hybrid
 
 ERCC is added to the library reaction after nucleic-acid extraction. Its assigned concentration therefore calibrates library input and sequencing response. Back-conversion to wastewater additionally requires extraction/concentration volumes and an independently determined recovery proxy.
 
+## Database v3.4 reference scope
+
+The [v3.4 database](../databases/v3.4/README.md) appends 21 reviewed literature PCR regions to the corrected 31,003-record baseline. Each local record is an independent group with its actual fragment length. The complete audit includes 34 unique windows, but 13 exceptions are excluded from the alignment FASTA. Four added SARS-CoV-2 windows represent N1, N2, E and ORF1ab. The original reference sequences and ERCC assignments are retained.
+
+Local and genomic references compete for alignments. The software does not automatically pool them or implement nonredundant interval counting. Added local molecular-mass assignments remain `NA` by default; local yield estimates require an explicitly sourced target assignment, and local depth estimates remain qualified response estimates. Neither inherits a whole-genome calibration-transfer declaration merely because it names the same virus. Prior correction factors must be reassessed after changing the reference region or alignments. The [workflow](WORKFLOW_v3.4_zh.md) documents installation, measurement scope and required run records.
+
 ## Notation and units
 
 | Symbol | Definition | Unit |

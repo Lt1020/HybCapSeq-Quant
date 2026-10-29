@@ -1,0 +1,25 @@
+{
+  "result": "PASS",
+  "target_count": 12,
+  "assay_count": 35,
+  "unique_reference_count": 34,
+  "primary_reference_count": 21,
+  "boundary_reference_count": 7,
+  "mismatch_reference_count": 6,
+  "oligo_count": 123,
+  "metadata_column_count": 16,
+  "checks": [
+    "fixed_accession_versions",
+    "source_checksums",
+    "unchanged_source_substrings",
+    "one_based_inclusive_coordinates",
+    "forward_reverse_orientation",
+    "oligo_sequence_and_mismatch_counts",
+    "primary_full100_flanks",
+    "exact_sequence_aliases",
+    "FASTA_metadata_lengths_and_identifiers",
+    "NCBI_taxonomy_fields",
+    "disjoint_output_groups",
+    "literature_assay_mapping"
+  ]
+}

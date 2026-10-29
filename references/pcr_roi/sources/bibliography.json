@@ -1,0 +1,1230 @@
+{
+  "10.3201/eid2608.201246": {
+    "id": "32396505",
+    "source": "MED",
+    "pmid": "32396505",
+    "pmcid": "PMC7392423",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC7392423"
+      ]
+    },
+    "doi": "10.3201/eid2608.201246",
+    "title": "US CDC Real-Time Reverse Transcription PCR Panel for Detection of Severe Acute Respiratory Syndrome Coronavirus 2.",
+    "authorString": "Lu X, Wang L, Sakthivel SK, Whitaker B, Murray J, Kamili S, Lynch B, Malapati L, Burke SA, Harcourt J, Tamin A, Thornburg NJ, Villanueva JM, Lindstrom S.",
+    "journalTitle": "Emerg Infect Dis",
+    "issue": "8",
+    "journalVolume": "26",
+    "pubYear": "2020",
+    "journalIssn": "1080-6040; 1080-6059; ",
+    "pubType": "review-article; journal article",
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 586,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen",
+        "refseq"
+      ]
+    },
+    "firstPublicationDate": "2020-05-15",
+    "firstIndexDate": "2020-05-14"
+  },
+  "10.2807/1560-7917.es.2020.25.3.2000045": {
+    "id": "31992387",
+    "source": "MED",
+    "pmid": "31992387",
+    "pmcid": "PMC6988269",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC6988269"
+      ]
+    },
+    "doi": "10.2807/1560-7917.es.2020.25.3.2000045",
+    "title": "Detection of 2019 novel coronavirus (2019-nCoV) by real-time RT-PCR.",
+    "authorString": "Corman VM, Landt O, Kaiser M, Molenkamp R, Meijer A, Chu DK, Bleicker T, Brünink S, Schneider J, Schmidt ML, Mulders DG, Haagmans BL, van der Veer B, van den Brink S, Wijsman L, Goderski G, Romette JL, Ellis J, Zambon M, Peiris M, Goossens H, Reusken C, Koopmans MP, Drosten C.",
+    "journalTitle": "Euro Surveill",
+    "issue": "3",
+    "journalVolume": "25",
+    "pubYear": "2020",
+    "journalIssn": "1025-496x; 1560-7917; ",
+    "pubType": "research-article; journal article",
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 5466,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "Y",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen",
+        "refseq",
+        "doi"
+      ]
+    },
+    "firstPublicationDate": "2020-01-01",
+    "firstIndexDate": "2020-01-30"
+  },
+  "10.1128/jcm.00299-16": {
+    "id": "27098955",
+    "source": "MED",
+    "pmid": "27098955",
+    "pmcid": "PMC4922117",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC4922117"
+      ]
+    },
+    "doi": "10.1128/jcm.00299-16",
+    "title": "Development and Validation of a Quantitative, One-Step, Multiplex, Real-Time Reverse Transcriptase PCR Assay for Detection of Dengue and Chikungunya Viruses.",
+    "authorString": "Simmons M, Myers T, Guevara C, Jungkind D, Williams M, Houng HS.",
+    "journalTitle": "J Clin Microbiol",
+    "issue": "7",
+    "journalVolume": "54",
+    "pubYear": "2016",
+    "journalIssn": "0095-1137; 1098-660x; ",
+    "pageInfo": "1766-1773",
+    "pubType": "research-article; validation study; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 30,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen"
+      ]
+    },
+    "firstPublicationDate": "2016-04-20",
+    "firstIndexDate": "2016-04-22"
+  },
+  "10.1002/jmv.25334": {
+    "id": "30320885",
+    "source": "MED",
+    "pmid": "30320885",
+    "doi": "10.1002/jmv.25334",
+    "title": "Broadly reactive real-time reverse transcription-polymerase chain reaction assay for the detection of human sapovirus genotypes.",
+    "authorString": "Oka T, Iritani N, Yamamoto SP, Mori K, Ogawa T, Tatsumi C, Shibata S, Harada S, Wu FT.",
+    "journalTitle": "J Med Virol",
+    "issue": "3",
+    "journalVolume": "91",
+    "pubYear": "2019",
+    "journalIssn": "0146-6615; 1096-9071; ",
+    "pageInfo": "370-377",
+    "pubType": "research support, non-u.s. gov't; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 15,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2018-11-15",
+    "firstIndexDate": "2018-10-16"
+  },
+  "10.1128/aem.02354-13": {
+    "id": "24056461",
+    "source": "MED",
+    "pmid": "24056461",
+    "pmcid": "PMC3837739",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC3837739"
+      ]
+    },
+    "doi": "10.1128/aem.02354-13",
+    "title": "Occurrence of pepper mild mottle virus in drinking water sources in Japan.",
+    "authorString": "Haramoto E, Kitajima M, Kishida N, Konno Y, Katayama H, Asami M, Akiba M.",
+    "journalTitle": "Appl Environ Microbiol",
+    "issue": "23",
+    "journalVolume": "79",
+    "pubYear": "2013",
+    "journalIssn": "0099-2240; 1098-5336; ",
+    "pageInfo": "7413-7418",
+    "pubType": "research support, non-u.s. gov't; research-article; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 211,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "Y",
+    "dbCrossReferenceList": {
+      "dbName": [
+        "EMBL"
+      ]
+    },
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen"
+      ]
+    },
+    "firstPublicationDate": "2013-09-20",
+    "firstIndexDate": "2013-09-26"
+  },
+  "10.1002/jmv.23375": {
+    "id": "22930514",
+    "source": "MED",
+    "pmid": "22930514",
+    "pmcid": "PMC7166972",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC7166972"
+      ]
+    },
+    "doi": "10.1002/jmv.23375",
+    "title": "A universal influenza A and B duplex real-time RT-PCR assay.",
+    "authorString": "Lee HK, Loh TP, Lee CK, Tang JW, Chiu L, Koay ES.",
+    "journalTitle": "J Med Virol",
+    "issue": "10",
+    "journalVolume": "84",
+    "pubYear": "2012",
+    "journalIssn": "0146-6615; 1096-9071; ",
+    "pageInfo": "1646-1651",
+    "pubType": "research-article; evaluation study; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 22,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen",
+        "doi"
+      ]
+    },
+    "firstPublicationDate": "2012-10-01",
+    "firstIndexDate": "2012-08-30"
+  },
+  "10.1128/jcm.02184-10": {
+    "id": "21270233",
+    "source": "MED",
+    "pmid": "21270233",
+    "pmcid": "PMC3122825",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC3122825"
+      ]
+    },
+    "doi": "10.1128/jcm.02184-10",
+    "title": "Simultaneous detection of influenza A, influenza B, and respiratory syncytial viruses and subtyping of influenza A H3N2 virus and H1N1 (2009) virus by multiplex real-time PCR.",
+    "authorString": "Chen Y, Cui D, Zheng S, Yang S, Tong J, Yang D, Fan J, Zhang J, Lou B, Li X, Zhuge X, Ye B, Chen B, Mao W, Tan Y, Xu G, Chen Z, Chen N, Li L.",
+    "journalTitle": "J Clin Microbiol",
+    "issue": "4",
+    "journalVolume": "49",
+    "pubYear": "2011",
+    "journalIssn": "0095-1137; 1098-660x; ",
+    "pageInfo": "1653-1656",
+    "pubType": "brief-report; research support, non-u.s. gov't; evaluation study; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 46,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen"
+      ]
+    },
+    "firstPublicationDate": "2011-01-26",
+    "firstIndexDate": "2011-01-29"
+  },
+  "10.1016/j.jviromet.2010.07.012": {
+    "id": "20643162",
+    "source": "MED",
+    "pmid": "20643162",
+    "pmcid": "PMC9628942",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC9628942"
+      ]
+    },
+    "doi": "10.1016/j.jviromet.2010.07.012",
+    "title": "Real-time PCR assays for the specific detection of monkeypox virus West African and Congo Basin strain DNA.",
+    "authorString": "Li Y, Zhao H, Wilkins K, Hughes C, Damon IK.",
+    "journalTitle": "J Virol Methods",
+    "issue": "1",
+    "journalVolume": "169",
+    "pubYear": "2010",
+    "journalIssn": "0166-0934; 1879-0984; ",
+    "pageInfo": "223-227",
+    "pubType": "brief-report; journal article",
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 421,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2010-07-17",
+    "firstIndexDate": "2010-09-04"
+  },
+  "10.3201/eid1403.070906": {
+    "id": "18325256",
+    "source": "MED",
+    "pmid": "18325256",
+    "pmcid": "PMC2570846",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC2570846"
+      ]
+    },
+    "doi": "10.3201/eid1403.070906",
+    "title": "Chikungunya fever in travelers returning to Europe from the Indian Ocean region, 2006.",
+    "authorString": "Panning M, Grywna K, van Esbroeck M, Emmerich P, Drosten C.",
+    "journalTitle": "Emerg Infect Dis",
+    "issue": "3",
+    "journalVolume": "14",
+    "pubYear": "2008",
+    "journalIssn": "1080-6040; 1080-6059; ",
+    "pageInfo": "416-422",
+    "pubType": "research support, non-u.s. gov't; research-article; journal article",
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 189,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen"
+      ]
+    },
+    "firstPublicationDate": "2008-03-01",
+    "firstIndexDate": "2009-12-24"
+  },
+  "10.1128/aem.01428-07": {
+    "id": "17933913",
+    "source": "MED",
+    "pmid": "17933913",
+    "pmcid": "PMC2168159",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC2168159"
+      ]
+    },
+    "doi": "10.1128/aem.01428-07",
+    "title": "Evaluation of removal of noroviruses during wastewater treatment, using real-time reverse transcription-PCR: different behaviors of genogroups I and II.",
+    "authorString": "da Silva AK, Le Saux JC, Parnaudeau S, Pommepuy M, Elimelech M, Le Guyader FS.",
+    "journalTitle": "Appl Environ Microbiol",
+    "issue": "24",
+    "journalVolume": "73",
+    "pubYear": "2007",
+    "journalIssn": "0099-2240; 1098-5336; ",
+    "pageInfo": "7891-7897",
+    "pubType": "comparative study; research support, non-u.s. gov't; research-article; research support, u.s. gov't, non-p.h.s.; evaluation study; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 355,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2007-10-12",
+    "firstIndexDate": "2009-12-24"
+  },
+  "10.3201/eid1305.070015": {
+    "id": "17553261",
+    "source": "MED",
+    "pmid": "17553261",
+    "pmcid": "PMC2738459",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC2738459"
+      ]
+    },
+    "doi": "10.3201/eid1305.070015",
+    "title": "Chikungunya virus in US travelers returning from India, 2006.",
+    "authorString": "Lanciotti RS, Kosoy OL, Laven JJ, Panella AJ, Velez JO, Lambert AJ, Campbell GL.",
+    "journalTitle": "Emerg Infect Dis",
+    "issue": "5",
+    "journalVolume": "13",
+    "pubYear": "2007",
+    "journalIssn": "1080-6040; 1080-6059; ",
+    "pageInfo": "764-767",
+    "pubType": "brief-report; journal article",
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 425,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "Y",
+    "dbCrossReferenceList": {
+      "dbName": [
+        "EMBL"
+      ]
+    },
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen",
+        "refseq",
+        "doi"
+      ]
+    },
+    "firstPublicationDate": "2007-05-01",
+    "firstIndexDate": "2009-12-24"
+  },
+  "10.1128/jcm.00915-06": {
+    "id": "16954246",
+    "source": "MED",
+    "pmid": "16954246",
+    "pmcid": "PMC1594742",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC1594742"
+      ]
+    },
+    "doi": "10.1128/jcm.00915-06",
+    "title": "Real-time reverse transcription-PCR for detection of rotavirus and adenovirus as causative agents of acute viral gastroenteritis in children.",
+    "authorString": "Logan C, O'Leary JJ, O'Sullivan N.",
+    "journalTitle": "J Clin Microbiol",
+    "issue": "9",
+    "journalVolume": "44",
+    "pubYear": "2006",
+    "journalIssn": "0095-1137; 1098-660x; ",
+    "pageInfo": "3189-3195",
+    "pubType": "research-article; evaluation study; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 115,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "Y",
+    "dbCrossReferenceList": {
+      "dbName": [
+        "EMBL"
+      ]
+    },
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen"
+      ]
+    },
+    "firstPublicationDate": "2006-09-01",
+    "firstIndexDate": "2009-12-23"
+  },
+  "10.1128/jcm.43.10.4977-4983.2005": {
+    "id": "16207951",
+    "source": "MED",
+    "pmid": "16207951",
+    "pmcid": "PMC1248506",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC1248506"
+      ]
+    },
+    "doi": "10.1128/jcm.43.10.4977-4983.2005",
+    "title": "Serotype-specific detection of dengue viruses in a fourplex real-time reverse transcriptase PCR assay.",
+    "authorString": "Johnson BW, Russell BJ, Lanciotti RS.",
+    "journalTitle": "J Clin Microbiol",
+    "issue": "10",
+    "journalVolume": "43",
+    "pubYear": "2005",
+    "journalIssn": "0095-1137; 1098-660x; ",
+    "pageInfo": "4977-4983",
+    "pubType": "research-article; evaluation study; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 369,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2005-10-01",
+    "firstIndexDate": "2009-12-23"
+  },
+  "10.1128/aem.71.4.1870-1875.2005": {
+    "id": "15812014",
+    "source": "MED",
+    "pmid": "15812014",
+    "pmcid": "PMC1082570",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC1082570"
+      ]
+    },
+    "doi": "10.1128/aem.71.4.1870-1875.2005",
+    "title": "Rapid and sensitive detection of noroviruses by using TaqMan-based one-step reverse transcription-PCR assays and application to naturally contaminated shellfish samples.",
+    "authorString": "Jothikumar N, Lowther JA, Henshilwood K, Lees DN, Hill VR, Vinjé J.",
+    "journalTitle": "Appl Environ Microbiol",
+    "issue": "4",
+    "journalVolume": "71",
+    "pubYear": "2005",
+    "journalIssn": "0099-2240; 1098-5336; ",
+    "pageInfo": "1870-1875",
+    "pubType": "research support, non-u.s. gov't; research-article; evaluation study; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 225,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen"
+      ]
+    },
+    "firstPublicationDate": "2005-04-01",
+    "firstIndexDate": "2009-12-23"
+  },
+  "10.1038/labinvest.3700143": {
+    "id": "15208646",
+    "source": "MED",
+    "pmid": "15208646",
+    "pmcid": "PMC9827366",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC9827366"
+      ]
+    },
+    "doi": "10.1038/labinvest.3700143",
+    "title": "Monkeypox virus detection in rodents using real-time 3'-minor groove binder TaqMan assays on the Roche LightCycler.",
+    "authorString": "Kulesh DA, Loveless BM, Norwood D, Garrison J, Whitehouse CA, Hartmann C, Mucker E, Miller D, Wasieloski LP, Huggins J, Huhn G, Miser LL, Imig C, Martinez M, Larsen T, Rossi CA, Ludwig GV.",
+    "journalTitle": "Lab Invest",
+    "issue": "9",
+    "journalVolume": "84",
+    "pubYear": "2004",
+    "journalIssn": "0023-6837; 1530-0307; ",
+    "pageInfo": "1200-1208",
+    "pubType": "research-article; validation study; research support, u.s. gov't, non-p.h.s.; journal article",
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 132,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen",
+        "refseq",
+        "doi"
+      ]
+    },
+    "firstPublicationDate": "2004-09-01",
+    "firstIndexDate": "2008-01-29"
+  },
+  "10.1016/s1386-6532(03)00122-7": {
+    "id": "14962787",
+    "source": "MED",
+    "pmid": "14962787",
+    "pmcid": "PMC7128145",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC7128145"
+      ]
+    },
+    "doi": "10.1016/s1386-6532(03)00122-7",
+    "title": "Design and performance testing of quantitative real time PCR assays for influenza A and B viral load measurement.",
+    "authorString": "Ward CL, Dempsey MH, Ring CJ, Kempson RE, Zhang L, Gor D, Snowden BW, Tisdale M.",
+    "journalTitle": "J Clin Virol",
+    "issue": "3",
+    "journalVolume": "29",
+    "pubYear": "2004",
+    "journalIssn": "1386-6532; 1873-5967; ",
+    "pageInfo": "179-188",
+    "pubType": "comparative study; research-article; evaluation study; journal article",
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 246,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen",
+        "doi"
+      ]
+    },
+    "firstPublicationDate": "2004-03-01",
+    "firstIndexDate": "2008-01-29"
+  },
+  "10.1128/jcm.41.6.2408-2416.2003": {
+    "id": "12791857",
+    "source": "MED",
+    "pmid": "12791857",
+    "pmcid": "PMC156548",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC156548"
+      ]
+    },
+    "doi": "10.1128/jcm.41.6.2408-2416.2003",
+    "title": "Development of group- and serotype-specific one-step SYBR green I-based real-time reverse transcription-PCR assay for dengue virus.",
+    "authorString": "Shu PY, Chang SF, Kuo YC, Yueh YY, Chien LJ, Sue CL, Lin TH, Huang JH.",
+    "journalTitle": "J Clin Microbiol",
+    "issue": "6",
+    "journalVolume": "41",
+    "pubYear": "2003",
+    "journalIssn": "0095-1137; 1098-660x; ",
+    "pageInfo": "2408-2416",
+    "pubType": "comparative study; research support, non-u.s. gov't; research-article; evaluation study; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 158,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen"
+      ]
+    },
+    "firstPublicationDate": "2003-06-01",
+    "firstIndexDate": "2009-12-24"
+  },
+  "10.1128/jcm.41.4.1548-1557.2003": {
+    "id": "12682144",
+    "source": "MED",
+    "pmid": "12682144",
+    "pmcid": "PMC153860",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC153860"
+      ]
+    },
+    "doi": "10.1128/jcm.41.4.1548-1557.2003",
+    "title": "Broadly reactive and highly sensitive assay for Norwalk-like viruses based on real-time quantitative reverse transcription-PCR.",
+    "authorString": "Kageyama T, Kojima S, Shinohara M, Uchida K, Fukushi S, Hoshino FB, Takeda N, Katayama K.",
+    "journalTitle": "J Clin Microbiol",
+    "issue": "4",
+    "journalVolume": "41",
+    "pubYear": "2003",
+    "journalIssn": "0095-1137; 1098-660x; ",
+    "pageInfo": "1548-1557",
+    "pubType": "research support, non-u.s. gov't; research-article; evaluation study; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 1069,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "Y",
+    "dbCrossReferenceList": {
+      "dbName": [
+        "EMBL"
+      ]
+    },
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen"
+      ]
+    },
+    "firstPublicationDate": "2003-04-01",
+    "firstIndexDate": "2009-12-24"
+  },
+  "10.11150/kansenshogakuzasshi.83.120": {
+    "id": "19364039",
+    "source": "MED",
+    "pmid": "19364039",
+    "doi": "10.11150/kansenshogakuzasshi.83.120",
+    "title": "[Astrovirus RNA detection using real-time reverse transcription-polymerase chain reaction].",
+    "authorString": "Yokoi H, Kitahashi T.",
+    "journalTitle": "Kansenshogaku Zasshi",
+    "issue": "2",
+    "journalVolume": "83",
+    "pubYear": "2009",
+    "journalIssn": "0387-5911; 1884-569x; ",
+    "pageInfo": "120-126",
+    "pubType": "journal article; english abstract",
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 4,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2009-03-01",
+    "firstIndexDate": "2009-05-20"
+  },
+  "10.1016/j.jviromet.2008.09.025": {
+    "id": "18951923",
+    "source": "MED",
+    "pmid": "18951923",
+    "doi": "10.1016/j.jviromet.2008.09.025",
+    "title": "Broadly reactive TaqMan assay for real-time RT-PCR detection of rotavirus in clinical and environmental samples. JIN2@cdc.gov.",
+    "authorString": "Jothikumar N, Kang G, Hill VR.",
+    "journalTitle": "J Virol Methods",
+    "issue": "2",
+    "journalVolume": "155",
+    "pubYear": "2009",
+    "journalIssn": "0166-0934; 1879-0984; ",
+    "pageInfo": "126-131",
+    "pubType": "evaluation study; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 92,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2008-11-20",
+    "firstIndexDate": "2009-03-19"
+  },
+  "10.1016/j.jviromet.2008.08.004": {
+    "id": "18765254",
+    "source": "MED",
+    "pmid": "18765254",
+    "doi": "10.1016/j.jviromet.2008.08.004",
+    "title": "One-step quantitative RT-PCR for the detection of rotavirus in acute gastroenteritis.",
+    "authorString": "Zeng SQ, Halkosalo A, Salminen M, Szakal ED, Puustinen L, Vesikari T.",
+    "journalTitle": "J Virol Methods",
+    "issue": "2",
+    "journalVolume": "153",
+    "pubYear": "2008",
+    "journalIssn": "0166-0934; 1879-0984; ",
+    "pageInfo": "238-240",
+    "pubType": "evaluation study; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 168,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2008-09-17",
+    "firstIndexDate": "2008-12-24"
+  },
+  "10.1002/jmv.20699": {
+    "id": "16927293",
+    "source": "MED",
+    "pmid": "16927293",
+    "doi": "10.1002/jmv.20699",
+    "title": "Detection of human sapovirus by real-time reverse transcription-polymerase chain reaction.",
+    "authorString": "Oka T, Katayama K, Hansman GS, Kageyama T, Ogawa S, Wu FT, White PA, Takeda N.",
+    "journalTitle": "J Med Virol",
+    "issue": "10",
+    "journalVolume": "78",
+    "pubYear": "2006",
+    "journalIssn": "0146-6615; 1096-9071; ",
+    "pageInfo": "1347-1353",
+    "pubType": "research support, non-u.s. gov't; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 193,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "Y",
+    "dbCrossReferenceList": {
+      "dbName": [
+        "EMBL"
+      ]
+    },
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2006-10-01",
+    "firstIndexDate": "2008-01-29"
+  },
+  "10.1016/j.jviromet.2005.12.013": {
+    "id": "16427707",
+    "source": "MED",
+    "pmid": "16427707",
+    "doi": "10.1016/j.jviromet.2005.12.013",
+    "title": "Sapovirus detection by quantitative real-time RT-PCR in clinical stool specimens.",
+    "authorString": "Chan MC, Sung JJ, Lam RK, Chan PK, Lai RW, Leung WK.",
+    "journalTitle": "J Virol Methods",
+    "issue": "1-2",
+    "journalVolume": "134",
+    "pubYear": "2006",
+    "journalIssn": "0166-0934; 1879-0984; ",
+    "pageInfo": "146-153",
+    "pubType": "journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 34,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "Y",
+    "dbCrossReferenceList": {
+      "dbName": [
+        "EMBL"
+      ]
+    },
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2006-01-19",
+    "firstIndexDate": "2008-01-29"
+  },
+  "10.1016/j.jviromet.2004.08.023": {
+    "id": "15582692",
+    "source": "MED",
+    "pmid": "15582692",
+    "doi": "10.1016/j.jviromet.2004.08.023",
+    "title": "Real-time RT-PCR for norovirus screening in shellfish.",
+    "authorString": "Loisy F, Atmar RL, Guillon P, Le Cann P, Pommepuy M, Le Guyader FS.",
+    "journalTitle": "J Virol Methods",
+    "issue": "1",
+    "journalVolume": "123",
+    "pubYear": "2005",
+    "journalIssn": "0166-0934; 1879-0984; ",
+    "pageInfo": "1-7",
+    "pubType": "research support, non-u.s. gov't; evaluation study; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 294,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2005-01-01",
+    "firstIndexDate": "2008-01-29"
+  },
+  "10.1016/j.jviromet.2004.11.002": {
+    "id": "15664052",
+    "source": "MED",
+    "pmid": "15664052",
+    "doi": "10.1016/j.jviromet.2004.11.002",
+    "title": "Development of a TaqMan RT-PCR assay without RNA extraction step for the detection and quantification of African Chikungunya viruses.",
+    "authorString": "Pastorino B, Bessaud M, Grandadam M, Murri S, Tolou HJ, Peyrefitte CN.",
+    "journalTitle": "J Virol Methods",
+    "issue": "1-2",
+    "journalVolume": "124",
+    "pubYear": "2005",
+    "journalIssn": "0166-0934; 1879-0984; ",
+    "pageInfo": "65-71",
+    "pubType": "research support, non-u.s. gov't; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 225,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "Y",
+    "dbCrossReferenceList": {
+      "dbName": [
+        "EMBL"
+      ]
+    },
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2004-12-15",
+    "firstIndexDate": "2008-01-29"
+  },
+  "10.1139/w04-012": {
+    "id": "15213751",
+    "source": "MED",
+    "pmid": "15213751",
+    "doi": "10.1139/w04-012",
+    "title": "Development of an astrovirus RT-PCR detection assay for use with conventional, real-time, and integrated cell culture/RT-PCR.",
+    "authorString": "Grimm AC, Cashdollar JL, Williams FP, Fout GS.",
+    "journalTitle": "Can J Microbiol",
+    "issue": "4",
+    "journalVolume": "50",
+    "pubYear": "2004",
+    "journalIssn": "0008-4166; 1480-3275; ",
+    "pageInfo": "269-278",
+    "pubType": "research support, u.s. gov't, non-p.h.s.; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 22,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "Y",
+    "dbCrossReferenceList": {
+      "dbName": [
+        "EMBL"
+      ]
+    },
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2004-04-01",
+    "firstIndexDate": "2008-01-29"
+  },
+  "10.1016/j.resmic.2003.09.013": {
+    "id": "14759703",
+    "source": "MED",
+    "pmid": "14759703",
+    "doi": "10.1016/j.resmic.2003.09.013",
+    "title": "Quantification of human astroviruses in sewage using real-time RT-PCR.",
+    "authorString": "Le Cann P, Ranarijaona S, Monpoeho S, Le Guyader F, Ferré V.",
+    "journalTitle": "Res Microbiol",
+    "issue": "1",
+    "journalVolume": "155",
+    "pubYear": "2004",
+    "journalIssn": "0923-2508; 1769-7123; ",
+    "pageInfo": "11-15",
+    "pubType": "research support, non-u.s. gov't; validation study; evaluation study; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 94,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2004-01-01",
+    "firstIndexDate": "2008-01-29"
+  },
+  "10.1128/jvi.00639-24": {
+    "id": "39132992",
+    "source": "MED",
+    "pmid": "39132992",
+    "pmcid": "PMC11406923",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC11406923"
+      ]
+    },
+    "doi": "10.1128/jvi.00639-24",
+    "title": "Propagating and banking genetically diverse human sapovirus strains using a human duodenal cell line: investigating antigenic differences between strains.",
+    "authorString": "Oka T, Li T-C, Yonemitsu K, Ami Y, Suzaki Y, Kataoka M, Doan YH, Okemoto-Nakamura Y, Kobayashi T, Saito H, Mita T, Tokuoka E, Shibata S, Yoshida T, Takagi H.",
+    "journalTitle": "J Virol",
+    "issue": "9",
+    "journalVolume": "98",
+    "pubYear": "2024",
+    "journalIssn": "0022-538x; 1098-5514; ",
+    "pageInfo": "e0063924",
+    "pubType": "research support, non-u.s. gov't; research-article; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 8,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "Y",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen",
+        "doi"
+      ]
+    },
+    "firstPublicationDate": "2024-08-12",
+    "firstIndexDate": "2024-08-13"
+  },
+  "10.1128/aem.01095-20": {
+    "id": "32709728",
+    "source": "MED",
+    "pmid": "32709728",
+    "pmcid": "PMC7499037",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC7499037"
+      ]
+    },
+    "doi": "10.1128/aem.01095-20",
+    "title": "The Basis of Peracetic Acid Inactivation Mechanisms for Rotavirus and Tulane Virus under Conditions Relevant for Vegetable Sanitation.",
+    "authorString": "Fuzawa M, Bai H, Shisler JL, Nguyen TH.",
+    "journalTitle": "Appl Environ Microbiol",
+    "issue": "19",
+    "journalVolume": "86",
+    "pubYear": "2020",
+    "journalIssn": "0099-2240; 1098-5336; ",
+    "pageInfo": "e01095-20",
+    "pubType": "research-article; research support, u.s. gov't, non-p.h.s.; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 15,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "Y",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen"
+      ]
+    },
+    "firstPublicationDate": "2020-09-17",
+    "firstIndexDate": "2020-07-26"
+  },
+  "10.1007/s10393-020-01488-7": {
+    "id": "32876756",
+    "source": "MED",
+    "pmid": "32876756",
+    "pmcid": "PMC7464061",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC7464061"
+      ]
+    },
+    "doi": "10.1007/s10393-020-01488-7",
+    "title": "Epidemiology and Molecular Characterization of Rotavirus A in Fruit Bats in Bangladesh.",
+    "authorString": "Islam A, Hossain ME, Rostal MK, Ferdous J, Islam A, Hasan R, Miah M, Rahman M, Rahman MZ, Daszak P, Epstein JH.",
+    "journalTitle": "Ecohealth",
+    "issue": "3",
+    "journalVolume": "17",
+    "pubYear": "2020",
+    "journalIssn": "1612-9202; 1612-9210; ",
+    "pageInfo": "398-405",
+    "pubType": "brief-report; research support, u.s. gov't, non-p.h.s.; journal article; research support, n.i.h., extramural",
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 12,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen"
+      ]
+    },
+    "firstPublicationDate": "2020-09-02",
+    "firstIndexDate": "2020-09-03"
+  },
+  "10.3390/v11080755": {
+    "id": "31443243",
+    "source": "MED",
+    "pmid": "31443243",
+    "pmcid": "PMC6722894",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC6722894"
+      ]
+    },
+    "doi": "10.3390/v11080755",
+    "title": "Development and Evaluation of a Duo Chikungunya Virus Real-Time RT-PCR Assay Targeting Two Regions within the Genome.",
+    "authorString": "Thirion L, Pezzi L, Corcostegui I, Dubot-Pérès A, Falchi A, de Lamballerie X, Charrel RN.",
+    "journalTitle": "Viruses",
+    "issue": "8",
+    "journalVolume": "11",
+    "pubYear": "2019",
+    "journalIssn": "1999-4915",
+    "pageInfo": "E755",
+    "pubType": "research support, non-u.s. gov't; research-article; evaluation study; journal article",
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 18,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "Y",
+    "tmAccessionTypeList": {
+      "accessionType": [
+        "gen",
+        "doi"
+      ]
+    },
+    "firstPublicationDate": "2019-08-15",
+    "firstIndexDate": "2019-08-24"
+  },
+  "10.1111/tmi.12251": {
+    "id": "24372706",
+    "source": "MED",
+    "pmid": "24372706",
+    "doi": "10.1111/tmi.12251",
+    "title": "Applicability of Bio-wipes for the collection of human faecal specimens for detection and characterisation of enteric viruses.",
+    "authorString": "Mans J, van Zyl WB, Taylor MB, Page NA, Sobsey MD, Barnard TG, Potgieter N.",
+    "journalTitle": "Trop Med Int Health",
+    "issue": "3",
+    "journalVolume": "19",
+    "pubYear": "2014",
+    "journalIssn": "1360-2276; 1365-3156; ",
+    "pageInfo": "293-300",
+    "pubType": "research support, non-u.s. gov't; evaluation study; journal article",
+    "isOpenAccess": "N",
+    "inEPMC": "N",
+    "inPMC": "N",
+    "citedByCount": 7,
+    "hasReferences": "Y",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "N",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "N",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2013-12-24",
+    "firstIndexDate": "2014-01-04"
+  },
+  "10.46234/ccdcw2020.023": {
+    "id": "34594827",
+    "source": "MED",
+    "pmid": "34594827",
+    "pmcid": "PMC8393094",
+    "fullTextIdList": {
+      "fullTextId": [
+        "PMC8393094"
+      ]
+    },
+    "doi": "10.46234/ccdcw2020.023",
+    "title": "Description of the First Strain of 2019-nCoV, C-Tan-nCoV Wuhan Strain - National Pathogen Resource Center, China, 2020.",
+    "authorString": "Wei Q, Wang Y, Ma J, Han J, Jiang M, Zhao L, Ye F, Song J, Liu B, Wu L, Tan W, Wu G, Gao GF, Liu J.",
+    "journalTitle": "China CDC Wkly",
+    "issue": "6",
+    "journalVolume": "2",
+    "pubYear": "2020",
+    "journalIssn": "2096-7071",
+    "pageInfo": "81-82",
+    "pubType": "brief-report; journal article",
+    "isOpenAccess": "Y",
+    "inEPMC": "Y",
+    "inPMC": "Y",
+    "citedByCount": 19,
+    "hasReferences": "N",
+    "hasTextMinedTerms": "Y",
+    "hasDbCrossReferences": "N",
+    "hasPDF": "Y",
+    "hasBook": "N",
+    "hasSuppl": "N",
+    "hasLabsLinks": "Y",
+    "hasTMAccessionNumbers": "N",
+    "firstPublicationDate": "2020-02-01",
+    "firstIndexDate": "2021-10-02"
+  }
+}

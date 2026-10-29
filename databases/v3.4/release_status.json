@@ -1,14 +1,24 @@
 {
-  "candidate_version": "v3.4",
-  "active_database_revision": "v3.3.1",
-  "status": "blocked_missing_reviewed_target_references",
-  "release_ready": false,
-  "sequence_asset_created": false,
-  "index_created": false,
-  "blocking_issues": [
-    "Actual digital-PCR assay region annotations have not been supplied",
-    "Reviewed local-reference FASTA files have not been supplied",
-    "Reference redistribution permissions have not been confirmed",
-    "The complete active alignment database has not been supplied for rebuilding"
-  ]
+  "database_revision": "v3.4",
+  "status": "built_and_computationally_verified",
+  "release_ready": true,
+  "sequence_asset_created": true,
+  "index_created": true,
+  "reference_scope": "reviewed_public_literature_diagnostic_regions",
+  "actual_commercial_assay_confirmed": false,
+  "experimental_quantitative_transfer_validated": false,
+  "blocking_issues": [],
+  "counts": {
+    "base_records": 31003,
+    "base_ercc_records": 96,
+    "added_primary_roi_records": 21,
+    "combined_records": 31024,
+    "combined_reference_bases": 235377252,
+    "roi_targets_in_main_database": 11,
+    "literature_targets_in_audit": 12,
+    "literature_assays_in_audit": 35,
+    "excluded_roi_candidates_retained_in_audit": 13,
+    "sars_cov2_roi_records": 4
+  },
+  "release_url": "https://github.com/Lt1020/HybCapSeq-Quant/releases/tag/db-v3.4"
 }

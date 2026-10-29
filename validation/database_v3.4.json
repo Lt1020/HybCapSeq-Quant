@@ -1,0 +1,63 @@
+{
+  "result": "PASS",
+  "database_version": "v3.4",
+  "counts": {
+    "base_records": 31003,
+    "base_ercc_records": 96,
+    "added_primary_roi_records": 21,
+    "combined_records": 31024,
+    "combined_reference_bases": 235377252,
+    "roi_targets_in_main_database": 11,
+    "literature_targets_in_audit": 12,
+    "literature_assays_in_audit": 35,
+    "excluded_roi_candidates_retained_in_audit": 13,
+    "sars_cov2_roi_records": 4
+  },
+  "index_validation": {
+    "base_fasta_bytes_preserved": true,
+    "corrected_base_metadata_bytes_preserved": true,
+    "only_documented_eight_base_metadata_cells_changed": true,
+    "fasta_metadata_index_ids_and_lengths_match": true,
+    "molecular_annotation_catalog_validated": true,
+    "all_original_molecular_annotation_bytes_preserved": true,
+    "reference_package_checksums_and_independent_validator_passed": true,
+    "esviritu_experimental_fastq_end_to_end_performed": false,
+    "roi_quantitative_transfer_validated": false,
+    "actual_commercial_dpcr_assay_confirmed": false,
+    "index_reference_count": 31024,
+    "ercc_queries_passed": 96,
+    "roi_queries_passed": 21,
+    "roi_queries_with_multiple_reported_hits": 21,
+    "secondary_alignment_limit": 1000,
+    "interpretation": "Reference recovery check; neither uniqueness nor assay specificity validation"
+  },
+  "simulated_quantification": {
+    "result": "PASS",
+    "data_kind": "explicitly simulated software check; not experimental validation",
+    "database_reference_count": 31024,
+    "methods": {
+      "sequencing_yield": {
+        "legacy_extract_copies_ul": 5000.0,
+        "roi_rows_checked": 21,
+        "expected_roi_behavior": "mass_unavailable"
+      },
+      "depth_calibration": {
+        "legacy_extract_copies_ul": 5000.0,
+        "roi_rows_checked": 21,
+        "expected_roi_behavior": "qualified_depth_response"
+      }
+    }
+  },
+  "local_unit_test_count": 79,
+  "local_skipped_test_count": 1,
+  "local_skip_reason": "optional BAM test: pysam unavailable",
+  "experimental_fastq_end_to_end_performed": false,
+  "local_archive": {
+    "filename": "esviritu_db_v3.4.tar.gz",
+    "bytes": 449890868,
+    "sha256": "a9fc73daff579ece7d2486363e197d4096973441d76a409b471005af8c4ed5cc",
+    "directory": "v3.4",
+    "roundtrip_all_member_sha256_verified": true,
+    "checked_file_count": 79
+  }
+}

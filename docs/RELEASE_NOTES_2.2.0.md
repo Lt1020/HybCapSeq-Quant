@@ -1,5 +1,7 @@
 # HybCapSeq Quant 2.2.0
 
+Historical software-release notes (2026-10-28). The subsequent [database v3.4 release](../databases/v3.4/README.md), dated 2026-10-29, is documented separately; the statements below describe the earlier software-release state.
+
 This release adds grouped assessment of target-specific multiplicative bias and updates the research calibration defaults. The active reference database remains v3.3.1.
 
 ## Calibration policy

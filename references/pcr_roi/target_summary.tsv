@@ -1,0 +1,13 @@
+target	assay_count	unique_reference_count	primary_reference_count	boundary_limited_count	mismatch_count
+PMMoV	1	1	1	0	0
+DENV-1	3	3	1	1	1
+SARS-CoV-2	4	4	4	0	0
+Influenza_A	3	3	1	1	1
+Influenza_B	3	3	1	1	1
+Norovirus_GI	3	3	2	0	1
+Norovirus_GII	3	3	2	0	1
+Human_astrovirus	3	3	2	1	0
+Sapovirus	3	2	2	0	0
+Rotavirus_A	3	3	0	3	0
+MPXV	3	3	3	0	0
+CHIKV	3	3	2	0	1

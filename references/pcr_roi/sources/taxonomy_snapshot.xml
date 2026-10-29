@@ -1,0 +1,1541 @@
+<?xml version="1.0" ?>
+<!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+<TaxaSet><Taxon>
+    <TaxId>10941</TaxId>
+    <ScientificName>Human rotavirus A</ScientificName>
+    <OtherNames>
+        <EquivalentName>Human group A rotavirus</EquivalentName>
+    </OtherNames>
+    <ParentTaxId>28875</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Duplornaviricota; Resentoviricetes; Reovirales; Sedoreoviridae; Rotavirus; Rotavirus alphagastroenteritidis; Rotavirus A</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732405</TaxId>
+            <ScientificName>Duplornaviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732459</TaxId>
+            <ScientificName>Resentoviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732541</TaxId>
+            <ScientificName>Reovirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2946186</TaxId>
+            <ScientificName>Sedoreoviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>10912</TaxId>
+            <ScientificName>Rotavirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3432193</TaxId>
+            <ScientificName>Rotavirus alphagastroenteritidis</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>28875</TaxId>
+            <ScientificName>Rotavirus A</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>1995/02/27 09:24:00</CreateDate>
+    <UpdateDate>2020/04/07 15:24:16</UpdateDate>
+    <PubDate>1993/04/24 01:00:00</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>11053</TaxId>
+    <ScientificName>dengue virus type 1</ScientificName>
+    <OtherNames>
+        <Synonym>Dengue virus 1</Synonym>
+        <EquivalentName>dengue type 1 D1 virus</EquivalentName>
+        <EquivalentName>dengue virus serotype 1</EquivalentName>
+        <EquivalentName>dengue virus type 1 DEN1</EquivalentName>
+        <EquivalentName>dengue virus type I</EquivalentName>
+        <EquivalentName>dengue virus-1 DEN-1</EquivalentName>
+        <EquivalentName>type 1 dengue virus DEN-1</EquivalentName>
+    </OtherNames>
+    <ParentTaxId>12637</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Kitrinoviricota; Flasuviricetes; Amarillovirales; Flaviviridae; Orthoflavivirus; Euflavivirus; Orthoflavivirus denguei; Dengue virus</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732406</TaxId>
+            <ScientificName>Kitrinoviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732462</TaxId>
+            <ScientificName>Flasuviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732545</TaxId>
+            <ScientificName>Amarillovirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11050</TaxId>
+            <ScientificName>Flaviviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3044782</TaxId>
+            <ScientificName>Orthoflavivirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3700964</TaxId>
+            <ScientificName>Euflavivirus</ScientificName>
+            <Rank>subgenus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3052464</TaxId>
+            <ScientificName>Orthoflavivirus denguei</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>12637</TaxId>
+            <ScientificName>Dengue virus</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>1995/02/27 09:24:00</CreateDate>
+    <UpdateDate>2026/04/01 16:33:54</UpdateDate>
+    <PubDate>1993/04/24 01:00:00</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>11520</TaxId>
+    <ScientificName>Influenza B virus</ScientificName>
+    <OtherNames>
+        <Acronym>FLUBV</Acronym>
+        <EquivalentName>Influenza virus type B</EquivalentName>
+    </OtherNames>
+    <ParentTaxId>2955465</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Negarnaviricota; Polyploviricotina; Insthoviricetes; Articulavirales; Orthomyxoviridae; Betainfluenzavirus; Betainfluenzavirus influenzae</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497569</TaxId>
+            <ScientificName>Negarnaviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497571</TaxId>
+            <ScientificName>Polyploviricotina</ScientificName>
+            <Rank>subphylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497577</TaxId>
+            <ScientificName>Insthoviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2499411</TaxId>
+            <ScientificName>Articulavirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11308</TaxId>
+            <ScientificName>Orthomyxoviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>197912</TaxId>
+            <ScientificName>Betainfluenzavirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2955465</TaxId>
+            <ScientificName>Betainfluenzavirus influenzae</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>1995/02/27 09:24:00</CreateDate>
+    <UpdateDate>2020/04/07 15:24:16</UpdateDate>
+    <PubDate>1993/04/23 01:00:00</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>11983</TaxId>
+    <ScientificName>Norwalk virus</ScientificName>
+    <OtherNames>
+        <EquivalentName>Norwalk calicivirus</EquivalentName>
+        <EquivalentName>Norwalk virus NV</EquivalentName>
+    </OtherNames>
+    <ParentTaxId>3431196</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Pisuviricota; Pisoniviricetes; Picornavirales; Caliciviridae; Norovirus; Norovirus norwalkense</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732408</TaxId>
+            <ScientificName>Pisuviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732506</TaxId>
+            <ScientificName>Pisoniviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>464095</TaxId>
+            <ScientificName>Picornavirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11974</TaxId>
+            <ScientificName>Caliciviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>142786</TaxId>
+            <ScientificName>Norovirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3431196</TaxId>
+            <ScientificName>Norovirus norwalkense</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>1995/02/27 09:24:00</CreateDate>
+    <UpdateDate>2025/06/03 12:44:42</UpdateDate>
+    <PubDate>1994/03/02 00:00:00</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>12239</TaxId>
+    <ScientificName>Pepper mild mottle virus</ScientificName>
+    <OtherNames>
+        <EquivalentName>pepper mild mottle virus PMMV-S</EquivalentName>
+    </OtherNames>
+    <ParentTaxId>3432865</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Kitrinoviricota; Alsuviricetes; Martellivirales; Virgaviridae; Tobamovirus; Tobamovirus capsici</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732406</TaxId>
+            <ScientificName>Kitrinoviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732461</TaxId>
+            <ScientificName>Alsuviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732544</TaxId>
+            <ScientificName>Martellivirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>675071</TaxId>
+            <ScientificName>Virgaviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>12234</TaxId>
+            <ScientificName>Tobamovirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3432865</TaxId>
+            <ScientificName>Tobamovirus capsici</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>1995/02/27 09:24:00</CreateDate>
+    <UpdateDate>2025/06/03 12:50:28</UpdateDate>
+    <PubDate>1993/04/23 01:00:00</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>12456</TaxId>
+    <ScientificName>Human astrovirus 1</ScientificName>
+    <OtherNames>
+        <Acronym>HAstV-1</Acronym>
+        <EquivalentName>Human astrovirus type 1</EquivalentName>
+        <EquivalentName>human astrovirus serotype 1</EquivalentName>
+    </OtherNames>
+    <ParentTaxId>1239565</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Pisuviricota; Stelpaviricetes; Stellavirales; Astroviridae; Mamastrovirus; Mamastrovirus hominis; Mamastrovirus 1</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732408</TaxId>
+            <ScientificName>Pisuviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732507</TaxId>
+            <ScientificName>Stelpaviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732551</TaxId>
+            <ScientificName>Stellavirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>39733</TaxId>
+            <ScientificName>Astroviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>249588</TaxId>
+            <ScientificName>Mamastrovirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3430629</TaxId>
+            <ScientificName>Mamastrovirus hominis</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>1239565</TaxId>
+            <ScientificName>Mamastrovirus 1</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>1995/02/27 09:24:00</CreateDate>
+    <UpdateDate>2020/04/07 15:24:16</UpdateDate>
+    <PubDate>1993/08/02 01:00:00</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>12701</TaxId>
+    <ScientificName>Human astrovirus 2</ScientificName>
+    <OtherNames>
+        <Acronym>H-Ast2</Acronym>
+        <EquivalentName>Human astrovirus serotype 2 H-Ast2</EquivalentName>
+        <EquivalentName>Human astrovirus type 2</EquivalentName>
+    </OtherNames>
+    <ParentTaxId>1239565</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Pisuviricota; Stelpaviricetes; Stellavirales; Astroviridae; Mamastrovirus; Mamastrovirus hominis; Mamastrovirus 1</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732408</TaxId>
+            <ScientificName>Pisuviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732507</TaxId>
+            <ScientificName>Stelpaviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732551</TaxId>
+            <ScientificName>Stellavirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>39733</TaxId>
+            <ScientificName>Astroviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>249588</TaxId>
+            <ScientificName>Mamastrovirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3430629</TaxId>
+            <ScientificName>Mamastrovirus hominis</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>1239565</TaxId>
+            <ScientificName>Mamastrovirus 1</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>1995/02/27 09:24:00</CreateDate>
+    <UpdateDate>2020/04/07 15:24:16</UpdateDate>
+    <PubDate>1994/03/13 00:00:00</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>28875</TaxId>
+    <ScientificName>Rotavirus A</ScientificName>
+    <OtherNames>
+        <EquivalentName>Group A rotaviruses</EquivalentName>
+        <EquivalentName>Rotavirus group A</EquivalentName>
+        <EquivalentName>group A rotavirus</EquivalentName>
+    </OtherNames>
+    <ParentTaxId>3432193</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Duplornaviricota; Resentoviricetes; Reovirales; Sedoreoviridae; Rotavirus; Rotavirus alphagastroenteritidis</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732405</TaxId>
+            <ScientificName>Duplornaviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732459</TaxId>
+            <ScientificName>Resentoviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732541</TaxId>
+            <ScientificName>Reovirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2946186</TaxId>
+            <ScientificName>Sedoreoviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>10912</TaxId>
+            <ScientificName>Rotavirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3432193</TaxId>
+            <ScientificName>Rotavirus alphagastroenteritidis</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>1995/02/27 09:24:00</CreateDate>
+    <UpdateDate>2025/06/03 12:50:50</UpdateDate>
+    <PubDate>1993/04/22 01:00:00</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>37124</TaxId>
+    <ScientificName>Chikungunya virus</ScientificName>
+    <ParentTaxId>3426298</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Kitrinoviricota; Alsuviricetes; Martellivirales; Togaviridae; Alphavirus; Alphavirus chikungunya</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732406</TaxId>
+            <ScientificName>Kitrinoviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732461</TaxId>
+            <ScientificName>Alsuviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732544</TaxId>
+            <ScientificName>Martellivirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11018</TaxId>
+            <ScientificName>Togaviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11019</TaxId>
+            <ScientificName>Alphavirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3426298</TaxId>
+            <ScientificName>Alphavirus chikungunya</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>1995/02/27 09:24:00</CreateDate>
+    <UpdateDate>2025/06/03 12:48:56</UpdateDate>
+    <PubDate>1994/11/28 00:00:00</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>82658</TaxId>
+    <ScientificName>Lordsdale virus</ScientificName>
+    <ParentTaxId>11983</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Pisuviricota; Pisoniviricetes; Picornavirales; Caliciviridae; Norovirus; Norovirus norwalkense; Norwalk virus</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732408</TaxId>
+            <ScientificName>Pisuviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732506</TaxId>
+            <ScientificName>Pisoniviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>464095</TaxId>
+            <ScientificName>Picornavirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11974</TaxId>
+            <ScientificName>Caliciviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>142786</TaxId>
+            <ScientificName>Norovirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3431196</TaxId>
+            <ScientificName>Norovirus norwalkense</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11983</TaxId>
+            <ScientificName>Norwalk virus</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>1998/09/21 11:23:00</CreateDate>
+    <UpdateDate>2022/08/03 16:38:40</UpdateDate>
+    <PubDate>1998/09/21 11:23:00</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>94433</TaxId>
+    <ScientificName>Camberwell virus</ScientificName>
+    <ParentTaxId>11983</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Pisuviricota; Pisoniviricetes; Picornavirales; Caliciviridae; Norovirus; Norovirus norwalkense; Norwalk virus</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732408</TaxId>
+            <ScientificName>Pisuviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732506</TaxId>
+            <ScientificName>Pisoniviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>464095</TaxId>
+            <ScientificName>Picornavirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11974</TaxId>
+            <ScientificName>Caliciviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>142786</TaxId>
+            <ScientificName>Norovirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3431196</TaxId>
+            <ScientificName>Norovirus norwalkense</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11983</TaxId>
+            <ScientificName>Norwalk virus</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>1999/05/21 14:45:00</CreateDate>
+    <UpdateDate>2005/01/19 15:15:00</UpdateDate>
+    <PubDate>1999/06/01 01:00:00</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>234601</TaxId>
+    <ScientificName>Sapovirus Mc10</ScientificName>
+    <ParentTaxId>515177</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Pisuviricota; Pisoniviricetes; Picornavirales; Caliciviridae; Sapovirus; Sapovirus sapporoense; Sapporo virus; Sapovirus GII</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732408</TaxId>
+            <ScientificName>Pisuviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732506</TaxId>
+            <ScientificName>Pisoniviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>464095</TaxId>
+            <ScientificName>Picornavirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11974</TaxId>
+            <ScientificName>Caliciviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>95341</TaxId>
+            <ScientificName>Sapovirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3432266</TaxId>
+            <ScientificName>Sapovirus sapporoense</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>95342</TaxId>
+            <ScientificName>Sapporo virus</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>515177</TaxId>
+            <ScientificName>Sapovirus GII</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>2003/06/13 09:48:21</CreateDate>
+    <UpdateDate>2005/07/12 11:21:14</UpdateDate>
+    <PubDate>2004/03/08 18:04:05</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>291175</TaxId>
+    <ScientificName>Sapovirus Hu/Dresden/pJG-Sap01/DE</ScientificName>
+    <ParentTaxId>280756</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Pisuviricota; Pisoniviricetes; Picornavirales; Caliciviridae; Sapovirus; Sapovirus sapporoense; Sapporo virus; Sapovirus isolates</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732408</TaxId>
+            <ScientificName>Pisuviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732506</TaxId>
+            <ScientificName>Pisoniviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>464095</TaxId>
+            <ScientificName>Picornavirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11974</TaxId>
+            <ScientificName>Caliciviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>95341</TaxId>
+            <ScientificName>Sapovirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3432266</TaxId>
+            <ScientificName>Sapovirus sapporoense</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>95342</TaxId>
+            <ScientificName>Sapporo virus</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>280756</TaxId>
+            <ScientificName>Sapovirus isolates</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>2004/08/20 12:18:16</CreateDate>
+    <UpdateDate>2005/01/19 15:15:00</UpdateDate>
+    <PubDate>2004/09/05 18:03:50</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>380964</TaxId>
+    <ScientificName>Influenza A virus (A/Texas/36/1991(H1N1))</ScientificName>
+    <OtherNames>
+        <EquivalentName>Influenza A virus (A/Texas/36/91(H1N1))</EquivalentName>
+    </OtherNames>
+    <ParentTaxId>114727</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Negarnaviricota; Polyploviricotina; Insthoviricetes; Articulavirales; Orthomyxoviridae; Alphainfluenzavirus; Alphainfluenzavirus influenzae; Influenza A virus; H1N1 subtype</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497569</TaxId>
+            <ScientificName>Negarnaviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497571</TaxId>
+            <ScientificName>Polyploviricotina</ScientificName>
+            <Rank>subphylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497577</TaxId>
+            <ScientificName>Insthoviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2499411</TaxId>
+            <ScientificName>Articulavirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11308</TaxId>
+            <ScientificName>Orthomyxoviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>197911</TaxId>
+            <ScientificName>Alphainfluenzavirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2955291</TaxId>
+            <ScientificName>Alphainfluenzavirus influenzae</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11320</TaxId>
+            <ScientificName>Influenza A virus</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>114727</TaxId>
+            <ScientificName>H1N1 subtype</ScientificName>
+            <Rank>serotype</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>2006/04/19 15:46:50</CreateDate>
+    <UpdateDate>2020/04/07 15:24:16</UpdateDate>
+    <PubDate>1999/06/17 01:00:00</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>500699</TaxId>
+    <ScientificName>Influenza B virus (B/Taiwan/40/2007)</ScientificName>
+    <ParentTaxId>11520</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Negarnaviricota; Polyploviricotina; Insthoviricetes; Articulavirales; Orthomyxoviridae; Betainfluenzavirus; Betainfluenzavirus influenzae; Influenza B virus</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497569</TaxId>
+            <ScientificName>Negarnaviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497571</TaxId>
+            <ScientificName>Polyploviricotina</ScientificName>
+            <Rank>subphylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497577</TaxId>
+            <ScientificName>Insthoviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2499411</TaxId>
+            <ScientificName>Articulavirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11308</TaxId>
+            <ScientificName>Orthomyxoviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>197912</TaxId>
+            <ScientificName>Betainfluenzavirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2955465</TaxId>
+            <ScientificName>Betainfluenzavirus influenzae</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11520</TaxId>
+            <ScientificName>Influenza B virus</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>2008/02/01 14:27:01</CreateDate>
+    <UpdateDate>2008/02/01 21:39:10</UpdateDate>
+    <PubDate>2008/02/01 18:00:31</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>619591</TaxId>
+    <ScientificName>Monkeypox virus Zaire-96-I-16</ScientificName>
+    <ParentTaxId>10244</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Varidnaviria; Bamfordvirae; Nucleocytoviricota; Pokkesviricetes; Chitovirales; Poxviridae; Chordopoxvirinae; Orthopoxvirus; Orthopoxvirus monkeypox; Monkeypox virus</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732004</TaxId>
+            <ScientificName>Varidnaviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732005</TaxId>
+            <ScientificName>Bamfordvirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732007</TaxId>
+            <ScientificName>Nucleocytoviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732525</TaxId>
+            <ScientificName>Pokkesviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732527</TaxId>
+            <ScientificName>Chitovirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>10240</TaxId>
+            <ScientificName>Poxviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>10241</TaxId>
+            <ScientificName>Chordopoxvirinae</ScientificName>
+            <Rank>subfamily</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>10242</TaxId>
+            <ScientificName>Orthopoxvirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3431483</TaxId>
+            <ScientificName>Orthopoxvirus monkeypox</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>10244</TaxId>
+            <ScientificName>Monkeypox virus</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>2009/03/04 11:30:14</CreateDate>
+    <UpdateDate>2009/03/05 18:25:24</UpdateDate>
+    <PubDate>2009/03/05 18:00:36</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>641809</TaxId>
+    <ScientificName>Influenza A virus (A/California/07/2009(H1N1))</ScientificName>
+    <ParentTaxId>114727</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Negarnaviricota; Polyploviricotina; Insthoviricetes; Articulavirales; Orthomyxoviridae; Alphainfluenzavirus; Alphainfluenzavirus influenzae; Influenza A virus; H1N1 subtype</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497569</TaxId>
+            <ScientificName>Negarnaviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497571</TaxId>
+            <ScientificName>Polyploviricotina</ScientificName>
+            <Rank>subphylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497577</TaxId>
+            <ScientificName>Insthoviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2499411</TaxId>
+            <ScientificName>Articulavirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11308</TaxId>
+            <ScientificName>Orthomyxoviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>197911</TaxId>
+            <ScientificName>Alphainfluenzavirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2955291</TaxId>
+            <ScientificName>Alphainfluenzavirus influenzae</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11320</TaxId>
+            <ScientificName>Influenza A virus</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>114727</TaxId>
+            <ScientificName>H1N1 subtype</ScientificName>
+            <Rank>serotype</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>2009/04/27 13:42:39</CreateDate>
+    <UpdateDate>2009/04/28 18:29:00</UpdateDate>
+    <PubDate>2009/04/28 18:00:35</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>859255</TaxId>
+    <ScientificName>Influenza A virus (A/Gdansk/037/2009(H1N1))</ScientificName>
+    <ParentTaxId>114727</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Negarnaviricota; Polyploviricotina; Insthoviricetes; Articulavirales; Orthomyxoviridae; Alphainfluenzavirus; Alphainfluenzavirus influenzae; Influenza A virus; H1N1 subtype</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497569</TaxId>
+            <ScientificName>Negarnaviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497571</TaxId>
+            <ScientificName>Polyploviricotina</ScientificName>
+            <Rank>subphylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497577</TaxId>
+            <ScientificName>Insthoviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2499411</TaxId>
+            <ScientificName>Articulavirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11308</TaxId>
+            <ScientificName>Orthomyxoviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>197911</TaxId>
+            <ScientificName>Alphainfluenzavirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2955291</TaxId>
+            <ScientificName>Alphainfluenzavirus influenzae</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11320</TaxId>
+            <ScientificName>Influenza A virus</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>114727</TaxId>
+            <ScientificName>H1N1 subtype</ScientificName>
+            <Rank>serotype</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>2010/06/28 15:18:17</CreateDate>
+    <UpdateDate>2010/06/30 18:30:56</UpdateDate>
+    <PubDate>2010/06/30 18:00:45</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>871648</TaxId>
+    <ScientificName>Influenza B virus (B/North Carolina/WRAIR1582P/2009)</ScientificName>
+    <ParentTaxId>11520</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Negarnaviricota; Polyploviricotina; Insthoviricetes; Articulavirales; Orthomyxoviridae; Betainfluenzavirus; Betainfluenzavirus influenzae; Influenza B virus</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497569</TaxId>
+            <ScientificName>Negarnaviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497571</TaxId>
+            <ScientificName>Polyploviricotina</ScientificName>
+            <Rank>subphylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2497577</TaxId>
+            <ScientificName>Insthoviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2499411</TaxId>
+            <ScientificName>Articulavirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11308</TaxId>
+            <ScientificName>Orthomyxoviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>197912</TaxId>
+            <ScientificName>Betainfluenzavirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2955465</TaxId>
+            <ScientificName>Betainfluenzavirus influenzae</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11520</TaxId>
+            <ScientificName>Influenza B virus</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>2010/08/06 16:39:20</CreateDate>
+    <UpdateDate>2010/08/11 19:21:54</UpdateDate>
+    <PubDate>2010/08/11 18:01:00</PubDate>
+</Taxon>
+<Taxon>
+    <TaxId>2697049</TaxId>
+    <ScientificName>Severe acute respiratory syndrome coronavirus 2</ScientificName>
+    <OtherNames>
+        <Acronym>SARS-CoV-2</Acronym>
+        <EquivalentName>2019-nCoV</EquivalentName>
+        <EquivalentName>COVID-19 virus</EquivalentName>
+        <EquivalentName>HCoV-19</EquivalentName>
+        <EquivalentName>Human coronavirus 2019</EquivalentName>
+        <EquivalentName>SARS-2</EquivalentName>
+        <EquivalentName>SARS-CoV2</EquivalentName>
+        <EquivalentName>SARS2</EquivalentName>
+        <Name>
+            <ClassCDE>misspelling</ClassCDE>
+            <DispName>COVID-19</DispName>
+        </Name>
+        <Name>
+            <ClassCDE>misspelling</ClassCDE>
+            <DispName>COVID19</DispName>
+        </Name>
+        <Name>
+            <ClassCDE>misspelling</ClassCDE>
+            <DispName>Wuhan coronavirus</DispName>
+        </Name>
+        <Name>
+            <ClassCDE>misspelling</ClassCDE>
+            <DispName>Wuhan seafood market pneumonia virus</DispName>
+        </Name>
+    </OtherNames>
+    <ParentTaxId>3418604</ParentTaxId>
+    <Rank>no rank</Rank>
+    <Division>Viruses</Division>
+    <GeneticCode>
+        <GCId>1</GCId>
+        <GCName>Standard</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>Viruses; Riboviria; Orthornavirae; Pisuviricota; Pisoniviricetes; Nidovirales; Cornidovirineae; Coronaviridae; Orthocoronavirinae; Betacoronavirus; Sarbecovirus; Betacoronavirus pandemicum</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>10239</TaxId>
+            <ScientificName>Viruses</ScientificName>
+            <Rank>acellular root</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2559587</TaxId>
+            <ScientificName>Riboviria</ScientificName>
+            <Rank>realm</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732396</TaxId>
+            <ScientificName>Orthornavirae</ScientificName>
+            <Rank>kingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732408</TaxId>
+            <ScientificName>Pisuviricota</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2732506</TaxId>
+            <ScientificName>Pisoniviricetes</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>76804</TaxId>
+            <ScientificName>Nidovirales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2499399</TaxId>
+            <ScientificName>Cornidovirineae</ScientificName>
+            <Rank>suborder</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>11118</TaxId>
+            <ScientificName>Coronaviridae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2501931</TaxId>
+            <ScientificName>Orthocoronavirinae</ScientificName>
+            <Rank>subfamily</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>694002</TaxId>
+            <ScientificName>Betacoronavirus</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2509511</TaxId>
+            <ScientificName>Sarbecovirus</ScientificName>
+            <Rank>subgenus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>3418604</TaxId>
+            <ScientificName>Betacoronavirus pandemicum</ScientificName>
+            <Rank>species</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>2020/01/09 14:34:33</CreateDate>
+    <UpdateDate>2022/08/12 11:00:36</UpdateDate>
+    <PubDate>2020/01/16 01:09:11</PubDate>
+</Taxon>
+
+</TaxaSet>

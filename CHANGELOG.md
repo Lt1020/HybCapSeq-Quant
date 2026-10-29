@@ -1,5 +1,13 @@
 # Change log
 
+## Database v3.4 — 2026-10-29
+
+- Append 21 reviewed diagnostic ROI sequences to v3.3, retaining the verified v3.3.1 metadata correction: 31,024 total references, including 96 ERCCs.
+- Preserve four SARS-CoV-2 ROI records (N1, N2, E, ORF1ab); retain the full 35-assay audit and 13 excluded candidate windows.
+- Rebuild and verify the minimap2 short-read index, add compatible local-reference annotations, and publish the complete database with checksums.
+- Document overlapping-reference counting, local versus genomic measurement definitions, installation and manuscript methods. Software remains 2.2.0; calibration defaults remain R²≥0.80 and diagnostic-only yield-slope range.
+
+
 ## 2.2.0
 
 - Set both calibration defaults to R² ≥0.80; retain positive slopes and four adjacent levels.

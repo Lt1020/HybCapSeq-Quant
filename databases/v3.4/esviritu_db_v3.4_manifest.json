@@ -1,0 +1,440 @@
+{
+  "database_version": "v3.4",
+  "build_date": "2026-10-29",
+  "release_kind": "custom literature diagnostic ROI extension; not an upstream EsViritu release",
+  "base_database": "v3.3 with verified v3.3.1 metadata and molecular annotations",
+  "base_archive_sha256": "86e3f472b5376bb75c0baac29f460f3e13f4766f091659107c17e04451198e2c",
+  "base_fasta_sha256": "16a4a1b616d3cc9c45bd43f446aa561a4e6868b8f0b9861819b99cf402a2c8ed",
+  "base_corrected_metadata_sha256": "8c9040347d70ed79a10d869ebd577c338488fdf8a2d973d7780b93790c13c34c",
+  "reference_package_manifest_sha256": "2954991de005b79948171f5d41122a7878f68fb99ee1f9c9f42885833dba8e84",
+  "counts": {
+    "base_records": 31003,
+    "base_ercc_records": 96,
+    "added_primary_roi_records": 21,
+    "combined_records": 31024,
+    "combined_reference_bases": 235377252,
+    "roi_targets_in_main_database": 11,
+    "literature_targets_in_audit": 12,
+    "literature_assays_in_audit": 35,
+    "excluded_roi_candidates_retained_in_audit": 13,
+    "sars_cov2_roi_records": 4
+  },
+  "minimap2": {
+    "version": "2.31-r1302",
+    "preset": "sr",
+    "k": 21,
+    "w": 11
+  },
+  "validation": {
+    "base_fasta_bytes_preserved": true,
+    "corrected_base_metadata_bytes_preserved": true,
+    "only_documented_eight_base_metadata_cells_changed": true,
+    "fasta_metadata_index_ids_and_lengths_match": true,
+    "molecular_annotation_catalog_validated": true,
+    "all_original_molecular_annotation_bytes_preserved": true,
+    "reference_package_checksums_and_independent_validator_passed": true,
+    "esviritu_experimental_fastq_end_to_end_performed": false,
+    "roi_quantitative_transfer_validated": false,
+    "actual_commercial_dpcr_assay_confirmed": false,
+    "index_reference_count": 31024,
+    "ercc_queries_passed": 96,
+    "roi_queries_passed": 21,
+    "roi_queries_with_multiple_reported_hits": 21,
+    "secondary_alignment_limit": 1000,
+    "interpretation": "Reference recovery check; neither uniqueness nor assay specificity validation"
+  },
+  "roi_measurement_policy": {
+    "reference_scope": "published diagnostic region including exactly 100 nt per flank",
+    "mass_assignment": "NA by default; explicitly reviewed local-molecule assignments required for yield estimates",
+    "depth_estimates": "region response only; exploratory until independently validated",
+    "counting": "do not sum ROI and genomic-reference hits or overlapping assay records",
+    "calibration_factors": "no inheritance of whole-reference correction factors"
+  },
+  "files": [
+    {
+      "name": "README_v3.4.md",
+      "bytes": 7679,
+      "sha256": "cabb91a12895f256230ee42d0d4fc2d7679e04c674b4a0d068ff8033f96cc1bf"
+    },
+    {
+      "name": "documentation/MANUSCRIPT_METHODS.md",
+      "bytes": 10672,
+      "sha256": "0d5c5e5a60d506b4a32df410815cd80bcd93d0d1d513cf4182a3409c68c46f4f"
+    },
+    {
+      "name": "documentation/METHODS.md",
+      "bytes": 20355,
+      "sha256": "27b281ad38184ce92317a561dca506b7db777ba24189514dde2717408b1ecc1d"
+    },
+    {
+      "name": "documentation/TARGET_CORRECTION.md",
+      "bytes": 4710,
+      "sha256": "164bac0c50a9cf184399a856a40a2ad366916d89d20f41b1de0c54603d29dd04"
+    },
+    {
+      "name": "documentation/WORKFLOW_v3.4_zh.md",
+      "bytes": 8949,
+      "sha256": "645d66ccf3165ff711a30f97e50dd53ac932d60f0fca9ad8850ca183fb271f01"
+    },
+    {
+      "name": "index_query_audit.tsv",
+      "bytes": 7698,
+      "sha256": "f01098a43aef341a221efe89b6eb1c459052a19625a3be4671b5026df14e78f1"
+    },
+    {
+      "name": "pcr_roi_reference_package/README_zh.md",
+      "bytes": 8195,
+      "sha256": "f9f8efc14ae0177c8e5c1fc9813be3b7623d8573e43d361bbe9ec1da89098b16"
+    },
+    {
+      "name": "pcr_roi_reference_package/SHA256SUMS",
+      "bytes": 7209,
+      "sha256": "2954991de005b79948171f5d41122a7878f68fb99ee1f9c9f42885833dba8e84"
+    },
+    {
+      "name": "pcr_roi_reference_package/all_candidates/virus_pathogen_database.all_metadata.tsv",
+      "bytes": 13071,
+      "sha256": "bc744e68fff382690c410727f20fbeaf931f1839d3519b3eba81f627b51aac38"
+    },
+    {
+      "name": "pcr_roi_reference_package/all_candidates/virus_pathogen_database.fna",
+      "bytes": 12032,
+      "sha256": "5dfd547ff0e3ebf501c6cbbb5bc148321a78de40779ba018d5ff3fc9ce2dda6b"
+    },
+    {
+      "name": "pcr_roi_reference_package/exceptions/boundary_limited/virus_pathogen_database.all_metadata.tsv",
+      "bytes": 2749,
+      "sha256": "f79318efe49665985d74d4df8bc8fb352f125d0b9e0b728f5889879cd7e56cd6"
+    },
+    {
+      "name": "pcr_roi_reference_package/exceptions/boundary_limited/virus_pathogen_database.fna",
+      "bytes": 1944,
+      "sha256": "e7c5641abf65be54b013e02a382b5e051da2db7eaeae41c198a36c0c0166a40c"
+    },
+    {
+      "name": "pcr_roi_reference_package/exceptions/oligo_mismatch/virus_pathogen_database.all_metadata.tsv",
+      "bytes": 2464,
+      "sha256": "ff9dd7a5c24854f1f116f9df60ecfd65d381ff5c18186e3cadbe80a23cc6cbce"
+    },
+    {
+      "name": "pcr_roi_reference_package/exceptions/oligo_mismatch/virus_pathogen_database.fna",
+      "bytes": 2302,
+      "sha256": "441fbdf856ec5a548aa41cf8de61726f12538f190ad0d276e60db4eee09cdaf8"
+    },
+    {
+      "name": "pcr_roi_reference_package/independent_validation.json",
+      "bytes": 671,
+      "sha256": "f0c031418a93b80f2a1a09874efee838724fc4c9ae5c628d5682cd38dbce894f"
+    },
+    {
+      "name": "pcr_roi_reference_package/literature_assays.tsv",
+      "bytes": 40328,
+      "sha256": "e18a4767a5fcfd68a4d55b3dd28fe2044c21514f5dc51047669f69d39a0d6b9e"
+    },
+    {
+      "name": "pcr_roi_reference_package/literature_review_zh.md",
+      "bytes": 44310,
+      "sha256": "008268885fc967aad63d6f637eb555bf08338125802254dd9797dbd704c05a59"
+    },
+    {
+      "name": "pcr_roi_reference_package/oligo_alignment_audit.tsv",
+      "bytes": 36101,
+      "sha256": "8d01337e2f1a33bd8e8c6b6a9abfef3ed10069c0b538c8146ba15e45ededb069"
+    },
+    {
+      "name": "pcr_roi_reference_package/overlapping_reference_windows.tsv",
+      "bytes": 928,
+      "sha256": "53a07aa05fd1b64f02a8533e1a585bdb483b4f92a755692de7d98834bb5dfd09"
+    },
+    {
+      "name": "pcr_roi_reference_package/record_issues.tsv",
+      "bytes": 5290,
+      "sha256": "d72eb72c36373f5a8779bcdf84491b65b699f90f1bdc92b7d2cc9f0abe8dbeff"
+    },
+    {
+      "name": "pcr_roi_reference_package/reference_regions.tsv",
+      "bytes": 42721,
+      "sha256": "2eb82d2475efcad4c675fad3a8c362dc77474f35aecf67756987e03dd5739291"
+    },
+    {
+      "name": "pcr_roi_reference_package/scripts/build_reference_package.py",
+      "bytes": 36904,
+      "sha256": "bede31639919a7a4ae30be61794740ad4ff59d46a19f70705d845716f28ba9ed"
+    },
+    {
+      "name": "pcr_roi_reference_package/scripts/refresh_source_windows.py",
+      "bytes": 1871,
+      "sha256": "9df34de6ba45e4630dbd9e02ca6702405d3f457d4a4fc5be73a773e73896ea8b"
+    },
+    {
+      "name": "pcr_roi_reference_package/scripts/validate_reference_package.py",
+      "bytes": 9289,
+      "sha256": "e8586ca23b448329fddb970d1a7cd7f2e02b36896270d883b664e2669638e78e"
+    },
+    {
+      "name": "pcr_roi_reference_package/sequence_aliases.tsv",
+      "bytes": 187,
+      "sha256": "d9ba221b88fd605f323e8d1efd44a3affd5144a67f027e56054ea02b22b67944"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/bibliography.json",
+      "bytes": 37988,
+      "sha256": "31923c2b5cba79d2b55fdf8c196f861dec9b54f454baff1ccc2fd5c5856b9be8"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/fluB_feature_audit.json",
+      "bytes": 887,
+      "sha256": "06b2b8ef2af2642177ad47b4f0edbe54f8d041ae1c581700171fb09d9349be26"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/ncbi_online_validation.json",
+      "bytes": 19720,
+      "sha256": "b8915c5c8ad8993c7fa2d73696025702198033ea3461bb9d751b8af8cd9d40fc"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_catalog.json",
+      "bytes": 73528,
+      "sha256": "14d114eb4ca395fb2d90d771e1e7dd0503fc8d054fce510cfbd3e438cf2df6c6"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/CHIKV__Lanciotti2007_874.source.fasta",
+      "bytes": 351,
+      "sha256": "583a9c1dd4ed3ecf619895c6b32ba6419638c512dfc171b614da23486067bb1f"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/CHIKV__Panning2008.source.fasta",
+      "bytes": 373,
+      "sha256": "888dba23ff95d04fda2935088b61efb2eab0661f5fae4804ab6cd0e1c96662da"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/CHIKV__Pastorino2005.source.fasta",
+      "bytes": 487,
+      "sha256": "801228cfe511e4269df5ba2a2b49a0d3affecbbe47c15b18675fd81cef7a2378"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/DENV-1__Johnson2005.source.fasta",
+      "bytes": 374,
+      "sha256": "2393d9fb23c0791a6182e8cb2f731d29962c6ec09da7bf2698cfd7fbcaa13545"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/DENV-1__Shu2003_SYBR.source.fasta",
+      "bytes": 494,
+      "sha256": "5efc853df2fb68d9c65f0831c5fe1bf701af13ccf52f5206107c1eeb5b66f80b"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/DENV-1__Simmons2016.source.fasta",
+      "bytes": 307,
+      "sha256": "95f8e85faa5bb7994af4660c18c0be604d2d29e03e9337b97b78a9fe62940c01"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Human_astrovirus__Grimm2004.source.fasta",
+      "bytes": 500,
+      "sha256": "7d3e9e8cee959717f59c2938949c23be5caec344085993a6f2f1bcd85049644a"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Human_astrovirus__LeCann2004.source.fasta",
+      "bytes": 265,
+      "sha256": "929c45b8eb844e38596a4327741b7d349ee24d84bd86c01772b4a4e16d315233"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Human_astrovirus__Yokoi2009_Oxford.source.fasta",
+      "bytes": 496,
+      "sha256": "92d8f2013384cc31b129edb04bd4fdf1211626c61242c9ff803bd2512c40c4ef"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Influenza_A__Chen2011.source.fasta",
+      "bytes": 452,
+      "sha256": "a6952fa23d4942d90c8ad4ef3f934ef355e35c0ae9b6706a8ba7b1ab2332abf3"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Influenza_A__Lee2012.source.fasta",
+      "bytes": 472,
+      "sha256": "4b76f530e363a904f86928b9b1617549a087a4273356bb9570ea691a4b24f150"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Influenza_A__Ward2004.source.fasta",
+      "bytes": 332,
+      "sha256": "172ae990afa9dd5ad33ef39ccfe07da2a9f21b1f56fa9b0e02f27fe489c5dda9"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Influenza_B__Chen2011.source.fasta",
+      "bytes": 395,
+      "sha256": "38d8e65fdd1708b4d14156dc05481a33b2762e42ef64dff11e06bd80024084f0"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Influenza_B__Lee2012.source.fasta",
+      "bytes": 491,
+      "sha256": "74a63d59fcd4f37568dbe0f17d0445573e2c76a99050b198bb81a711fb4c40c1"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Influenza_B__Ward2004.source.fasta",
+      "bytes": 338,
+      "sha256": "bc16ad8f85935d2e05c1c20adf5ea70b97343e7122d3eb459206c5a13ef212a6"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/MPXV__Kulesh2004_F3L.source.fasta",
+      "bytes": 391,
+      "sha256": "5b79cea2126c33cb81fc57eeee9e247e2d552bb8f23a1a224972702248bd1c8a"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/MPXV__Kulesh2004_N3R.source.fasta",
+      "bytes": 425,
+      "sha256": "64ce3fdb08692c30d07c5d323b6ee1cfaa1b0678b2748cfafffc5c330d516fc1"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/MPXV__Li2010_G2R_G.source.fasta",
+      "bytes": 376,
+      "sha256": "d9c2e4b0b4a0d639a14c6477a60924c94286850e868c2252c930657e0e1739de"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Norovirus_GII__Jothikumar2005.source.fasta",
+      "bytes": 356,
+      "sha256": "de7b55d1e191fd0657913d9503731e9e6a3c9f5bbc0fcbdf892cd57646d7eca3"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Norovirus_GII__Kageyama2003.source.fasta",
+      "bytes": 404,
+      "sha256": "1acf05d36db202830261c690fd768a7a9b9eba81be4d2fc5a988b6d91c89382c"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Norovirus_GII__Loisy2005.source.fasta",
+      "bytes": 347,
+      "sha256": "e2662e94d327d77e3ef25e0f607928fbf3b384e57b48d61edbf9ee1dc66dd57b"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Norovirus_GI__Jothikumar2005.source.fasta",
+      "bytes": 414,
+      "sha256": "b1c01d579afcde19c3e90f70dbbe5f9e2cf2f1991bd1e49fae00c70cde87a8b8"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Norovirus_GI__Kageyama2003.source.fasta",
+      "bytes": 403,
+      "sha256": "f83fed8908e3e10cff1cdfa3cd5a575407d885a72608dfa48f3af25219d161cf"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Norovirus_GI__daSilva2007.source.fasta",
+      "bytes": 404,
+      "sha256": "07d8fbf65a46d9558b96169de7d72ded97ae44109b51fb9f5b063bc38ff6e942"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/PMMoV__Haramoto2013.source.fasta",
+      "bytes": 344,
+      "sha256": "58175fb588c48cd56faf5f576514ed65838b5f604a445ce3922ed5b777257f0f"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Rotavirus_A__Jothikumar2009.source.fasta",
+      "bytes": 347,
+      "sha256": "53230ee128b52a52c56be0e2b87aedea7ba85b698e2446b6f2ea634240e3b781"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Rotavirus_A__Logan2006_IS2.source.fasta",
+      "bytes": 349,
+      "sha256": "ecc775de8f987d9fd00ec64b8dd68b7c9e7ab59273ebc32d455a5518d8b22db8"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Rotavirus_A__Zeng2008.source.fasta",
+      "bytes": 256,
+      "sha256": "980c21b3795a83e0ecc97f3f2dcb6e7c145041ddaa560c0c4cc7ed79a1d7fd00"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/SARS-CoV-2__CDC2020_N1.source.fasta",
+      "bytes": 385,
+      "sha256": "d811bfa3982f1a2780b1979476083ded0e7013b02d0c8e281af9133cfe3bcd16"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/SARS-CoV-2__CDC2020_N2.source.fasta",
+      "bytes": 380,
+      "sha256": "e6e4d7b2c342bcd481980d675ec9ed8c3370462e21bd71c04c6cc48dc462ff20"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/SARS-CoV-2__ChinaCDC2020_ORF1ab.source.fasta",
+      "bytes": 433,
+      "sha256": "9275b670fab403e61aeed09cd38ea8bcf778776f4c58d4b30285e84123a9c22d"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/SARS-CoV-2__Corman2020_E.source.fasta",
+      "bytes": 427,
+      "sha256": "320e5ba125188d2508cd95c33693e5646065e80472605d4af4e9425b06c3b03d"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Sapovirus__Chan2006.source.fasta",
+      "bytes": 384,
+      "sha256": "63df17d08eabdf4f4f3ed3a8d94ea2c38193f3d6e2162573ed22a050df7b8a2e"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Sapovirus__Oka2006_Mc10_GII.source.fasta",
+      "bytes": 407,
+      "sha256": "f9bb1a91dd6fd7b5bb2e2a47968af0815420191bf29c3473029411f0b9ec5b72"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/source_windows/Sapovirus__Oka2019.source.fasta",
+      "bytes": 407,
+      "sha256": "f9bb1a91dd6fd7b5bb2e2a47968af0815420191bf29c3473029411f0b9ec5b72"
+    },
+    {
+      "name": "pcr_roi_reference_package/sources/taxonomy_snapshot.xml",
+      "bytes": 51801,
+      "sha256": "1d2b2cc17f93da1ded657d732a3950b51e099ae98d3a5469b92d8afb56abe53d"
+    },
+    {
+      "name": "pcr_roi_reference_package/target_record_mapping.tsv",
+      "bytes": 6937,
+      "sha256": "1c7a88ee0aeb044532c267100ef69ca5fac87e3c21384e4a57274a73a708097a"
+    },
+    {
+      "name": "pcr_roi_reference_package/target_summary.tsv",
+      "bytes": 349,
+      "sha256": "368adfcfd3f186423aa5d0e6711c3166e89d5251d91acb19890787b456c39629"
+    },
+    {
+      "name": "pcr_roi_reference_package/validation_summary.json",
+      "bytes": 1582,
+      "sha256": "20d1c63ca1553d493d76c0c9fc3bf8be8290896385ca3c4077e6fef1b8bcfb3d"
+    },
+    {
+      "name": "pcr_roi_reference_package/virus_pathogen_database.all_metadata.tsv",
+      "bytes": 8114,
+      "sha256": "0b757903c189b20e85680eb3e1045df2ba1db4d85f823a2d33717d39234472d8"
+    },
+    {
+      "name": "pcr_roi_reference_package/virus_pathogen_database.fna",
+      "bytes": 7786,
+      "sha256": "fbb4675eb3ae9958ae2e36159cc42bed0f03ac9b2808692cf9351287769fef06"
+    },
+    {
+      "name": "virus_pathogen_database.all_metadata.tsv",
+      "bytes": 8743720,
+      "sha256": "71e6f58c86e70d5f61b35102b5ab9ea285327e92232b00d006c58a2c4c21352e"
+    },
+    {
+      "name": "virus_pathogen_database.fna",
+      "bytes": 239695016,
+      "sha256": "385b5a805050b356e61dee1be67144315296a8b5231dfe48a4c2993026d9757c"
+    },
+    {
+      "name": "virus_pathogen_database.mmi",
+      "bytes": 646599149,
+      "sha256": "46957030a282de8d9ca7645d64db2aae78ccec68c68428e69996cfb6af93c2b4"
+    },
+    {
+      "name": "virus_pathogen_database.molecular_annotations.manifest.json",
+      "bytes": 2849,
+      "sha256": "de2a1805d282f35617dac75849033ab62fe53f3173ce5ef3598acb668ad76150"
+    },
+    {
+      "name": "virus_pathogen_database.molecular_annotations.tsv",
+      "bytes": 25551298,
+      "sha256": "cedc4c4bcc09c61179e3789fd9dd95d6c9425a1a57efc3430ba5b927c63e5a16"
+    },
+    {
+      "name": "virus_pathogen_database.pcr_roi_regions.tsv",
+      "bytes": 25593,
+      "sha256": "ab45b6eb6fedf9563491a8e84c1533a29b43b92b6f91d6be03b3e46b30db7352"
+    },
+    {
+      "name": "virus_pathogen_database.reference_corrections.json",
+      "bytes": 4631,
+      "sha256": "ff81508dc47229ade244574e35ae552ced1b8fc9fed3bb952e37652f080663d9"
+    }
+  ]
+}

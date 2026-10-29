@@ -38,7 +38,7 @@ python -m pip install --upgrade .
 hybcapseq_quant --version
 ```
 
-本版本为 **2.2.0**，配套数据库修订为 **v3.3.1**。也可以在当前 Python/conda 环境直接安装固定提交版本：
+软件版本为 **2.2.0**；新数据库 **v3.4** 在保留 v3.3.1 长度修订的基础上加入 21 条公开文献 PCR 靶区参考，共 31,024 条记录，并重建比对索引。新冠新增 N1、N2、E、ORF1ab 共 4 条。下载及运行见 [v3.4 完整流程](docs/WORKFLOW_v3.4_zh.md)。以下 `upgrade-db` 仅适用于旧 v3.3 安装，v3.4 已附匹配注释，无需执行。也可以在当前 Python/conda 环境直接安装固定提交版本：
 
 ```bash
 python -m pip install --upgrade --no-cache-dir "git+https://github.com/Lt1020/HybCapSeq-Quant.git@72860b90516b0e54eb6747f8a82e3add6467169d"
@@ -208,5 +208,5 @@ hybcapseq_quant run \
 
 新增 `fit-correction` 和 `apply-correction`，详见 [英文说明](README.md)及[偏差校正方法](docs/TARGET_CORRECTION.md)。30%为独立留出评价目标，不保证每个靶标都能通过。未经足够留出评价的参数仅供探索性分析；原始浓度不覆盖。
 
-数据库 v3.4 尚缺少实际数字PCR靶区注释和已审核参考FASTA，未生成序列资产或索引，未发布正式版本。当前有效数据库仍为 v3.3.1。详见 [v3.4准备状态](databases/v3.4/README.md)。
+数据库 [v3.4](databases/v3.4/README.md) 已将 21 条主库 PCRROI 片段与原库整合，另外 13 条异常候选保留为审核资料。公开文献体系不代表实际商业数字 PCR 试剂盒。原参考与局部片段的重叠信号不能相加；新增局部质量模型默认为 NA，不继承原全参考校正参数。分子注释表中的 31,003 条类型计数描述原库，新增 21 条局部记录单独标注。使用步骤和测量范围见 [v3.4 流程](docs/WORKFLOW_v3.4_zh.md)。
 

@@ -1,0 +1,1667 @@
+[
+  {
+    "target": "PMMoV",
+    "assay": "Haramoto2013",
+    "source_accession_version": "M81413.1",
+    "source_title": "Pepper mild mottle virus strain S genomic sequence",
+    "source_length_nt": 6357,
+    "taxid": 12239,
+    "source_file": "PMMoV__Haramoto2013.source.fasta",
+    "source_fasta_sha256": "58175fb588c48cd56faf5f576514ed65838b5f604a445ce3922ed5b777257f0f",
+    "source_window_start": 1778,
+    "source_window_end": 2045,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=M81413.1&rettype=fasta&retmode=text&seq_start=1778&seq_stop=2045",
+    "retrieved_utc": "2026-10-29T03:55:08.965660+00:00",
+    "segment": "NA",
+    "paper_amplicon_start": 1878,
+    "paper_amplicon_end": 1945,
+    "doi": "10.1128/AEM.02354-13",
+    "oligo_sequence_source_url": "https://journals.asm.org/doi/10.1128/AEM.02354-13",
+    "oligos": [
+      {
+        "name": "PMMV-FP1-rev",
+        "direction": "F",
+        "sequence_5to3": "GAGTGGTTTGACCTTAACGTTTGA"
+      },
+      {
+        "name": "PMMV-RP1",
+        "direction": "R",
+        "sequence_5to3": "TTGTCGGTTGCAATGCAAGT"
+      },
+      {
+        "name": "PMMV-Probe1",
+        "direction": "P",
+        "sequence_5to3": "CCTACCGAAGCAAATG"
+      }
+    ],
+    "reference_role": "published_coordinate_reference",
+    "published_reference_accessions": "M81413",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "assay_type": "RT-qPCR",
+    "selection_basis": "Published assay reused in public-health or environmental diagnostic literature; not a bibliometric rank.",
+    "reference_evidence_url": "https://journals.asm.org/doi/10.1128/AEM.02354-13",
+    "literature_notes": "Haramoto 2013 Table 1 explicitly uses M81413 for coordinates and standard. This is a correction of the Zhang 2006 oligo at the same locus; repeated citations are not counted as independent targets.",
+    "gene": "RdRp",
+    "reported_reference_role": "coordinate_reference"
+  },
+  {
+    "target": "DENV-1",
+    "assay": "Simmons2016",
+    "source_accession_version": "M87512.1",
+    "source_title": "Dengue virus type 1 complete genome",
+    "source_length_nt": 10717,
+    "taxid": 11053,
+    "source_file": "DENV-1__Simmons2016.source.fasta",
+    "source_fasta_sha256": "95f8e85faa5bb7994af4660c18c0be604d2d29e03e9337b97b78a9fe62940c01",
+    "source_window_start": 10474,
+    "source_window_end": 10717,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=M87512.1&rettype=fasta&retmode=text&seq_start=10474&seq_stop=10717",
+    "retrieved_utc": "2026-10-29T03:55:08.965359+00:00",
+    "segment": "NA",
+    "paper_amplicon_start": 10574,
+    "paper_amplicon_end": 10694,
+    "doi": "10.1128/JCM.00299-16",
+    "oligo_sequence_source_url": "https://journals.asm.org/doi/10.1128/JCM.00299-16",
+    "oligos": [
+      {
+        "name": "F1",
+        "direction": "F",
+        "sequence_5to3": "GACTAGAGGTTAGAGGAGACCCCC"
+      },
+      {
+        "name": "R1",
+        "direction": "R",
+        "sequence_5to3": "CATTCCATTTTCTGGCGTTCT"
+      },
+      {
+        "name": "P1",
+        "direction": "P",
+        "sequence_5to3": "CTGTCTCTACAGCATCATTCCAGGCA"
+      }
+    ],
+    "reference_role": "published_coordinate_reference",
+    "published_reference_accessions": "M87512",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "assay_type": "RT-qPCR",
+    "selection_basis": "Published assay reused in public-health or environmental diagnostic literature; not a bibliometric rank.",
+    "reference_evidence_url": "https://journals.asm.org/doi/10.1128/JCM.00299-16",
+    "literature_notes": "At least one compatible member of each published oligo mixture is required for this representative reference.",
+    "gene": "NA",
+    "reported_reference_role": "coordinate_reference"
+  },
+  {
+    "target": "SARS-CoV-2",
+    "assay": "CDC2020_N1",
+    "source_accession_version": "MN908947.3",
+    "source_title": "Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome",
+    "source_length_nt": 29903,
+    "taxid": 2697049,
+    "source_file": "SARS-CoV-2__CDC2020_N1.source.fasta",
+    "source_fasta_sha256": "d811bfa3982f1a2780b1979476083ded0e7013b02d0c8e281af9133cfe3bcd16",
+    "source_window_start": 28187,
+    "source_window_end": 28458,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=MN908947.3&rettype=fasta&retmode=text&seq_start=28187&seq_stop=28458",
+    "retrieved_utc": "2026-10-29T03:55:08.965078+00:00",
+    "segment": "NA",
+    "paper_amplicon_start": 28303,
+    "paper_amplicon_end": 28374,
+    "doi": "10.3201/eid2608.201246",
+    "oligo_sequence_source_url": "https://wwwnc.cdc.gov/eid/article/26/8/20-1246-t1",
+    "oligos": [
+      {
+        "name": "N1-F",
+        "direction": "F",
+        "sequence_5to3": "GACCCCAAAATCAGCGAAAT"
+      },
+      {
+        "name": "N1-R",
+        "direction": "R",
+        "sequence_5to3": "TCTGGTTACTGCCAGTTGAATCTG"
+      },
+      {
+        "name": "N1-P",
+        "direction": "P",
+        "sequence_5to3": "ACCCCGCATTACGTTTGGTGGACC"
+      }
+    ],
+    "reference_role": "published_coordinate_reference",
+    "published_reference_accessions": "MN908947",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "assay_type": "RT-qPCR",
+    "selection_basis": "Published assay reused in public-health or environmental diagnostic literature; not a bibliometric rank.",
+    "reference_evidence_url": "https://wwwnc.cdc.gov/eid/article/26/8/20-1246-t1",
+    "literature_notes": "Actual matches on MN908947.3 lie 16 nt before the article Table 1 coordinates. Both published and actual coordinates are retained.",
+    "gene": "N",
+    "reported_reference_role": "coordinate_reference"
+  },
+  {
+    "target": "SARS-CoV-2",
+    "assay": "CDC2020_N2",
+    "source_accession_version": "MN908947.3",
+    "source_title": "Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome",
+    "source_length_nt": 29903,
+    "taxid": 2697049,
+    "source_file": "SARS-CoV-2__CDC2020_N2.source.fasta",
+    "source_fasta_sha256": "e6e4d7b2c342bcd481980d675ec9ed8c3370462e21bd71c04c6cc48dc462ff20",
+    "source_window_start": 29064,
+    "source_window_end": 29330,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=MN908947.3&rettype=fasta&retmode=text&seq_start=29064&seq_stop=29330",
+    "retrieved_utc": "2026-10-29T03:55:08.979705+00:00",
+    "segment": "NA",
+    "paper_amplicon_start": 29180,
+    "paper_amplicon_end": 29246,
+    "doi": "10.3201/eid2608.201246",
+    "oligo_sequence_source_url": "https://wwwnc.cdc.gov/eid/article/26/8/20-1246-t1",
+    "oligos": [
+      {
+        "name": "N2-F",
+        "direction": "F",
+        "sequence_5to3": "TTACAAACATTGGCCGCAAA"
+      },
+      {
+        "name": "N2-R",
+        "direction": "R",
+        "sequence_5to3": "GCGCGACATTCCGAAGAA"
+      },
+      {
+        "name": "N2-P",
+        "direction": "P",
+        "sequence_5to3": "ACAATTTGCCCCCAGCGCTTCAG"
+      }
+    ],
+    "reference_role": "published_coordinate_reference",
+    "published_reference_accessions": "MN908947",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "assay_type": "RT-qPCR",
+    "selection_basis": "Published assay reused in public-health or environmental diagnostic literature; not a bibliometric rank.",
+    "reference_evidence_url": "https://wwwnc.cdc.gov/eid/article/26/8/20-1246-t1",
+    "literature_notes": "Actual matches on MN908947.3 lie 16 nt before the article Table 1 coordinates. Both published and actual coordinates are retained.",
+    "gene": "N",
+    "reported_reference_role": "coordinate_reference"
+  },
+  {
+    "target": "Influenza_A",
+    "assay": "Chen2011",
+    "source_accession_version": "HM590431.1",
+    "source_title": "Influenza A virus (A/Gdansk/037/2009(H1N1)) segment 7 matrix protein 2 (M2) and matrix protein 1 (M1) genes, complete cds",
+    "source_length_nt": 982,
+    "taxid": 859255,
+    "source_file": "Influenza_A__Chen2011.source.fasta",
+    "source_fasta_sha256": "a6952fa23d4942d90c8ad4ef3f934ef355e35c0ae9b6706a8ba7b1ab2332abf3",
+    "source_window_start": 46,
+    "source_window_end": 350,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=HM590431.1&rettype=fasta&retmode=text&seq_start=46&seq_stop=350",
+    "retrieved_utc": "2026-10-29T03:55:08.979877+00:00",
+    "segment": "7",
+    "paper_amplicon_start": 156,
+    "paper_amplicon_end": 250,
+    "doi": "10.1128/JCM.02184-10",
+    "oligo_sequence_source_url": "https://journals.asm.org/doi/10.1128/JCM.02184-10",
+    "oligos": [
+      {
+        "name": "FluA-F",
+        "direction": "F",
+        "sequence_5to3": "GACCRATCCTGTCACCTCTGAC"
+      },
+      {
+        "name": "FluA-R",
+        "direction": "R",
+        "sequence_5to3": "GGGCATTYTGGACAAAKCGTCTACG"
+      },
+      {
+        "name": "FluA-P",
+        "direction": "P",
+        "sequence_5to3": "TGCAGTCCTCGCTCACTGGGCACG"
+      }
+    ],
+    "reference_role": "published_coordinate_reference",
+    "published_reference_accessions": "HM590431",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "assay_type": "RT-qPCR",
+    "selection_basis": "Published assay reused in public-health or environmental diagnostic literature; not a bibliometric rank.",
+    "reference_evidence_url": "https://journals.asm.org/doi/10.1128/JCM.02184-10",
+    "literature_notes": "At least one compatible member of each published oligo mixture is required for this representative reference.",
+    "gene": "M",
+    "reported_reference_role": "coordinate_reference"
+  },
+  {
+    "target": "Influenza_B",
+    "assay": "Chen2011",
+    "source_accession_version": "CY040733.1",
+    "source_title": "Influenza B virus (B/Taiwan/40/2007) segment 8, complete sequence",
+    "source_length_nt": 1041,
+    "taxid": 500699,
+    "source_file": "Influenza_B__Chen2011.source.fasta",
+    "source_fasta_sha256": "38d8e65fdd1708b4d14156dc05481a33b2762e42ef64dff11e06bd80024084f0",
+    "source_window_start": 633,
+    "source_window_end": 935,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CY040733.1&rettype=fasta&retmode=text&seq_start=633&seq_stop=935",
+    "retrieved_utc": "2026-10-29T03:55:08.980535+00:00",
+    "segment": "8",
+    "paper_amplicon_start": 733,
+    "paper_amplicon_end": 835,
+    "doi": "10.1128/JCM.02184-10",
+    "oligo_sequence_source_url": "https://journals.asm.org/doi/10.1128/JCM.02184-10",
+    "oligos": [
+      {
+        "name": "FluB-F",
+        "direction": "F",
+        "sequence_5to3": "TCCTCAACTCACTCTTCGAGCG"
+      },
+      {
+        "name": "FluB-R",
+        "direction": "R",
+        "sequence_5to3": "CGGTGCTCTTGACCAAATTGG"
+      },
+      {
+        "name": "FluB-P",
+        "direction": "P",
+        "sequence_5to3": "CCAATTCGAGCAGCTGAAACTGCGGTG"
+      }
+    ],
+    "reference_role": "published_coordinate_reference",
+    "published_reference_accessions": "CY040733",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "assay_type": "RT-qPCR",
+    "selection_basis": "Published assay reused in public-health or environmental diagnostic literature; not a bibliometric rank.",
+    "reference_evidence_url": "https://journals.asm.org/doi/10.1128/JCM.02184-10",
+    "literature_notes": "The article labels the target NP, but NCBI accession CY040733.1 is segment 8 NS1/NEP. Gene/segment annotation follows the actual accession and is separately audited.",
+    "gene": "NS_segment8",
+    "reported_reference_role": "coordinate_reference"
+  },
+  {
+    "target": "Norovirus_GI",
+    "assay": "Kageyama2003",
+    "source_accession_version": "M87661.2",
+    "source_title": "Norwalk virus nonstructural polyprotein, 58 kd capsid protein, and orf3 genes, complete cds",
+    "source_length_nt": 7654,
+    "taxid": 11983,
+    "source_file": "Norovirus_GI__Kageyama2003.source.fasta",
+    "source_fasta_sha256": "f83fed8908e3e10cff1cdfa3cd5a575407d885a72608dfa48f3af25219d161cf",
+    "source_window_start": 5191,
+    "source_window_end": 5475,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=M87661.2&rettype=fasta&retmode=text&seq_start=5191&seq_stop=5475",
+    "retrieved_utc": "2026-10-29T03:55:09.004336+00:00",
+    "segment": "NA",
+    "paper_amplicon_start": 5291,
+    "paper_amplicon_end": 5375,
+    "doi": "10.1128/JCM.41.4.1548-1557.2003",
+    "oligo_sequence_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC153860/#t2",
+    "oligos": [
+      {
+        "name": "COG1F",
+        "direction": "F",
+        "sequence_5to3": "CGYTGGATGCGNTTYCATGA"
+      },
+      {
+        "name": "COG1R",
+        "direction": "R",
+        "sequence_5to3": "CTTAGACGCCATCATCATTYAC"
+      },
+      {
+        "name": "RING1a-TP",
+        "direction": "P",
+        "sequence_5to3": "AGATYGCGATCYCCTGTCCA"
+      },
+      {
+        "name": "RING1b-TP",
+        "direction": "P",
+        "sequence_5to3": "AGATCGCGGTCTCCTGTCCA"
+      }
+    ],
+    "reference_role": "published_coordinate_reference",
+    "published_reference_accessions": "M87661",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "assay_type": "RT-qPCR",
+    "selection_basis": "Published assay reused in public-health or environmental diagnostic literature; not a bibliometric rank.",
+    "reference_evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC153860/#t2",
+    "literature_notes": "At least one compatible member of each published oligo mixture is required for this representative reference.",
+    "gene": "NA",
+    "reported_reference_role": "coordinate_reference"
+  },
+  {
+    "target": "Norovirus_GII",
+    "assay": "Kageyama2003",
+    "source_accession_version": "AF145896.1",
+    "source_title": "Camberwell virus polyprotein and capsid genes, complete cds; and unknown gene",
+    "source_length_nt": 7555,
+    "taxid": 94433,
+    "source_file": "Norovirus_GII__Kageyama2003.source.fasta",
+    "source_fasta_sha256": "1acf05d36db202830261c690fd768a7a9b9eba81be4d2fc5a988b6d91c89382c",
+    "source_window_start": 4903,
+    "source_window_end": 5200,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AF145896.1&rettype=fasta&retmode=text&seq_start=4903&seq_stop=5200",
+    "retrieved_utc": "2026-10-29T03:55:09.003635+00:00",
+    "segment": "NA",
+    "paper_amplicon_start": 5003,
+    "paper_amplicon_end": 5100,
+    "doi": "10.1128/JCM.41.4.1548-1557.2003",
+    "oligo_sequence_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC153860/#t2",
+    "oligos": [
+      {
+        "name": "COG2F",
+        "direction": "F",
+        "sequence_5to3": "CARGARBCNATGTTYAGRTGGATGAG"
+      },
+      {
+        "name": "COG2R",
+        "direction": "R",
+        "sequence_5to3": "TCGACGCCATCTTCATTCACA"
+      },
+      {
+        "name": "RING2-TP",
+        "direction": "P",
+        "sequence_5to3": "TGGGAGGGCGATCGCAATCT"
+      }
+    ],
+    "reference_role": "published_coordinate_reference",
+    "published_reference_accessions": "AF145896",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "assay_type": "RT-qPCR",
+    "selection_basis": "Published assay reused in public-health or environmental diagnostic literature; not a bibliometric rank.",
+    "reference_evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC153860/#t2",
+    "literature_notes": "At least one compatible member of each published oligo mixture is required for this representative reference.",
+    "gene": "NA",
+    "reported_reference_role": "coordinate_reference"
+  },
+  {
+    "target": "Human_astrovirus",
+    "assay": "Yokoi2009_Oxford",
+    "source_accession_version": "L23513.1",
+    "source_title": "Human astrovirus type 1 strain Oxford, complete genome",
+    "source_length_nt": 6771,
+    "taxid": 12456,
+    "source_file": "Human_astrovirus__Yokoi2009_Oxford.source.fasta",
+    "source_fasta_sha256": "92d8f2013384cc31b129edb04bd4fdf1211626c61242c9ff803bd2512c40c4ef",
+    "source_window_start": 4249,
+    "source_window_end": 4662,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=L23513.1&rettype=fasta&retmode=text&seq_start=4249&seq_stop=4662",
+    "retrieved_utc": "2026-10-29T03:55:09.004003+00:00",
+    "segment": "NA",
+    "paper_amplicon_start": 4348,
+    "paper_amplicon_end": 4562,
+    "doi": "10.11150/kansenshogakuzasshi.83.120",
+    "oligo_sequence_source_url": "https://journals.asm.org/doi/10.1128/AEM.00563-15",
+    "oligos": [
+      {
+        "name": "HuAstVf2240",
+        "direction": "F",
+        "sequence_5to3": "CAGGTAACTGTTGAGGTCA"
+      },
+      {
+        "name": "HuAstVf2140",
+        "direction": "F",
+        "sequence_5to3": "GCAAGTYACTGTTGAGGTCA"
+      },
+      {
+        "name": "HuAstVf2239T4",
+        "direction": "F",
+        "sequence_5to3": "GAAGTCACTGTGGAGGTC"
+      },
+      {
+        "name": "HuAstVr",
+        "direction": "R",
+        "sequence_5to3": "GTTTWGGTCCTGTGACACC"
+      },
+      {
+        "name": "HuAstV/1-8/TP",
+        "direction": "P",
+        "sequence_5to3": "TTACGGACACGYTGA"
+      }
+    ],
+    "reference_role": "published_coordinate_reference",
+    "published_reference_accessions": "L23513",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "assay_type": "RT-qPCR",
+    "selection_basis": "Published assay reused in public-health or environmental diagnostic literature; not a bibliometric rank.",
+    "reference_evidence_url": "https://journals.asm.org/doi/10.1128/AEM.00563-15",
+    "literature_notes": "At least one compatible member of each published oligo mixture is required for this representative reference.",
+    "gene": "NA",
+    "reported_reference_role": "coordinate_reference"
+  },
+  {
+    "target": "Sapovirus",
+    "assay": "Oka2006_Mc10_GII",
+    "source_accession_version": "AY237420.2",
+    "source_title": "Sapovirus Mc10 polyprotein precursor, mRNA, complete cds; and unknown mRNA",
+    "source_length_nt": 7458,
+    "taxid": 234601,
+    "source_file": "Sapovirus__Oka2006_Mc10_GII.source.fasta",
+    "source_fasta_sha256": "f9bb1a91dd6fd7b5bb2e2a47968af0815420191bf29c3473029411f0b9ec5b72",
+    "source_window_start": 4978,
+    "source_window_end": 5281,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AY237420.2&rettype=fasta&retmode=text&seq_start=4978&seq_stop=5281",
+    "retrieved_utc": "2026-10-29T03:55:09.022620+00:00",
+    "segment": "NA",
+    "paper_amplicon_start": 5078,
+    "paper_amplicon_end": 5181,
+    "doi": "10.1002/jmv.20699",
+    "oligo_sequence_source_url": "https://journals.asm.org/doi/10.1128/AEM.02739-09",
+    "oligos": [
+      {
+        "name": "SaV124F",
+        "direction": "F",
+        "sequence_5to3": "GAYCASGCTCTCGCYACCTAC"
+      },
+      {
+        "name": "SaV1F",
+        "direction": "F",
+        "sequence_5to3": "TTGGCCCTCGCCACCTAC"
+      },
+      {
+        "name": "SaV5F",
+        "direction": "F",
+        "sequence_5to3": "TTTGAACAAGCTGTGGCATGCTAC"
+      },
+      {
+        "name": "SaV1245R",
+        "direction": "R",
+        "sequence_5to3": "CCCTCCATYTCAAACACTA"
+      },
+      {
+        "name": "SaV124TP",
+        "direction": "P",
+        "sequence_5to3": "CCRCCTATRAACCA"
+      },
+      {
+        "name": "SaV5TP",
+        "direction": "P",
+        "sequence_5to3": "TGCCACCAATGTACCA"
+      }
+    ],
+    "reference_role": "published_coordinate_reference",
+    "published_reference_accessions": "AY237420",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "assay_type": "RT-qPCR",
+    "selection_basis": "Published assay reused in public-health or environmental diagnostic literature; not a bibliometric rank.",
+    "reference_evidence_url": "https://journals.asm.org/doi/10.1128/AEM.02739-09",
+    "literature_notes": "At least one compatible member of each published oligo mixture is required for this representative reference.",
+    "gene": "NA",
+    "reported_reference_role": "coordinate_reference"
+  },
+  {
+    "target": "Rotavirus_A",
+    "assay": "Logan2006_IS2",
+    "source_accession_version": "X94617.1",
+    "source_title": "Human rotavirus RNA for intermediate capsid protein (IS2)",
+    "source_length_nt": 1356,
+    "taxid": 10941,
+    "source_file": "Rotavirus_A__Logan2006_IS2.source.fasta",
+    "source_fasta_sha256": "ecc775de8f987d9fd00ec64b8dd68b7c9e7ab59273ebc32d455a5518d8b22db8",
+    "source_window_start": 1,
+    "source_window_end": 270,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=X94617.1&rettype=fasta&retmode=text&seq_start=1&seq_stop=270",
+    "retrieved_utc": "2026-10-29T03:55:09.021969+00:00",
+    "segment": "NA",
+    "paper_amplicon_start": 26,
+    "paper_amplicon_end": 170,
+    "doi": "10.1128/JCM.00915-06",
+    "oligo_sequence_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1594742/#t1",
+    "oligos": [
+      {
+        "name": "RotaA-fwd1",
+        "direction": "F",
+        "sequence_5to3": "GGATGTCCTGTACTCCTTGTCAAAA"
+      },
+      {
+        "name": "RotaA-fwd2",
+        "direction": "F",
+        "sequence_5to3": "GGAGGTTCTGTACTCATTGTCAAAAA"
+      },
+      {
+        "name": "RotaA.rev1",
+        "direction": "R",
+        "sequence_5to3": "TCCAGTTTGGAACTCATTTCCA"
+      },
+      {
+        "name": "RotaA.rev2",
+        "direction": "R",
+        "sequence_5to3": "TCCAGTTTGAAAGTCATTTCCATT"
+      },
+      {
+        "name": "RotaA.probe1",
+        "direction": "P",
+        "sequence_5to3": "ATAATGTGCCTTCGACAAT"
+      },
+      {
+        "name": "RotaA.probe2",
+        "direction": "P",
+        "sequence_5to3": "AATATAATGTACCTTCAACAAT"
+      }
+    ],
+    "reference_role": "published_coordinate_reference",
+    "published_reference_accessions": "X94617",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "assay_type": "RT-qPCR",
+    "selection_basis": "Published assay reused in public-health or environmental diagnostic literature; not a bibliometric rank.",
+    "reference_evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1594742/#t1",
+    "literature_notes": "At least one compatible member of each published oligo mixture is required for this representative reference.",
+    "gene": "NA",
+    "reported_reference_role": "coordinate_reference"
+  },
+  {
+    "target": "MPXV",
+    "assay": "Kulesh2004_F3L",
+    "source_accession_version": "AF380138.1",
+    "source_title": "Monkeypox virus strain Zaire-96-I-16, complete genome",
+    "source_length_nt": 196858,
+    "taxid": 619591,
+    "source_file": "MPXV__Kulesh2004_F3L.source.fasta",
+    "source_fasta_sha256": "5b79cea2126c33cb81fc57eeee9e247e2d552bb8f23a1a224972702248bd1c8a",
+    "source_window_start": 48237,
+    "source_window_end": 48543,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AF380138.1&rettype=fasta&retmode=text&seq_start=48237&seq_stop=48543",
+    "retrieved_utc": "2026-10-29T03:55:09.044649+00:00",
+    "segment": "NA",
+    "paper_amplicon_start": null,
+    "paper_amplicon_end": null,
+    "doi": "10.1038/labinvest.3700143",
+    "oligo_sequence_source_url": "https://www.nature.com/articles/3700143.pdf",
+    "oligos": [
+      {
+        "name": "F3L-F290",
+        "direction": "F",
+        "sequence_5to3": "CTCATTGATTTTTCGCGGGATA"
+      },
+      {
+        "name": "F3L-R396",
+        "direction": "R",
+        "sequence_5to3": "GACGATACTCCTCCTCGTTGGT"
+      },
+      {
+        "name": "F3Lp333S-MGB",
+        "direction": "P",
+        "sequence_5to3": "CATCAGAATCTGTAGGCCGT"
+      }
+    ],
+    "reference_role": "published_coordinate_reference",
+    "published_reference_accessions": "AF380138",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "assay_type": "qPCR",
+    "selection_basis": "Published assay reused in public-health or environmental diagnostic literature; not a bibliometric rank.",
+    "reference_evidence_url": "https://www.nature.com/articles/3700143.pdf",
+    "literature_notes": "At least one compatible member of each published oligo mixture is required for this representative reference.",
+    "gene": "NA",
+    "reported_reference_role": "coordinate_reference"
+  },
+  {
+    "target": "DENV-1",
+    "assay": "Johnson2005",
+    "doi": "10.1128/JCM.43.10.4977-4983.2005",
+    "assay_type": "RT-qPCR",
+    "gene": "NS5",
+    "oligo_sequence_source_url": "https://doi.org/10.1128/JCM.43.10.4977-4983.2005",
+    "reference_evidence_url": "https://doi.org/10.1128/JCM.43.10.4977-4983.2005",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "NA_no_single_accession_stated",
+    "reference_role": "mapping_reference_selected_for_this_compilation",
+    "reported_reference_role": "mapping_reference_selected_for_this_compilation",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Original paper describes a complete-genome alignment without a uniquely identified DENV-1 design accession. M87512 is a mapping reference, not a claimed original design template. Actual mapped interval on M87512.1 is 8956-9067, 17 nt before the article coordinates.",
+    "paper_amplicon_start": 8973,
+    "paper_amplicon_end": 9084,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "F",
+        "direction": "F",
+        "sequence_5to3": "CAAAAGGAAGTCGTGCAATA"
+      },
+      {
+        "name": "R",
+        "direction": "R",
+        "sequence_5to3": "CTGAGTGAATTCTCTCTACTGAACC"
+      },
+      {
+        "name": "P",
+        "direction": "P",
+        "sequence_5to3": "CATGTGGTTGGGAGCACGC"
+      }
+    ],
+    "source_accession_version": "M87512.1",
+    "source_length_nt": 10717,
+    "source_title": "Dengue virus type 1 complete genome",
+    "taxid": 11053,
+    "source_file": "DENV-1__Johnson2005.source.fasta",
+    "source_window_start": 8856,
+    "source_window_end": 9167,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=M87512.1&rettype=fasta&retmode=text&seq_start=8856&seq_stop=9167",
+    "source_fasta_sha256": "2393d9fb23c0791a6182e8cb2f731d29962c6ec09da7bf2698cfd7fbcaa13545",
+    "retrieved_utc": "2026-10-29T03:55:09.045646+00:00"
+  },
+  {
+    "target": "DENV-1",
+    "assay": "Shu2003_SYBR",
+    "doi": "10.1128/JCM.41.6.2408-2416.2003",
+    "assay_type": "SYBR_RT-qPCR",
+    "gene": "C",
+    "oligo_sequence_source_url": "https://doi.org/10.1128/JCM.41.6.2408-2416.2003",
+    "reference_evidence_url": "https://doi.org/10.1128/JCM.41.6.2408-2416.2003",
+    "design_reference_accessions": "U88535;AF180817;M87512",
+    "published_reference_accessions": "U88535;AF180817;M87512",
+    "reference_role": "published_coordinate_reference",
+    "reported_reference_role": "published_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Original DENV-1 alignment inputs are explicitly listed. DN-F is shared across serotypes; Table 1 gives AF038403 (DENV-2) for its coordinates and AF180817 for D1-R. Output is located on one DENV-1 reference, not a cross-species concatenation.",
+    "paper_amplicon_start": null,
+    "paper_amplicon_end": null,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "DN-F",
+        "direction": "F",
+        "sequence_5to3": "CAATATGCTGAAACGCGAGAGAAA"
+      },
+      {
+        "name": "D1-R",
+        "direction": "R",
+        "sequence_5to3": "CGCTCCATACATCTTGAATGAG"
+      }
+    ],
+    "source_accession_version": "AF180817.1",
+    "source_length_nt": 10735,
+    "source_title": "Dengue virus type 1 strain 16007 polyprotein precursor, mRNA, complete cds",
+    "taxid": 11053,
+    "source_file": "DENV-1__Shu2003_SYBR.source.fasta",
+    "source_window_start": 33,
+    "source_window_end": 425,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AF180817.1&rettype=fasta&retmode=text&seq_start=33&seq_stop=425",
+    "source_fasta_sha256": "5efc853df2fb68d9c65f0831c5fe1bf701af13ccf52f5206107c1eeb5b66f80b",
+    "retrieved_utc": "2026-10-29T03:55:09.052854+00:00"
+  },
+  {
+    "target": "CHIKV",
+    "assay": "Pastorino2005",
+    "doi": "10.1016/j.jviromet.2004.11.002",
+    "assay_type": "RT-qPCR",
+    "gene": "E1",
+    "oligo_sequence_source_url": "https://doi.org/10.3390/v11080755",
+    "reference_evidence_url": "https://doi.org/10.3390/v11080755",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "MG280943",
+    "reference_role": "later_primary_study_coordinate_reference",
+    "reported_reference_role": "later_primary_study_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Oligos and Ross-strain coordinate reference reproduced in Table 1 of the 2019 primary evaluation (10.3390/v11080755); MG280943 is not attributed to the original 2005 design.",
+    "paper_amplicon_start": 10380,
+    "paper_amplicon_end": 10588,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "F-CHIK",
+        "direction": "F",
+        "sequence_5to3": "AAGCTYCGCGTCCTTTACCAAG"
+      },
+      {
+        "name": "R-CHIK",
+        "direction": "R",
+        "sequence_5to3": "CCAAATTGTCCYGGTCTTCCT"
+      },
+      {
+        "name": "P-CHIK",
+        "direction": "P",
+        "sequence_5to3": "CCAATGTCYTCMGCCTGGACACCTTT"
+      }
+    ],
+    "source_accession_version": "MG280943.1",
+    "source_length_nt": 11896,
+    "source_title": "Chikungunya virus strain Ross, complete genome",
+    "taxid": 37124,
+    "source_file": "CHIKV__Pastorino2005.source.fasta",
+    "source_window_start": 10280,
+    "source_window_end": 10688,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=MG280943.1&rettype=fasta&retmode=text&seq_start=10280&seq_stop=10688",
+    "source_fasta_sha256": "801228cfe511e4269df5ba2a2b49a0d3affecbbe47c15b18675fd81cef7a2378",
+    "retrieved_utc": "2026-10-29T03:55:09.062572+00:00"
+  },
+  {
+    "target": "CHIKV",
+    "assay": "Panning2008",
+    "doi": "10.3201/eid1403.070906",
+    "assay_type": "RT-qPCR",
+    "gene": "nsP1",
+    "oligo_sequence_source_url": "https://wwwnc.cdc.gov/eid/article/14/3/07-0906-t2",
+    "reference_evidence_url": "https://wwwnc.cdc.gov/eid/article/14/3/07-0906-t2",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "AF369024",
+    "reference_role": "published_coordinate_reference",
+    "reported_reference_role": "published_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Original general CHIKV assay is retained. Indian-Ocean adapted variants are not counted as a separate assay record.",
+    "paper_amplicon_start": 241,
+    "paper_amplicon_end": 323,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "ChikSI",
+        "direction": "F",
+        "sequence_5to3": "TGATCCCGACTCAACCATCCT"
+      },
+      {
+        "name": "ChikAsI",
+        "direction": "R",
+        "sequence_5to3": "GGCAAACGCAGTGGTACTTCCT"
+      },
+      {
+        "name": "ChikP",
+        "direction": "P",
+        "sequence_5to3": "TCCGACATCATCCTCCTTGCTGGC"
+      }
+    ],
+    "source_accession_version": "AF369024.2",
+    "source_length_nt": 11826,
+    "source_title": "Chikungunya virus strain S27-African prototype, complete genome",
+    "taxid": 37124,
+    "source_file": "CHIKV__Panning2008.source.fasta",
+    "source_window_start": 141,
+    "source_window_end": 423,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AF369024.2&rettype=fasta&retmode=text&seq_start=141&seq_stop=423",
+    "source_fasta_sha256": "888dba23ff95d04fda2935088b61efb2eab0661f5fae4804ab6cd0e1c96662da",
+    "retrieved_utc": "2026-10-29T03:55:09.070683+00:00"
+  },
+  {
+    "target": "CHIKV",
+    "assay": "Lanciotti2007_874",
+    "doi": "10.3201/eid1305.070015",
+    "assay_type": "RT-qPCR",
+    "gene": "nsP1",
+    "oligo_sequence_source_url": "https://wwwnc.cdc.gov/eid/article/13/5/07-0015-t2",
+    "reference_evidence_url": "https://wwwnc.cdc.gov/eid/article/13/5/07-0015-t2",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "NC_004162",
+    "reference_role": "published_coordinate_reference",
+    "reported_reference_role": "published_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "First of two published diagnostic sets in Table 2; one Lanciotti record is retained under the three-assay cap.",
+    "paper_amplicon_start": 874,
+    "paper_amplicon_end": 961,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "CHIKV874",
+        "direction": "F",
+        "sequence_5to3": "AAAGGGCAAACTCAGCTTCAC"
+      },
+      {
+        "name": "CHIKV961",
+        "direction": "R",
+        "sequence_5to3": "GCCTGGGCTCATCGTTATTC"
+      },
+      {
+        "name": "CHIKV899",
+        "direction": "P",
+        "sequence_5to3": "CGCTGTGATACAGTGGTTTCGTGTG"
+      }
+    ],
+    "source_accession_version": "NC_004162.2",
+    "source_length_nt": 11826,
+    "source_title": "Chikungunya virus, complete genome",
+    "taxid": 37124,
+    "source_file": "CHIKV__Lanciotti2007_874.source.fasta",
+    "source_window_start": 774,
+    "source_window_end": 1061,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_004162.2&rettype=fasta&retmode=text&seq_start=774&seq_stop=1061",
+    "source_fasta_sha256": "583a9c1dd4ed3ecf619895c6b32ba6419638c512dfc171b614da23486067bb1f",
+    "retrieved_utc": "2026-10-29T03:55:09.071292+00:00"
+  },
+  {
+    "target": "SARS-CoV-2",
+    "assay": "Corman2020_E",
+    "doi": "10.2807/1560-7917.ES.2020.25.3.2000045",
+    "assay_type": "RT-qPCR",
+    "gene": "E",
+    "oligo_sequence_source_url": "https://doi.org/10.2807/1560-7917.ES.2020.25.3.2000045",
+    "reference_evidence_url": "https://doi.org/10.2807/1560-7917.ES.2020.25.3.2000045",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "MN908947;NC_004718;MG772933;NC_014470",
+    "reference_role": "published_SARS_CoV_2_comparison_reference",
+    "reported_reference_role": "published_SARS_CoV_2_comparison_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Initial assay design used a 375-sequence SARS-related coronavirus alignment. MN908947 is the published SARS-CoV-2 comparison reference. E-Sarbeco is a broad Sarbecovirus diagnostic target, not SARS-CoV-2-exclusive.",
+    "paper_amplicon_start": null,
+    "paper_amplicon_end": null,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "E_Sarbeco_F",
+        "direction": "F",
+        "sequence_5to3": "ACAGGTACGTTAATAGTTAATAGCGT"
+      },
+      {
+        "name": "E_Sarbeco_R",
+        "direction": "R",
+        "sequence_5to3": "ATATTGCAGCAGTACGCACACA"
+      },
+      {
+        "name": "E_Sarbeco_P1",
+        "direction": "P",
+        "sequence_5to3": "ACACTAGCCATCCTTACTGCGCTTCG"
+      }
+    ],
+    "source_accession_version": "MN908947.3",
+    "source_length_nt": 29903,
+    "source_title": "Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome",
+    "taxid": 2697049,
+    "source_file": "SARS-CoV-2__Corman2020_E.source.fasta",
+    "source_window_start": 26169,
+    "source_window_end": 26481,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=MN908947.3&rettype=fasta&retmode=text&seq_start=26169&seq_stop=26481",
+    "source_fasta_sha256": "320e5ba125188d2508cd95c33693e5646065e80472605d4af4e9425b06c3b03d",
+    "retrieved_utc": "2026-10-29T03:55:09.094838+00:00"
+  },
+  {
+    "target": "Influenza_A",
+    "assay": "Lee2012",
+    "doi": "10.1002/jmv.23375",
+    "assay_type": "RT-qPCR",
+    "gene": "M",
+    "oligo_sequence_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7166972/",
+    "reference_evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7166972/",
+    "design_reference_accessions": "FJ969537",
+    "published_reference_accessions": "FJ969537",
+    "reference_role": "published_coordinate_reference",
+    "reported_reference_role": "published_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Original reference-linked Table II. Influenza B original probe on CY069566 is used; the modified probe for CY093580 is a separate strain-adapted variant and is not counted as another method.",
+    "paper_amplicon_start": null,
+    "paper_amplicon_end": null,
+    "segment": "7",
+    "oligos": [
+      {
+        "name": "F",
+        "direction": "F",
+        "sequence_5to3": "GGAATGGCTAAAGACAAGACCAAT"
+      },
+      {
+        "name": "R",
+        "direction": "R",
+        "sequence_5to3": "GGGCATTTTGGACAAAGCGTCTAC"
+      },
+      {
+        "name": "P",
+        "direction": "P",
+        "sequence_5to3": "AGTCCTCGCTCACTGGGCACGGTG"
+      }
+    ],
+    "source_accession_version": "FJ969537.1",
+    "source_length_nt": 982,
+    "source_title": "Influenza A virus (A/California/07/2009(H1N1)) segment 7 matrix protein 2 (M2) and matrix protein 1 (M1) genes, complete cds",
+    "taxid": 641809,
+    "source_file": "Influenza_A__Lee2012.source.fasta",
+    "source_window_start": 29,
+    "source_window_end": 350,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=FJ969537.1&rettype=fasta&retmode=text&seq_start=29&seq_stop=350",
+    "source_fasta_sha256": "4b76f530e363a904f86928b9b1617549a087a4273356bb9570ea691a4b24f150",
+    "retrieved_utc": "2026-10-29T03:55:09.095713+00:00"
+  },
+  {
+    "target": "Influenza_B",
+    "assay": "Lee2012",
+    "doi": "10.1002/jmv.23375",
+    "assay_type": "RT-qPCR",
+    "gene": "NP",
+    "oligo_sequence_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7166972/",
+    "reference_evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7166972/",
+    "design_reference_accessions": "CY069566",
+    "published_reference_accessions": "CY069566;CY093580",
+    "reference_role": "published_coordinate_reference",
+    "reported_reference_role": "published_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Original reference-linked Table II. Influenza B original probe on CY069566 is used; the modified probe for CY093580 is a separate strain-adapted variant and is not counted as another method.",
+    "paper_amplicon_start": null,
+    "paper_amplicon_end": null,
+    "segment": "5",
+    "oligos": [
+      {
+        "name": "F",
+        "direction": "F",
+        "sequence_5to3": "CCAGGGATTGCAGACATTGA"
+      },
+      {
+        "name": "R",
+        "direction": "R",
+        "sequence_5to3": "ACAGGTGTTGCCATATTGTAAAGAG"
+      },
+      {
+        "name": "P",
+        "direction": "P",
+        "sequence_5to3": "TTGTTAGGCCCTCTGTGGCRAGCA"
+      }
+    ],
+    "source_accession_version": "CY069566.1",
+    "source_length_nt": 1777,
+    "source_title": "Influenza B virus (B/North Carolina/WRAIR1582P/2009) segment 5 sequence",
+    "taxid": 871648,
+    "source_file": "Influenza_B__Lee2012.source.fasta",
+    "source_window_start": 828,
+    "source_window_end": 1218,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CY069566.1&rettype=fasta&retmode=text&seq_start=828&seq_stop=1218",
+    "source_fasta_sha256": "74a63d59fcd4f37568dbe0f17d0445573e2c76a99050b198bb81a711fb4c40c1",
+    "retrieved_utc": "2026-10-29T03:55:09.126220+00:00"
+  },
+  {
+    "target": "Influenza_A",
+    "assay": "Ward2004",
+    "doi": "10.1016/S1386-6532(03)00122-7",
+    "assay_type": "RT-qPCR",
+    "gene": "M1",
+    "oligo_sequence_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7128145/",
+    "reference_evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7128145/",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "U52940",
+    "reference_role": "published_standard_sequence_verification_reference",
+    "reported_reference_role": "published_standard_sequence_verification_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Original design aligned 20 influenza A and 20 influenza B M sequences without a full accession list. This accession was explicitly used to verify the sequenced quantification-standard insert, not claimed as the sole design template. NCBI now identifies U52940.1 as A/Texas/36/1991 (340-nt partial M1) and AF100376.1 as B/Victoria/2/87; these differ from the article labels A/Texas/1/77 and B/Victoria/102/85. Actual record titles are retained.",
+    "paper_amplicon_start": null,
+    "paper_amplicon_end": null,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "F",
+        "direction": "F",
+        "sequence_5to3": "AAGACCAATCCTGTCACCTCTGA"
+      },
+      {
+        "name": "R",
+        "direction": "R",
+        "sequence_5to3": "CAAAGCGTCTACGCTGCAGTCC"
+      },
+      {
+        "name": "P",
+        "direction": "P",
+        "sequence_5to3": "TTTGTGTTCACGCTCACCGT"
+      }
+    ],
+    "source_accession_version": "U52940.1",
+    "source_length_nt": 340,
+    "source_title": "Influenza A virus (A/Texas/36/1991(H1N1)) matrix protein M1 gene, partial cds",
+    "taxid": 380964,
+    "source_file": "Influenza_A__Ward2004.source.fasta",
+    "source_window_start": 1,
+    "source_window_end": 233,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=U52940.1&rettype=fasta&retmode=text&seq_start=1&seq_stop=233",
+    "source_fasta_sha256": "172ae990afa9dd5ad33ef39ccfe07da2a9f21b1f56fa9b0e02f27fe489c5dda9",
+    "retrieved_utc": "2026-10-29T03:55:09.126852+00:00"
+  },
+  {
+    "target": "Influenza_B",
+    "assay": "Ward2004",
+    "doi": "10.1016/S1386-6532(03)00122-7",
+    "assay_type": "RT-qPCR",
+    "gene": "M1",
+    "oligo_sequence_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7128145/",
+    "reference_evidence_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7128145/",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "AF100376",
+    "reference_role": "published_standard_sequence_verification_reference",
+    "reported_reference_role": "published_standard_sequence_verification_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Original design aligned 20 influenza A and 20 influenza B M sequences without a full accession list. This accession was explicitly used to verify the sequenced quantification-standard insert, not claimed as the sole design template. NCBI now identifies U52940.1 as A/Texas/36/1991 (340-nt partial M1) and AF100376.1 as B/Victoria/2/87; these differ from the article labels A/Texas/1/77 and B/Victoria/102/85. Actual record titles are retained.",
+    "paper_amplicon_start": null,
+    "paper_amplicon_end": null,
+    "segment": "7",
+    "oligos": [
+      {
+        "name": "F",
+        "direction": "F",
+        "sequence_5to3": "GAGACACAATTGCCTACCTGCTT"
+      },
+      {
+        "name": "R",
+        "direction": "R",
+        "sequence_5to3": "TTCTTTCCCACCGAACCAAC"
+      },
+      {
+        "name": "P",
+        "direction": "P",
+        "sequence_5to3": "AGAAGATGGAGAAGGCAAAGCAGAACTAGC"
+      }
+    ],
+    "source_accession_version": "AF100376.1",
+    "source_length_nt": 1142,
+    "source_title": "Influenza B virus B/Victoria/2/87 segment 7 M1 matrix protein (M) and BM2 protein (BM2) genes, complete cds",
+    "taxid": 11520,
+    "source_file": "Influenza_B__Ward2004.source.fasta",
+    "source_window_start": 1,
+    "source_window_end": 208,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AF100376.1&rettype=fasta&retmode=text&seq_start=1&seq_stop=208",
+    "source_fasta_sha256": "bc16ad8f85935d2e05c1c20adf5ea70b97343e7122d3eb459206c5a13ef212a6",
+    "retrieved_utc": "2026-10-29T03:55:09.127014+00:00"
+  },
+  {
+    "target": "Norovirus_GI",
+    "assay": "Jothikumar2005",
+    "doi": "10.1128/AEM.71.4.1870-1875.2005",
+    "assay_type": "RT-qPCR",
+    "gene": "ORF1_ORF2_junction",
+    "oligo_sequence_source_url": "https://journals.asm.org/doi/10.1128/AEM.71.4.1870-1875.2005",
+    "reference_evidence_url": "https://journals.asm.org/doi/10.1128/AEM.71.4.1870-1875.2005",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "M87661",
+    "reference_role": "published_coordinate_reference",
+    "reported_reference_role": "published_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "I is the published deoxyinosine at position 12; treated as a wildcard only for locating this oligo. FASTA contains only unchanged reference DNA bases.",
+    "paper_amplicon_start": 5282,
+    "paper_amplicon_end": 5377,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "JJV1F",
+        "direction": "F",
+        "sequence_5to3": "GCCATGTTCCGITGGATG"
+      },
+      {
+        "name": "JJV1R",
+        "direction": "R",
+        "sequence_5to3": "TCCTTAGACGCCATCATCAT"
+      },
+      {
+        "name": "JJV1P",
+        "direction": "P",
+        "sequence_5to3": "TGTGGACAGGAGATCGCAATCTC"
+      }
+    ],
+    "source_accession_version": "M87661.2",
+    "source_length_nt": 7654,
+    "source_title": "Norwalk virus nonstructural polyprotein, 58 kd capsid protein, and orf3 genes, complete cds",
+    "taxid": 11983,
+    "source_file": "Norovirus_GI__Jothikumar2005.source.fasta",
+    "source_window_start": 5182,
+    "source_window_end": 5477,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=M87661.2&rettype=fasta&retmode=text&seq_start=5182&seq_stop=5477",
+    "source_fasta_sha256": "b1c01d579afcde19c3e90f70dbbe5f9e2cf2f1991bd1e49fae00c70cde87a8b8",
+    "retrieved_utc": "2026-10-29T03:55:09.138934+00:00"
+  },
+  {
+    "target": "Norovirus_GII",
+    "assay": "Jothikumar2005",
+    "doi": "10.1128/AEM.71.4.1870-1875.2005",
+    "assay_type": "RT-qPCR",
+    "gene": "ORF1_ORF2_junction",
+    "oligo_sequence_source_url": "https://journals.asm.org/doi/10.1128/AEM.71.4.1870-1875.2005",
+    "reference_evidence_url": "https://journals.asm.org/doi/10.1128/AEM.71.4.1870-1875.2005",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "X86557",
+    "reference_role": "published_coordinate_reference",
+    "reported_reference_role": "published_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Table 2 explicitly identifies Lordsdale X86557 as the coordinate reference. Text reports an 89-bp GII product, but Table 2 coordinates span 98 nt; actual reference matching controls extraction.",
+    "paper_amplicon_start": 5003,
+    "paper_amplicon_end": 5100,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "JJV2F",
+        "direction": "F",
+        "sequence_5to3": "CAAGAGTCAATGTTTAGGTGGATGAG"
+      },
+      {
+        "name": "COG2R",
+        "direction": "R",
+        "sequence_5to3": "TCGACGCCATCTTCATTCACA"
+      },
+      {
+        "name": "RING2-TP",
+        "direction": "P",
+        "sequence_5to3": "TGGGAGGGCGATCGCAATCT"
+      }
+    ],
+    "source_accession_version": "X86557.1",
+    "source_length_nt": 7555,
+    "source_title": "Lordsdale virus complete genome",
+    "taxid": 82658,
+    "source_file": "Norovirus_GII__Jothikumar2005.source.fasta",
+    "source_window_start": 4903,
+    "source_window_end": 5200,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=X86557.1&rettype=fasta&retmode=text&seq_start=4903&seq_stop=5200",
+    "source_fasta_sha256": "de7b55d1e191fd0657913d9503731e9e6a3c9f5bbc0fcbdf892cd57646d7eca3",
+    "retrieved_utc": "2026-10-29T03:55:09.181700+00:00"
+  },
+  {
+    "target": "Norovirus_GI",
+    "assay": "daSilva2007",
+    "doi": "10.1128/AEM.01428-07",
+    "assay_type": "RT-qPCR",
+    "gene": "ORF1_ORF2_junction",
+    "oligo_sequence_source_url": "https://journals.asm.org/doi/10.1128/AEM.01428-07",
+    "reference_evidence_url": "https://doi.org/10.1111/tmi.12251",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "M87661",
+    "reference_role": "published_coordinate_reference",
+    "reported_reference_role": "published_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Primer/probe sequences appear in the original primary methods; M87661 coordinate reference is explicitly reproduced in Mans et al. 2014 Table 1. Reverse primer and probe originate from Svraka et al. 2007.",
+    "paper_amplicon_start": 5291,
+    "paper_amplicon_end": 5376,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "QNIF4",
+        "direction": "F",
+        "sequence_5to3": "CGCTGGATGCGNTTCCAT"
+      },
+      {
+        "name": "NV1LCR",
+        "direction": "R",
+        "sequence_5to3": "CCTTAGACGCCATCATCATTTAC"
+      },
+      {
+        "name": "NV1LCpr",
+        "direction": "P",
+        "sequence_5to3": "TGGACAGGAGAYCGCRATCT"
+      }
+    ],
+    "source_accession_version": "M87661.2",
+    "source_length_nt": 7654,
+    "source_title": "Norwalk virus nonstructural polyprotein, 58 kd capsid protein, and orf3 genes, complete cds",
+    "taxid": 11983,
+    "source_file": "Norovirus_GI__daSilva2007.source.fasta",
+    "source_window_start": 5191,
+    "source_window_end": 5476,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=M87661.2&rettype=fasta&retmode=text&seq_start=5191&seq_stop=5476",
+    "source_fasta_sha256": "07d8fbf65a46d9558b96169de7d72ded97ae44109b51fb9f5b063bc38ff6e942",
+    "retrieved_utc": "2026-10-29T03:55:09.146299+00:00"
+  },
+  {
+    "target": "Norovirus_GII",
+    "assay": "Loisy2005",
+    "doi": "10.1016/j.jviromet.2004.08.023",
+    "assay_type": "RT-qPCR",
+    "gene": "ORF1_ORF2_junction",
+    "oligo_sequence_source_url": "https://doi.org/10.1111/tmi.12251",
+    "reference_evidence_url": "https://doi.org/10.1111/tmi.12251",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "X86557",
+    "reference_role": "later_primary_study_coordinate_reference",
+    "reported_reference_role": "later_primary_study_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Original Loisy article is the cited assay origin. Public sequences and X86557 positions are reproduced in Mans et al. 2014 Table 1. The COG2R reverse primer originates from Kageyama 2003.",
+    "paper_amplicon_start": 5012,
+    "paper_amplicon_end": 5100,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "QNIF2d",
+        "direction": "F",
+        "sequence_5to3": "ATGTTCAGRTGGATGAGRTTCTCWGA"
+      },
+      {
+        "name": "COG2R",
+        "direction": "R",
+        "sequence_5to3": "TCGACGCCATCTTCATTCACA"
+      },
+      {
+        "name": "QNIFS",
+        "direction": "P",
+        "sequence_5to3": "AGCACGTGGGAGGGCGATCG"
+      }
+    ],
+    "source_accession_version": "X86557.1",
+    "source_length_nt": 7555,
+    "source_title": "Lordsdale virus complete genome",
+    "taxid": 82658,
+    "source_file": "Norovirus_GII__Loisy2005.source.fasta",
+    "source_window_start": 4912,
+    "source_window_end": 5200,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=X86557.1&rettype=fasta&retmode=text&seq_start=4912&seq_stop=5200",
+    "source_fasta_sha256": "e2662e94d327d77e3ef25e0f607928fbf3b384e57b48d61edbf9ee1dc66dd57b",
+    "retrieved_utc": "2026-10-29T03:55:09.181883+00:00"
+  },
+  {
+    "target": "Human_astrovirus",
+    "assay": "Grimm2004",
+    "doi": "10.1139/w04-012",
+    "assay_type": "RT-qPCR",
+    "gene": "ORF2",
+    "oligo_sequence_source_url": "https://www.researchgate.net/publication/8493993_Development_of_an_astrovirus_RT-PCR_detection_assay_for_use_with_conventional_real-time_and_integrated_cell_cultureRT-PCR",
+    "reference_evidence_url": "https://www.researchgate.net/publication/8493993",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "L23513",
+    "reference_role": "published_coordinate_reference",
+    "reported_reference_role": "published_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Public author-deposited original article, Table 1 explicitly gives Oxford L23513. Only diagnostic oligos are retained; positive-control mutagenic oligos are excluded. Table 2 acknowledges strain-specific mismatches.",
+    "paper_amplicon_start": 4346,
+    "paper_amplicon_end": 4563,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "AstU1",
+        "direction": "F",
+        "sequence_5to3": "AAGCAGGTAACTGTTGAGGTC"
+      },
+      {
+        "name": "AstU2",
+        "direction": "F",
+        "sequence_5to3": "AAGCAAGTCACTGTTGAGGTC"
+      },
+      {
+        "name": "AstU3",
+        "direction": "F",
+        "sequence_5to3": "AAGCAAGTCACTGTTGAGGTTA"
+      },
+      {
+        "name": "AstU4",
+        "direction": "F",
+        "sequence_5to3": "AAGGAAGTCACTGTGGAGGT"
+      },
+      {
+        "name": "AstL1",
+        "direction": "R",
+        "sequence_5to3": "GGTTTTGGTCCTGTGACAC"
+      },
+      {
+        "name": "AstL2",
+        "direction": "R",
+        "sequence_5to3": "CTGGTTTAGGTCCTGTGACAC"
+      },
+      {
+        "name": "Taq-AstP1",
+        "direction": "P",
+        "sequence_5to3": "TCAACGTGTCCGTAACATTGTCAATAA"
+      },
+      {
+        "name": "Taq-AstP2",
+        "direction": "P",
+        "sequence_5to3": "TCAGCGTGTCCGTAAAATTGTCAATAA"
+      },
+      {
+        "name": "Taq-AstP3",
+        "direction": "P",
+        "sequence_5to3": "TCAACGTGTCCGTAACATTGTCACTAA"
+      },
+      {
+        "name": "Taq-AstP4",
+        "direction": "P",
+        "sequence_5to3": "AATCAACGTGTCCGTAAAATTGTCAATAA"
+      }
+    ],
+    "source_accession_version": "L23513.1",
+    "source_length_nt": 6771,
+    "source_title": "Human astrovirus type 1 strain Oxford, complete genome",
+    "taxid": 12456,
+    "source_file": "Human_astrovirus__Grimm2004.source.fasta",
+    "source_window_start": 4246,
+    "source_window_end": 4663,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=L23513.1&rettype=fasta&retmode=text&seq_start=4246&seq_stop=4663",
+    "source_fasta_sha256": "7d3e9e8cee959717f59c2938949c23be5caec344085993a6f2f1bcd85049644a",
+    "retrieved_utc": "2026-10-29T03:55:09.190678+00:00"
+  },
+  {
+    "target": "Human_astrovirus",
+    "assay": "LeCann2004",
+    "doi": "10.1016/j.resmic.2003.09.013",
+    "assay_type": "RT-qPCR",
+    "gene": "ORF2_3prime",
+    "oligo_sequence_source_url": "https://doi.org/10.1111/tmi.12251",
+    "reference_evidence_url": "https://doi.org/10.1111/tmi.12251",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "L06802.1",
+    "reference_role": "later_primary_study_coordinate_reference",
+    "reported_reference_role": "later_primary_study_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Public primer/probe table in Mans et al. 2014 cites Le Cann 2004 and L06802.1. Its listed AV2/probe coordinates appear swapped relative to oligo lengths; actual mapping is used. This partial reference may lack a full downstream flank.",
+    "paper_amplicon_start": null,
+    "paper_amplicon_end": null,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "AV1",
+        "direction": "F",
+        "sequence_5to3": "CCGAGTAGGATCGAGGGT"
+      },
+      {
+        "name": "AV2",
+        "direction": "R",
+        "sequence_5to3": "GCTTCTGATTAAATCAATTTTAA"
+      },
+      {
+        "name": "AVS",
+        "direction": "P",
+        "sequence_5to3": "CTTTTCTGTCTCTGTTTAGATTATTTTAATCACC"
+      }
+    ],
+    "source_accession_version": "L06802.1",
+    "source_length_nt": 2484,
+    "source_title": "Human astrovirus capsid protein mRNA, complete cds",
+    "taxid": 12701,
+    "source_file": "Human_astrovirus__LeCann2004.source.fasta",
+    "source_window_start": 2295,
+    "source_window_end": 2484,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=L06802.1&rettype=fasta&retmode=text&seq_start=2295&seq_stop=2484",
+    "source_fasta_sha256": "929c45b8eb844e38596a4327741b7d349ee24d84bd86c01772b4a4e16d315233",
+    "retrieved_utc": "2026-10-29T03:55:09.205805+00:00"
+  },
+  {
+    "target": "Sapovirus",
+    "assay": "Chan2006",
+    "doi": "10.1016/j.jviromet.2005.12.013",
+    "assay_type": "RT-qPCR",
+    "gene": "RdRp_VP1_junction",
+    "oligo_sequence_source_url": "https://doi.org/10.1111/tmi.12251",
+    "reference_evidence_url": "https://doi.org/10.1111/tmi.12251",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "NC_006269;U95644",
+    "reference_role": "later_primary_study_coordinate_reference",
+    "reported_reference_role": "later_primary_study_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Public primary reproduction in Mans et al. 2014 Table 1; NC_006269 coordinate reference for F1/R/probe, U95644 for alternative F2. The later reference accession is not claimed as the single original design template.",
+    "paper_amplicon_start": 5074,
+    "paper_amplicon_end": 5177,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "CU-SV-F1",
+        "direction": "F",
+        "sequence_5to3": "GACCAGGCTCTCGCYACCTAC"
+      },
+      {
+        "name": "CU-SV-F2",
+        "direction": "F",
+        "sequence_5to3": "TTGGCCCTCGCCACCTAC"
+      },
+      {
+        "name": "CU-SV-R",
+        "direction": "R",
+        "sequence_5to3": "CCCTCCATYTCAAACACTAWTTTG"
+      },
+      {
+        "name": "CU-SVp",
+        "direction": "P",
+        "sequence_5to3": "TGGTTYATAGGYGGTAC"
+      }
+    ],
+    "source_accession_version": "NC_006269.1",
+    "source_length_nt": 7429,
+    "source_title": "Sapovirus Hu/Dresden/pJG-Sap01/DE, complete genome",
+    "taxid": 291175,
+    "source_file": "Sapovirus__Chan2006.source.fasta",
+    "source_window_start": 4974,
+    "source_window_end": 5277,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_006269.1&rettype=fasta&retmode=text&seq_start=4974&seq_stop=5277",
+    "source_fasta_sha256": "63df17d08eabdf4f4f3ed3a8d94ea2c38193f3d6e2162573ed22a050df7b8a2e",
+    "retrieved_utc": "2026-10-29T03:55:09.195298+00:00"
+  },
+  {
+    "target": "Sapovirus",
+    "assay": "Oka2019",
+    "doi": "10.1002/jmv.25334",
+    "assay_type": "RT-qPCR",
+    "gene": "RdRp_VP1_junction",
+    "oligo_sequence_source_url": "https://doi.org/10.1128/jvi.00639-24",
+    "reference_evidence_url": "https://doi.org/10.1128/jvi.00639-24",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "AY237420",
+    "reference_role": "later_primary_study_quantification_standard_reference",
+    "reported_reference_role": "later_primary_study_quantification_standard_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "All five diagnostic oligos are publicly reproduced in the 2024 primary paper RNA extraction and RT-qPCR subsection, citing Oka 2019. AY237420 is explicitly the GII.2 quantification-standard reference in that study, not a sole 2019 design accession.",
+    "paper_amplicon_start": null,
+    "paper_amplicon_end": null,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "HuSaV-F1",
+        "direction": "F",
+        "sequence_5to3": "GGCHCTYGCCACCTAYAAYG"
+      },
+      {
+        "name": "HuSaV-F2",
+        "direction": "F",
+        "sequence_5to3": "GACCARGCHCTCGCYACCTAYGA"
+      },
+      {
+        "name": "HuSaV-F3",
+        "direction": "F",
+        "sequence_5to3": "GCWRYKGCWTGYTAYAACAGC"
+      },
+      {
+        "name": "HuSaV-R",
+        "direction": "R",
+        "sequence_5to3": "CCYTCCATYTCAAACACTA"
+      },
+      {
+        "name": "HuSaV-TPa",
+        "direction": "P",
+        "sequence_5to3": "CCNCCWATRWACCA"
+      }
+    ],
+    "source_accession_version": "AY237420.2",
+    "source_length_nt": 7458,
+    "source_title": "Sapovirus Mc10 polyprotein precursor, mRNA, complete cds; and unknown mRNA",
+    "taxid": 234601,
+    "source_file": "Sapovirus__Oka2019.source.fasta",
+    "source_window_start": 4978,
+    "source_window_end": 5281,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AY237420.2&rettype=fasta&retmode=text&seq_start=4978&seq_stop=5281",
+    "source_fasta_sha256": "f9bb1a91dd6fd7b5bb2e2a47968af0815420191bf29c3473029411f0b9ec5b72",
+    "retrieved_utc": "2026-10-29T03:55:09.210159+00:00"
+  },
+  {
+    "target": "Rotavirus_A",
+    "assay": "Jothikumar2009",
+    "doi": "10.1016/j.jviromet.2008.09.025",
+    "assay_type": "RT-qPCR",
+    "gene": "NSP3",
+    "oligo_sequence_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7464061/",
+    "reference_evidence_url": "https://journals.asm.org/doi/10.1128/AEM.01095-20",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "DQ146697.1",
+    "reference_role": "later_primary_study_quantification_standard_reference",
+    "reported_reference_role": "later_primary_study_quantification_standard_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Original method DOI is verified. Public diagnostic oligos are reproduced in Table 1 of Islam et al. 2020 (10.1007/s10393-020-01488-7). DQ146697.1 is explicitly the qPCR standard reference in the primary study 10.1128/AEM.01095-20; it is not asserted to be the sole original design accession.",
+    "paper_amplicon_start": 17,
+    "paper_amplicon_end": 147,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "JVKF",
+        "direction": "F",
+        "sequence_5to3": "CAGTGGTTGATGCTCAAGATGGA"
+      },
+      {
+        "name": "JVKR",
+        "direction": "R",
+        "sequence_5to3": "TCATTGTAATCATATTGAATACCCA"
+      },
+      {
+        "name": "JVKP",
+        "direction": "P",
+        "sequence_5to3": "ACAACTGCAGCTTCAAAAGAAGWGT"
+      }
+    ],
+    "source_accession_version": "DQ146697.1",
+    "source_length_nt": 1066,
+    "source_title": "Rotavirus A strain RVA/Human-tc/PHL/L26/1987/G12P[4] NSP3 gene, complete cds",
+    "taxid": 28875,
+    "source_file": "Rotavirus_A__Jothikumar2009.source.fasta",
+    "source_window_start": 1,
+    "source_window_end": 247,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=DQ146697.1&rettype=fasta&retmode=text&seq_start=1&seq_stop=247",
+    "source_fasta_sha256": "53230ee128b52a52c56be0e2b87aedea7ba85b698e2446b6f2ea634240e3b781",
+    "retrieved_utc": "2026-10-29T03:55:15.418582+00:00"
+  },
+  {
+    "target": "Rotavirus_A",
+    "assay": "Zeng2008",
+    "doi": "10.1016/j.jviromet.2008.08.004",
+    "assay_type": "RT-qPCR",
+    "gene": "NSP3",
+    "oligo_sequence_source_url": "https://doi.org/10.1111/tmi.12251",
+    "reference_evidence_url": "https://doi.org/10.1111/tmi.12251",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "X81436",
+    "reference_role": "later_primary_study_coordinate_reference",
+    "reported_reference_role": "later_primary_study_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Public oligos and X81436 coordinate reference are reproduced in Mans et al. 2014 Table 1, citing Zeng 2008. This is a different NSP3 locus from the Jothikumar 2009 assay.",
+    "paper_amplicon_start": 963,
+    "paper_amplicon_end": 1049,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "ROTFOR",
+        "direction": "F",
+        "sequence_5to3": "ACCATCTWCACRTRACCCTCTATGAG"
+      },
+      {
+        "name": "ROTREV",
+        "direction": "R",
+        "sequence_5to3": "GGTCACATAACGCCCCTATAGC"
+      },
+      {
+        "name": "ROTprobe",
+        "direction": "P",
+        "sequence_5to3": "AGTTAAAAGCTAACACTGTCAAA"
+      }
+    ],
+    "source_accession_version": "X81436.1",
+    "source_length_nt": 1049,
+    "source_title": "Human rotavirus NSP3 (NS34) mRNA (strain ST3)",
+    "taxid": 10941,
+    "source_file": "Rotavirus_A__Zeng2008.source.fasta",
+    "source_window_start": 863,
+    "source_window_end": 1049,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=X81436.1&rettype=fasta&retmode=text&seq_start=863&seq_stop=1049",
+    "source_fasta_sha256": "980c21b3795a83e0ecc97f3f2dcb6e7c145041ddaa560c0c4cc7ed79a1d7fd00",
+    "retrieved_utc": "2026-10-29T03:55:09.210539+00:00"
+  },
+  {
+    "target": "MPXV",
+    "assay": "Kulesh2004_N3R",
+    "doi": "10.1038/labinvest.3700143",
+    "assay_type": "qPCR",
+    "gene": "N3R",
+    "oligo_sequence_source_url": "https://doi.org/10.1038/labinvest.3700143",
+    "reference_evidence_url": "https://doi.org/10.1038/labinvest.3700143",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "AF380138",
+    "reference_role": "published_coordinate_reference",
+    "reported_reference_role": "published_coordinate_reference",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Original published N3R assay; exact location is obtained from AF380138.1 rather than applying positions from a 2022 isolate.",
+    "paper_amplicon_start": null,
+    "paper_amplicon_end": null,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "N3R-F319",
+        "direction": "F",
+        "sequence_5to3": "AACAACCGTCCTACAATTAAACAACA"
+      },
+      {
+        "name": "N3R-R457",
+        "direction": "R",
+        "sequence_5to3": "CGCTATCGAACCATTTTTGTAGTCT"
+      },
+      {
+        "name": "N3Rp352S-MGB",
+        "direction": "P",
+        "sequence_5to3": "TATAACGGCGAAGAATATACT"
+      }
+    ],
+    "source_accession_version": "AF380138.1",
+    "source_length_nt": 196858,
+    "source_title": "Monkeypox virus strain Zaire-96-I-16, complete genome",
+    "taxid": 619591,
+    "source_file": "MPXV__Kulesh2004_N3R.source.fasta",
+    "source_window_start": 190321,
+    "source_window_end": 190659,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AF380138.1&rettype=fasta&retmode=text&seq_start=190321&seq_stop=190659",
+    "source_fasta_sha256": "64ce3fdb08692c30d07c5d323b6ee1cfaa1b0678b2748cfafffc5c330d516fc1",
+    "retrieved_utc": "2026-10-29T03:55:15.394232+00:00"
+  },
+  {
+    "target": "MPXV",
+    "assay": "Li2010_G2R_G",
+    "doi": "10.1016/j.jviromet.2010.07.012",
+    "assay_type": "qPCR",
+    "gene": "G2R",
+    "oligo_sequence_source_url": "https://www.therphl.net/wp-content/uploads/2023/11/2_MPXV-PCR-Article.pdf",
+    "reference_evidence_url": "https://www.therphl.net/wp-content/uploads/2023/11/2_MPXV-PCR-Article.pdf",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "published_reference_accessions": "NA_original_article_does_not_list_accession_identifiers",
+    "reference_role": "mapping_reference_selected_for_this_compilation",
+    "reported_reference_role": "mapping_reference_selected_for_this_compilation",
+    "selection_basis": "Published diagnostic assay with documented use or independent primary-study reproduction; not a bibliometric rank.",
+    "literature_notes": "Original diagnostic assay, Figure 1/Table 2. AF380138.1 is the compilation mapping reference, not an asserted original design accession. G2R is in the inverted terminal repeat; one physical locus is retained and locus copy number must be considered in quantification.",
+    "paper_amplicon_start": null,
+    "paper_amplicon_end": null,
+    "segment": "NA",
+    "oligos": [
+      {
+        "name": "G2R_G-F",
+        "direction": "F",
+        "sequence_5to3": "GGAAAATGTAAAGACAACGAATACAG"
+      },
+      {
+        "name": "G2R_G-R",
+        "direction": "R",
+        "sequence_5to3": "GCTATCACATAATCTGGAAGCGTA"
+      },
+      {
+        "name": "G2R_G-P",
+        "direction": "P",
+        "sequence_5to3": "AAGCCGTAATCTATGTTGTCTATCGTGTCC"
+      }
+    ],
+    "source_accession_version": "AF380138.1",
+    "source_length_nt": 196858,
+    "source_title": "Monkeypox virus strain Zaire-96-I-16, complete genome",
+    "taxid": 619591,
+    "source_file": "MPXV__Li2010_G2R_G.source.fasta",
+    "source_window_start": 194060,
+    "source_window_end": 194349,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AF380138.1&rettype=fasta&retmode=text&seq_start=194060&seq_stop=194349",
+    "source_fasta_sha256": "d9c2e4b0b4a0d639a14c6477a60924c94286850e868c2252c930657e0e1739de",
+    "retrieved_utc": "2026-10-29T03:55:09.254387+00:00"
+  },
+  {
+    "target": "SARS-CoV-2",
+    "assay": "ChinaCDC2020_ORF1ab",
+    "source_accession_version": "MN908947.3",
+    "source_title": "Severe acute respiratory syndrome coronavirus 2 isolate Wuhan-Hu-1, complete genome",
+    "source_length_nt": 29903,
+    "taxid": 2697049,
+    "source_file": "SARS-CoV-2__ChinaCDC2020_ORF1ab.source.fasta",
+    "source_fasta_sha256": "9275b670fab403e61aeed09cd38ea8bcf778776f4c58d4b30285e84123a9c22d",
+    "source_window_start": 13242,
+    "source_window_end": 13560,
+    "source_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=MN908947.3&rettype=fasta&retmode=text&seq_start=13242&seq_stop=13560",
+    "retrieved_utc": "2026-10-29T07:38:26.727510+00:00",
+    "segment": "NA",
+    "paper_amplicon_start": null,
+    "paper_amplicon_end": null,
+    "doi": "10.46234/ccdcw2020.023",
+    "oligo_sequence_source_url": "https://www.who.int/docs/default-source/coronaviruse/whoinhouseassays.pdf?download=true",
+    "oligos": [
+      {
+        "name": "CCDC-ORF1-F",
+        "direction": "F",
+        "sequence_5to3": "CCCTGTGGGTTTTACACTTAA"
+      },
+      {
+        "name": "CCDC-ORF1-R",
+        "direction": "R",
+        "sequence_5to3": "ACGATTGTGCATCAGCTGA"
+      },
+      {
+        "name": "CCDC-ORF1-P",
+        "direction": "P",
+        "sequence_5to3": "CCGTCTGCGGTATGTGGAAAGGTTATGG"
+      }
+    ],
+    "reference_role": "mapping_reference_selected_for_this_compilation",
+    "published_reference_accessions": "NA_reference_accession_not_specified_in_original_protocol",
+    "design_reference_accessions": "NA_not_stated_as_single_design_template",
+    "assay_type": "RT-qPCR",
+    "selection_basis": "Public China CDC ORF1ab diagnostic assay; added on user request while retaining N1, N2 and E.",
+    "reference_evidence_url": "https://www.ncbi.nlm.nih.gov/nuccore/MN908947.3",
+    "literature_notes": "China CDC protocol released 2020-01-21 and reproduced in WHO in-house assay compilation, page 2, and Wei et al. 2020 Table 2 (10.46234/ccdcw2020.023). MN908947.3 is the actual mapping reference, not an asserted sole original design template. Exact mapped amplicon is 13342-13460 (119 nt); unchanged reference window 13242-13560 includes both primers and 100 nt on each flank. All three oligo sites match exactly. Original protocol has no accession-linked coordinate table, so paper-coordinate fields are NA.",
+    "gene": "ORF1ab",
+    "reported_reference_role": "mapping_reference_selected_for_this_compilation"
+  }
+]

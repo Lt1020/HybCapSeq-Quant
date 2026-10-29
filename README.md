@@ -2,7 +2,7 @@
 
 HybCapSeq-Quant estimates nucleic-acid abundance from ERCC-calibrated hybrid-capture sequencing analyzed with EsViritu. The sequencing-yield and normalized-depth estimators separately produce extract and starting-library-mixture concentrations. Wastewater conversion additionally requires actual experimental volumes and a measured recovery proxy.
 
-Software **2.2.0**; active database revision **v3.3.1**. Database [v3.4 is incomplete](databases/v3.4/README.md): no v3.4 sequence asset or index is released. Database and software versions are independent.
+Software **2.2.0**; database **[v3.4](databases/v3.4/README.md)** adds 21 reviewed literature PCR reference regions to the corrected v3.3 baseline, with 31,024 total records and a rebuilt index. The four added SARS-CoV-2 regions are N1, N2, E and ORF1ab. Database and software versions are independent.
 
 [中文说明](README_zh.md) · [Methods](docs/METHODS.md) · [Fields](docs/DATA_DICTIONARY.md) · [Verification](VALIDATION.md)
 
@@ -23,10 +23,10 @@ BAM-derived signal extraction is optional: `python -m pip install '.[bam]'`.
 
 ## Database and inputs
 
-Obtain and checksum the [v3.3 release](https://github.com/Lt1020/HybCapSeq-Quant/releases/tag/db-v3.3). Set `DB_DIR` to the actual directory and apply the documented v3.3.1 annotation correction:
+Download and verify the [complete v3.4 database](https://github.com/Lt1020/HybCapSeq-Quant/releases/tag/db-v3.4) using the commands in its [database guide](databases/v3.4/README.md). Set `DB_DIR` to the extracted `v3.4` directory:
 
 ```bash
-hybcapseq_quant upgrade-db --db-dir "$DB_DIR"
+DB_DIR="$PWD/v3.4"
 hybcapseq_quant validate-db --db-dir "$DB_DIR"
 hybcapseq_quant init --esviritu-dir esviritu_results --outdir inputs
 hybcapseq_quant prepare-targets \
@@ -34,7 +34,9 @@ hybcapseq_quant prepare-targets \
   --output inputs/targets.tsv
 ```
 
-The v3.3.1 correction preserves sequences and index files; see [upgrade instructions](docs/UPGRADE_2.1.0.md). A future sequence-changing extension requires a matching rebuilt index and new alignments.
+v3.4 includes matching molecular annotations. Re-run EsViritu against it; new sequences require new alignments. The legacy `upgrade-db` command applies only to existing v3.3 installations and is unnecessary for v3.4. Existing v3.3 users can retain that database or follow the [v3.3.1 annotation update](docs/UPGRADE_2.1.0.md).
+
+PCRROI records are published diagnostic windows, not confirmed commercial dPCR kit regions. Genomic and overlapping ROI counts are not additive. Local molecular-mass assignments remain unavailable by default; the release does not assert validated local absolute concentrations. See [reference scope and counting](databases/v3.4/README.md#counting-and-quantitative-interpretation) and the [Chinese workflow](docs/WORKFLOW_v3.4_zh.md).
 
 Review every sample input: actual extract volume, combined DNA+RNA input mass, starting mixture volume, ERCC stock dilution and added volume. Unknown quantities remain `NA`; templates do not assume experiment volumes or recovery. The catalog has 96 ERCC references; only the 92 manufacturer-assigned Mix 1 transcripts receive concentrations. Yield estimation requires analysis-input bases or the correct matching fastp section. See the [field dictionary](docs/DATA_DICTIONARY.md).
 
@@ -86,6 +88,6 @@ Examples contain explicitly simulated measurements with analytical truth. [Softw
 
 ## Documentation and attribution
 
-[Manuscript methods](docs/MANUSCRIPT_METHODS.md) describe implemented computations. [CHANGELOG.md](CHANGELOG.md) records migration and version changes. Cite the exact software commit and actual database revision; do not cite unreleased preparation files as an implemented reference database.
+[Manuscript methods](docs/MANUSCRIPT_METHODS.md) describe implemented computations. [CHANGELOG.md](CHANGELOG.md) records migration and version changes. Cite the exact software commit and actual database revision; distinguish the released reference assets from experimental validation of a particular measurement model.
 
 The existing MIT software license is retained. Third-party references retain their attribution and distribution conditions. This public repository contains code, documentation and simulated examples; individual experimental measurements and specimen identifiers are not distributed.

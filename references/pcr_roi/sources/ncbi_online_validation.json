@@ -1,0 +1,352 @@
+{
+  "result": "PASS",
+  "verified_utc": "2026-10-29T07:38:26.727510+00:00",
+  "assay_count": 35,
+  "unique_reference_window_requests": 34,
+  "all_ncbi_reverse_fetches_match": true,
+  "records": [
+    {
+      "accession_version": "M81413.1",
+      "start_1based": 1778,
+      "end_1based": 2045,
+      "length_nt": 268,
+      "reference_bases_sha256": "fafffa100447fbda7684186f3b42eaca83d2ec65fb270063ed7389a4e3124ad6",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=M81413.1&rettype=fasta&retmode=text&seq_start=1778&seq_stop=2045&strand=2",
+      "ncbi_reverse_response_sha256": "5b5f58dc6580784d1cd0694c46f807f0304a53d6deefe179b4d9b3460458c27c",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "M87512.1",
+      "start_1based": 10474,
+      "end_1based": 10717,
+      "length_nt": 244,
+      "reference_bases_sha256": "ee8f2892c750bc244b3e9c5c09e55eba33c6b8590d0c835f0cc1ed0e3bb357b0",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=M87512.1&rettype=fasta&retmode=text&seq_start=10474&seq_stop=10717&strand=2",
+      "ncbi_reverse_response_sha256": "f1067a53550462f27b4d1a0153a102b7c43dfaec5573b2a846736edeba4c46cb",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "MN908947.3",
+      "start_1based": 28187,
+      "end_1based": 28458,
+      "length_nt": 272,
+      "reference_bases_sha256": "1630ba1c0aa504e4884db7cd8ba95ce4b58fb77b6798e0d9f96a285d9efac614",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=MN908947.3&rettype=fasta&retmode=text&seq_start=28187&seq_stop=28458&strand=2",
+      "ncbi_reverse_response_sha256": "1f71ae45595306184ea4c04910820c524b143f280a8cf8b2278c2b6e61d7644d",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "MN908947.3",
+      "start_1based": 29064,
+      "end_1based": 29330,
+      "length_nt": 267,
+      "reference_bases_sha256": "3e648475da4174f0fbc50bbfd4fbd9deb7b1b01e7abb17f369ea60c70cd9da71",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=MN908947.3&rettype=fasta&retmode=text&seq_start=29064&seq_stop=29330&strand=2",
+      "ncbi_reverse_response_sha256": "bb8a41664a8a6ae1c0d0de2440035bf040a42190381cf90ba8566b6119ab6258",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "HM590431.1",
+      "start_1based": 46,
+      "end_1based": 350,
+      "length_nt": 305,
+      "reference_bases_sha256": "91b5a6ef15cb790f554263cc58493160349ef6294f93281dc4ae8a073face43b",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=HM590431.1&rettype=fasta&retmode=text&seq_start=46&seq_stop=350&strand=2",
+      "ncbi_reverse_response_sha256": "f31c7ce0c076d286e406355bf93d7d2fb638444bbdb2eec75a48b7a97a1266a9",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "CY040733.1",
+      "start_1based": 633,
+      "end_1based": 935,
+      "length_nt": 303,
+      "reference_bases_sha256": "a954caf86c2c5c5c67108550e82cb164062ebc9564fe4c7f097a5e89e6ede41a",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CY040733.1&rettype=fasta&retmode=text&seq_start=633&seq_stop=935&strand=2",
+      "ncbi_reverse_response_sha256": "a9ca20d64cee1a1cd1928c14a82923f0d02ab6f29b75dc1cdc8ea8fe77dcc68e",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "M87661.2",
+      "start_1based": 5191,
+      "end_1based": 5475,
+      "length_nt": 285,
+      "reference_bases_sha256": "9e9207eae85e01c9622d94abdd5c28233f59cdf4929c568057d91c8b4e16e05b",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=M87661.2&rettype=fasta&retmode=text&seq_start=5191&seq_stop=5475&strand=2",
+      "ncbi_reverse_response_sha256": "4cf1a15a4ae6cfba0cee91624ca8bab2c2ef09431ac652306d0ab90cc0e68bbb",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "AF145896.1",
+      "start_1based": 4903,
+      "end_1based": 5200,
+      "length_nt": 298,
+      "reference_bases_sha256": "ca91328f42143c720a12d40b86e90ac6bc38f73f04ff98078fa69bc22bcfd201",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AF145896.1&rettype=fasta&retmode=text&seq_start=4903&seq_stop=5200&strand=2",
+      "ncbi_reverse_response_sha256": "18cf1f674b43d8260208501f3c06e53c1861f06f7e71cf50e11bb1517b1d1e94",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "L23513.1",
+      "start_1based": 4249,
+      "end_1based": 4662,
+      "length_nt": 414,
+      "reference_bases_sha256": "823008080a836fe0cef3ebad3407c08f471275b18cfc5fc254649fe42944a945",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=L23513.1&rettype=fasta&retmode=text&seq_start=4249&seq_stop=4662&strand=2",
+      "ncbi_reverse_response_sha256": "618e54307cea77f704b5d89087f3e2da1643abb3770524cf498fb468224893f3",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "AY237420.2",
+      "start_1based": 4978,
+      "end_1based": 5281,
+      "length_nt": 304,
+      "reference_bases_sha256": "9f89e4d23bc87f6fd6e61be8ccc7fe598da7f38c341dd9cbf5c65b38da7a2f6d",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AY237420.2&rettype=fasta&retmode=text&seq_start=4978&seq_stop=5281&strand=2",
+      "ncbi_reverse_response_sha256": "5829b4203ce9c93bb26f067d6829daf82229c4bdc205f9f5d065bf91717af1d3",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "X94617.1",
+      "start_1based": 1,
+      "end_1based": 270,
+      "length_nt": 270,
+      "reference_bases_sha256": "6238f01cb43c2d2e641a3168c7ff3c9b612c4352ef1a6f480cae93bb99e231df",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=X94617.1&rettype=fasta&retmode=text&seq_start=1&seq_stop=270&strand=2",
+      "ncbi_reverse_response_sha256": "9a591277307bff8ab06e227d77078f8e5504f55b2e6c966f299fe33c703e1d6d",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "AF380138.1",
+      "start_1based": 48237,
+      "end_1based": 48543,
+      "length_nt": 307,
+      "reference_bases_sha256": "e3137bb4424afd72b3cd7bd046fd955b212165810053e8e8f167035379fe82f2",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AF380138.1&rettype=fasta&retmode=text&seq_start=48237&seq_stop=48543&strand=2",
+      "ncbi_reverse_response_sha256": "f4d5d10ae0edc14d622ff44a220f8a93ae5be567e27f9d477a16f2fff0b56be4",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "M87512.1",
+      "start_1based": 8856,
+      "end_1based": 9167,
+      "length_nt": 312,
+      "reference_bases_sha256": "0da1d448228e7b8b92fe3d7f895c649bcac199fc7685ad2363796b8f2fbe7b98",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=M87512.1&rettype=fasta&retmode=text&seq_start=8856&seq_stop=9167&strand=2",
+      "ncbi_reverse_response_sha256": "4a2df972be480b3330dfcad06f58cda3a118dabf8e62056917ee11f662ea9fc0",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "AF180817.1",
+      "start_1based": 33,
+      "end_1based": 425,
+      "length_nt": 393,
+      "reference_bases_sha256": "e84c3001a1eaa779704b79137a4b518667c5b5091e22f2bae52376e37ff07326",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AF180817.1&rettype=fasta&retmode=text&seq_start=33&seq_stop=425&strand=2",
+      "ncbi_reverse_response_sha256": "e4738fc5fb452b8b744502c21d0d0c0fd743b0d7babaeacf9b0ce89e76643ee1",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "MG280943.1",
+      "start_1based": 10280,
+      "end_1based": 10688,
+      "length_nt": 409,
+      "reference_bases_sha256": "5b1efde7b790757dc4f1a2b8658de5d9fa6e81b2eb6ed14cdd467f846cb5d243",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=MG280943.1&rettype=fasta&retmode=text&seq_start=10280&seq_stop=10688&strand=2",
+      "ncbi_reverse_response_sha256": "6e13745bd8c02c6f56684c5f1a9c0e743dd2b16b4d05b82d5c8e08424eba7cdd",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "AF369024.2",
+      "start_1based": 141,
+      "end_1based": 423,
+      "length_nt": 283,
+      "reference_bases_sha256": "ca8d4785ec0fc54b2b919d96ef33e96f18f8bee0a1cfc95ac8c1884ac9f03cb7",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AF369024.2&rettype=fasta&retmode=text&seq_start=141&seq_stop=423&strand=2",
+      "ncbi_reverse_response_sha256": "748c18ba25975175346f2a239d3082679fc0df6ba4e4b969dce26e4c6a623d20",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "NC_004162.2",
+      "start_1based": 774,
+      "end_1based": 1061,
+      "length_nt": 288,
+      "reference_bases_sha256": "b345c945cc4372c1d2848123cdda90ee32cd2336715db0b8f2b933b44d71e76b",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_004162.2&rettype=fasta&retmode=text&seq_start=774&seq_stop=1061&strand=2",
+      "ncbi_reverse_response_sha256": "3d27f024fcd16e8ff61c8ae6d4b9be59302917dddf15bc26315fea55030bf859",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "MN908947.3",
+      "start_1based": 26169,
+      "end_1based": 26481,
+      "length_nt": 313,
+      "reference_bases_sha256": "38ca3cdf5a54ccd4bbf7154409aea174e388e350e98748a0da57b41238d8ef97",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=MN908947.3&rettype=fasta&retmode=text&seq_start=26169&seq_stop=26481&strand=2",
+      "ncbi_reverse_response_sha256": "f0eef914c1ca4c617c2fdbb54c4b601f572b74ed53169ca53924491bfcc35cff",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "FJ969537.1",
+      "start_1based": 29,
+      "end_1based": 350,
+      "length_nt": 322,
+      "reference_bases_sha256": "6cc423f143a462e71ccf655bc81b565834eded35c4bd31f0267f1011ec27bb98",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=FJ969537.1&rettype=fasta&retmode=text&seq_start=29&seq_stop=350&strand=2",
+      "ncbi_reverse_response_sha256": "6fd79a58eef672df06cd58f27bf66aa2a00c35523118896dcd327d4434354aa5",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "CY069566.1",
+      "start_1based": 828,
+      "end_1based": 1218,
+      "length_nt": 391,
+      "reference_bases_sha256": "43131d86420c8c6fd42c8f1b871455f47ba206899146957442cbf0680ba3ddfe",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=CY069566.1&rettype=fasta&retmode=text&seq_start=828&seq_stop=1218&strand=2",
+      "ncbi_reverse_response_sha256": "45f835a83c3854adde71d7aa01d859fc4e3c03c7a5ebf8b0440fcdcc68b42e46",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "U52940.1",
+      "start_1based": 1,
+      "end_1based": 233,
+      "length_nt": 233,
+      "reference_bases_sha256": "48718909e68e09e8336ac4cc1ae80cf388b4289af5d6318a37964f8fe1219387",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=U52940.1&rettype=fasta&retmode=text&seq_start=1&seq_stop=233&strand=2",
+      "ncbi_reverse_response_sha256": "c47dfec5e95e9c1f8ccc7a67fdc45a200826a553bd13e892047e5d4d117821be",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "AF100376.1",
+      "start_1based": 1,
+      "end_1based": 208,
+      "length_nt": 208,
+      "reference_bases_sha256": "7cf27d0e6257e7bb0f514d226eeb60394df5839c03b16a9311836e3ce0750cdd",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AF100376.1&rettype=fasta&retmode=text&seq_start=1&seq_stop=208&strand=2",
+      "ncbi_reverse_response_sha256": "ca8eda4701d2b39d6068ae31bf6abe5275025186949a85c1f07b1dc34840dd75",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "M87661.2",
+      "start_1based": 5182,
+      "end_1based": 5477,
+      "length_nt": 296,
+      "reference_bases_sha256": "47ac87350b2fcbdfd9c0862c824d30b2ce3f53daf98eeccc92e892c000eac6cd",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=M87661.2&rettype=fasta&retmode=text&seq_start=5182&seq_stop=5477&strand=2",
+      "ncbi_reverse_response_sha256": "8eed9c0448d89775f0144b987cdcebd91ad5ff65fad7c01c5f4f89e24da6bf84",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "X86557.1",
+      "start_1based": 4903,
+      "end_1based": 5200,
+      "length_nt": 298,
+      "reference_bases_sha256": "dbc807554b0ae2a5234164edfe29fe4fab512aa5cc7abcccacdfa301969c8e92",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=X86557.1&rettype=fasta&retmode=text&seq_start=4903&seq_stop=5200&strand=2",
+      "ncbi_reverse_response_sha256": "f8d316d1b124aed7391835e1d7b1864ec4451a0dda55141baff7a30038355c25",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "M87661.2",
+      "start_1based": 5191,
+      "end_1based": 5476,
+      "length_nt": 286,
+      "reference_bases_sha256": "d7498816c8ace977f6bbe502772fb0c421d9d8c00936e6370a09973cf920f55e",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=M87661.2&rettype=fasta&retmode=text&seq_start=5191&seq_stop=5476&strand=2",
+      "ncbi_reverse_response_sha256": "8ab61fe19d2ca132e918507d3ce8690e026ded9947f35f1ed65a968302f2941d",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "X86557.1",
+      "start_1based": 4912,
+      "end_1based": 5200,
+      "length_nt": 289,
+      "reference_bases_sha256": "54dd3a86834c4facd2e4a4a9671c9d296d21499fce46ff8793c8d18d94baac56",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=X86557.1&rettype=fasta&retmode=text&seq_start=4912&seq_stop=5200&strand=2",
+      "ncbi_reverse_response_sha256": "a5fde3ac4913030f83f8a2787b759136a4bdf51b451c2d530a15b11256175c49",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "L23513.1",
+      "start_1based": 4246,
+      "end_1based": 4663,
+      "length_nt": 418,
+      "reference_bases_sha256": "a8c53202ae380dc15ba2993ef9cf61c414a22b3c554f94532cdec3abd0670549",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=L23513.1&rettype=fasta&retmode=text&seq_start=4246&seq_stop=4663&strand=2",
+      "ncbi_reverse_response_sha256": "a2662fb40ef5c1b5265c3396a1500811268924bf09ef1fd1458ff187aed09e52",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "L06802.1",
+      "start_1based": 2295,
+      "end_1based": 2484,
+      "length_nt": 190,
+      "reference_bases_sha256": "8c148f90de4ea2f1f3b87d133456a022cbe3c7f069a1a3d5eca3dc5c0ba30f6e",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=L06802.1&rettype=fasta&retmode=text&seq_start=2295&seq_stop=2484&strand=2",
+      "ncbi_reverse_response_sha256": "f72e82aa05c2df295c6520a4556552a92250fa218114c35bb9368b9373a4f013",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "NC_006269.1",
+      "start_1based": 4974,
+      "end_1based": 5277,
+      "length_nt": 304,
+      "reference_bases_sha256": "bf3c299ed06a738b3d7f997a2b6c8a079f85e2f3af976a3e8c58ccee6e52f07f",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=NC_006269.1&rettype=fasta&retmode=text&seq_start=4974&seq_stop=5277&strand=2",
+      "ncbi_reverse_response_sha256": "844bca1d7ce8f77712e847cd832f10192b1738691690040d60beea6ac33b4a45",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "DQ146697.1",
+      "start_1based": 1,
+      "end_1based": 247,
+      "length_nt": 247,
+      "reference_bases_sha256": "82c67c9b574c70772bf8ffe0b7ea441e7bb6bbcb669bfd6a87bac5cb9d510230",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=DQ146697.1&rettype=fasta&retmode=text&seq_start=1&seq_stop=247&strand=2",
+      "ncbi_reverse_response_sha256": "444b06cbc6d348ac52868cfd798008a3f062f42f09ab1e8ec6634021a5aa10b8",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "X81436.1",
+      "start_1based": 863,
+      "end_1based": 1049,
+      "length_nt": 187,
+      "reference_bases_sha256": "80e8b273d8aa94ff83f30132f22c5bef54f933c13436e68de1a824b9a3d2910c",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=X81436.1&rettype=fasta&retmode=text&seq_start=863&seq_stop=1049&strand=2",
+      "ncbi_reverse_response_sha256": "d074eba009d5f7872f3688ceeb5d2b1f27af94fbd9054776b983bdf186dc00fd",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "AF380138.1",
+      "start_1based": 190321,
+      "end_1based": 190659,
+      "length_nt": 339,
+      "reference_bases_sha256": "01266c66d7ee24e3c307abd4137427c85c26092eb61c6961f6939275d9cb05bc",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AF380138.1&rettype=fasta&retmode=text&seq_start=190321&seq_stop=190659&strand=2",
+      "ncbi_reverse_response_sha256": "dcda24c8042fbba10c870ecb958a5e30de94d6137cc540a450b402b2bb00dc10",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "AF380138.1",
+      "start_1based": 194060,
+      "end_1based": 194349,
+      "length_nt": 290,
+      "reference_bases_sha256": "f00e0d5db1af07d587bd45ac4b93110e57cfb01d23c0b6733bc2bf9b837882a9",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=AF380138.1&rettype=fasta&retmode=text&seq_start=194060&seq_stop=194349&strand=2",
+      "ncbi_reverse_response_sha256": "d90cd71793c489faf5002aa6b30353f678304babcc3fb9695a527f5f9d8f5937",
+      "reverse_complement_matches": true
+    },
+    {
+      "accession_version": "MN908947.3",
+      "start_1based": 13242,
+      "end_1based": 13560,
+      "length_nt": 319,
+      "reference_bases_sha256": "8dd30959dabb2e00855a9cff3d5aa140248fdb2efe2fb763286b3c272536d50b",
+      "ncbi_reverse_strand_fetch_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=MN908947.3&rettype=fasta&retmode=text&seq_start=13242&seq_stop=13560&strand=2",
+      "ncbi_reverse_response_sha256": "eec4ceb19e0d139536dd5d1082d3b0c1a6712dcc49142914e2476dd82c89ba11",
+      "reverse_complement_matches": true,
+      "verified_utc": "2026-10-29T07:38:26.727510+00:00"
+    }
+  ],
+  "base_verified_utc": "2026-10-29T04:13:23.128533+00:00",
+  "verification_mode": "Incremental: original 33 NCBI windows retained unchanged; new ORF1ab window verified on both strands."
+}

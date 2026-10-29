@@ -1,0 +1,8 @@
+{
+  "database_version": "v3.4",
+  "created_at_utc": "2026-10-29T08:11:29.426865+00:00",
+  "base_repository_commit": "06ee9b1e80fce55a7d87d42c166c1f3459a5e340",
+  "reference_scope": "published_diagnostic_regions_not_commercial_assay_identity",
+  "primary_roi_records": 21,
+  "all_candidate_records": 34
+}
